@@ -2,13 +2,13 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-Project Leviathan/[Ll]ibrary/
-Project Leviathan/[Tt]emp/
-Project Leviathan/[Oo]bj/
-Project Leviathan/[Bb]uild/
-Project Leviathan/[Bb]uilds/
-Project Leviathan/[Ll]ogs/
-Project Leviathan/[Uu]ser[Ss]ettings/
+Project-Leviathan/[Ll]ibrary/
+Project-Leviathan/[Tt]emp/
+Project-Leviathan/[Oo]bj/
+Project-Leviathan/[Bb]uild/
+Project-Leviathan/[Bb]uilds/
+Project-Leviathan/[Ll]ogs/
+Project-Leviathan/[Uu]ser[Ss]ettings/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
