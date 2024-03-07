@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class scr_player_movement : MonoBehaviour
 {
    
 
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             
-            lmb = 10f;
+            lmb = 2.5f;
         }
         else if (!Input.GetMouseButton(0))
         {
