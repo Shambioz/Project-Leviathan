@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour
 {
     public Transform player;
-    public float mouseSensitivity = 2f;
+    public float mouseSensitivity = 1f;
     float cameraVerticalRotation = 0f;
 
     bool lockedCursor = true;
