@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.Rendering.VirtualTexturing;
 
 public class scr_inventory : MonoBehaviour
 {
     public bool godhelpmeplz = false;
     public scr_pickupable[] items = new scr_pickupable[3];
     private int index = 0;
+    private scr_pick_up_object pick_up_object;
    
 
     public void AddItem(scr_pickupable item)
@@ -62,6 +64,7 @@ public class scr_inventory : MonoBehaviour
         {
             item.gameObject.transform.position = hit.point;
             item.gameObject.SetActive(true);
+            Destroy(pick_up_object.obj_p_copy);
         }
     }
 
