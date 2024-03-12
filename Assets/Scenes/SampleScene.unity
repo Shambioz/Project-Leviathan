@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UItext: {fileID: 2122799325}
+  ChildLayer: {fileID: 0}
 --- !u!114 &205846531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,11 +359,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d9074f9fdbfec2d438fd29e7c57be581, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: d9074f9fdbfec2d438fd29e7c57be581, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: d9074f9fdbfec2d438fd29e7c57be581, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -464,7 +469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7671af360ea10394f99b1c734d7392d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UItext: {fileID: 0}
+  UItext: {fileID: 2122799325}
+  ChildLayer: {fileID: 205846525}
 --- !u!65 &591015062
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -784,6 +790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UItext: {fileID: 2122799325}
+  ChildLayer: {fileID: 0}
 --- !u!54 &639537249
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1315,6 +1322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UItext: {fileID: 2122799325}
+  ChildLayer: {fileID: 0}
 --- !u!114 &1355816935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1514,6 +1522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UItext: {fileID: 2122799325}
+  ChildLayer: {fileID: 0}
 --- !u!1 &2082301232
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,7 +1745,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -162.66248, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

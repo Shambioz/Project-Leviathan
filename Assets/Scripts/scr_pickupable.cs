@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static Unity.VisualScripting.Metadata;
+using static UnityEditor.Experimental.GraphView.GraphView;
 public class scr_pickupable : MonoBehaviour
 {
     public TextMeshProUGUI UItext;
+    public GameObject ChildLayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +21,7 @@ public class scr_pickupable : MonoBehaviour
     {
         gameObject.layer = 3;
         UItext.text = "" + gameObject.name;
+        ChildLayer.layer = 3;
     }
 
     //unhighlight Objects when mouse hovers over obj
@@ -25,6 +29,7 @@ public class scr_pickupable : MonoBehaviour
     {
         gameObject.layer = 0;
         UItext.text = "";
+        ChildLayer.layer = 0;
     }
 
     // Update is called once per frame

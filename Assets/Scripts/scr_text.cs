@@ -9,9 +9,9 @@ public class GameBehavior : MonoBehaviour
 // 2
 public int MaxItems = 4;
     // 3
-    public Text HealthText;
-    public Text ItemText;
-    public Text ProgressText;
+    public TextMesh HealthText;
+    public TextMesh ItemText;
+    public TextMesh ProgressText;
     // 4
     void Start()
     {
