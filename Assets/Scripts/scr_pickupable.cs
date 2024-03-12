@@ -10,6 +10,7 @@ public class scr_pickupable : MonoBehaviour
 {
     public TextMeshProUGUI UItext;
     public GameObject ChildLayer;
+    public AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class scr_pickupable : MonoBehaviour
         gameObject.layer = 3;
         UItext.text = "" + gameObject.name;
         ChildLayer.layer = 3;
+        audioSource.Play();
     }
 
     //unhighlight Objects when mouse hovers over obj
