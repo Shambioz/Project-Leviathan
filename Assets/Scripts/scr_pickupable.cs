@@ -1,9 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-
+using UnityEngine.Rendering;
+using UnityEngine.UI;
+using static Unity.VisualScripting.Metadata;
+using static UnityEditor.Experimental.GraphView.GraphView;
 public class scr_pickupable : MonoBehaviour
 {
+    public TextMeshProUGUI UItext;
+    public GameObject ChildLayer;
+    public AudioSource audioSource;
+    public Material Mat;
+    public SurfaceDataAttributes surfaceData;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,12 +24,18 @@ public class scr_pickupable : MonoBehaviour
     void OnMouseEnter()
     {
         gameObject.layer = 3;
+        UItext.text = "" + gameObject.name;
+        ChildLayer.layer = 3;
+        Mat = ChildLayer.GetComponent<Material>();
+        audioSource.Play();
     }
 
     //unhighlight Objects when mouse hovers over obj
     void OnMouseExit()
     {
         gameObject.layer = 0;
+        UItext.text = "";
+        ChildLayer.layer = 0;
     }
 
     // Update is called once per frame
@@ -35,5 +51,5 @@ public class scr_pickupable : MonoBehaviour
         {
             gameObject.SetActive(false); // This disables the GameObject the script is attached to
         }
-    }*/
+    }
 }
