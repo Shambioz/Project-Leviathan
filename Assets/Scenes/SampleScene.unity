@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44618618, g: 0.49075264, b: 0.5465166, a: 1}
+  m_IndirectSpecularColor: {r: 0.44618636, g: 0.4907531, b: 0.54651695, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -447,6 +447,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 145668881}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!1 &146593767 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 012e59f3ef175c94abf384cfea77276b, type: 3}
@@ -522,6 +523,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &146593772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,6 +539,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1934225235}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &146593773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -603,6 +606,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 198356969}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!65 &198356972
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -663,6 +667,7 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &205846531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -701,6 +706,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1888837562}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!65 &217358517
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -736,6 +742,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   com: {x: 0, y: -1, z: 0}
   rb: {fileID: 0}
+--- !u!54 &217358519
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217358514}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &266076622 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: f29bdf02ef0138f49ac50602ba2b60c9, type: 3}
@@ -1065,6 +1098,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 465192857}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &372010888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1080,6 +1114,7 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &372010889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1279,6 +1314,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b53abfdb6bd847645a092e603d69c236, type: 3}
       insertIndex: -1
       addedObject: {fileID: 217358518}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b53abfdb6bd847645a092e603d69c236, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 217358519}
   m_SourcePrefab: {fileID: 100100000, guid: b53abfdb6bd847645a092e603d69c236, type: 3}
 --- !u!1 &465192857 stripped
 GameObject:
@@ -1379,6 +1417,7 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!65 &591015062
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1602,6 +1641,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94cbcb19f7feb504b95aa580f4c1d0a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scr_pick_up_object: {fileID: 0}
+  Subtitle: {fileID: 1616457107}
+  Player: {fileID: 611600886}
 --- !u!114 &611600892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1617,11 +1659,12 @@ MonoBehaviour:
   inventory: {fileID: 699433245}
   player: {fileID: 0}
   is_active: 0
-  obj_carried: {fileID: 0}
   colliders: []
   rb: {fileID: 0}
   layerMask: 0
   transparentMaterial: {fileID: 2100000, guid: a0a8688b4bf6dee43bfc44007b03c713, type: 2}
+  scr_pickupable: {fileID: 0}
+  Subtitle: {fileID: 1616457107}
 --- !u!114 &611600893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1875,6 +1918,7 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!54 &639537249
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2602,6 +2646,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1184038922}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &932111820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2617,6 +2662,7 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &932111821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3025,6 +3071,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 536849761}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1013056769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3269,6 +3316,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 772789837}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1135690087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3363,6 +3411,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1119246975}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1186686959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3378,6 +3427,7 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1186686960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3464,7 +3514,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1211206466}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1783349445}
+  audioTranscript: I'm Johnny Skull, have some respect!!
 --- !u!1 &1238691567 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a904197050d2444ab6968d42ee3000a, type: 3}
@@ -3540,6 +3591,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1837381}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1238691572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3555,6 +3607,7 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1238691573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3746,6 +3799,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1305172828}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!54 &1305172830
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3911,6 +3965,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1355816929}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1355816935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4387,6 +4442,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1568551368}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!54 &1568551371
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4570,6 +4626,141 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
+  audioTranscript: 
+--- !u!1 &1616457105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1616457106}
+  - component: {fileID: 1616457108}
+  - component: {fileID: 1616457107}
+  m_Layer: 5
+  m_Name: Subtitles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1616457106
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616457105}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2082301236}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 184, y: -90}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1616457107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616457105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: -527.057, y: 80.36625, z: -157.02661, w: -126.70087}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1616457108
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616457105}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1630591471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4667,6 +4858,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1671698828}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!4 &1671698832 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3da99d4083790de4896e87eb8089e14d, type: 3}
@@ -4809,6 +5001,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1739893634}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1682491367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4967,6 +5160,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1539044176}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1700460549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4982,6 +5176,7 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1700460550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5071,6 +5266,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1708095579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5086,6 +5282,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 762713185}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1708095580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5175,6 +5372,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1102216644}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1708890340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5630,6 +5828,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 266076622}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1811664249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5645,6 +5844,7 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1811664250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5807,6 +6007,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1869244241}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1824738541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5822,6 +6023,7 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1824738542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5870,7 +6072,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 419, y: -171}
+  m_AnchoredPosition: {x: 527.3, y: -244.4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1866463159
@@ -6127,6 +6329,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1883509273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6142,6 +6345,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 2142760656}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1883509274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6236,6 +6440,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1660889179}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1894623501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6270,6 +6475,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1917237008}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!54 &1917237013
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6398,6 +6604,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1925242660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6413,6 +6620,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 637823319}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &1925242661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6528,6 +6736,7 @@ RectTransform:
   m_Children:
   - {fileID: 2122799324}
   - {fileID: 1866463158}
+  - {fileID: 1616457106}
   - {fileID: 1753648583}
   - {fileID: 1868740508}
   m_Father: {fileID: 0}
@@ -6583,6 +6792,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 2096784704}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!1 &2122799323
 GameObject:
   m_ObjectHideFlags: 0
@@ -6898,6 +7108,7 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 156735234}
   audioSource: {fileID: 0}
+  audioTranscript: 
 --- !u!114 &2139434705
 MonoBehaviour:
   m_ObjectHideFlags: 0

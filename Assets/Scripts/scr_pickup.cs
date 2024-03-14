@@ -3,6 +3,8 @@ using System.Collections;
 using UnityEngine;
 using Unity.VisualScripting;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
+using TMPro;
 
 public class scr_pick_up_object : MonoBehaviour
 {
@@ -11,7 +13,7 @@ public class scr_pick_up_object : MonoBehaviour
     public Transform player; // Reference to the player's transform
     public bool is_active = false;
     private int state = 1;
-    public GameObject obj_carried;
+    private GameObject obj_carried;
     private Vector3 playerPosition;
     private Vector3 screenPosition;
     private Vector3 cameraPosition;
@@ -20,20 +22,26 @@ public class scr_pick_up_object : MonoBehaviour
     public Collider[] colliders;
     public Rigidbody rb;
     public int layerMask;
+    //Make pickup obj Transparent
     public Material transparentMaterial;
     private Material Mat;
     private Material ParentMat;
     private MeshRenderer ChildMesh;
     private Transform Child;
     private MeshRenderer ParentMesh;
-
+    //play sound of object carried
+    private MonoBehaviour objPickupScr;
+    private AudioSource objPickupAudio;
+    private AudioSource objPickupAudio2;
+    public scr_pickupable scr_pickupable;
+    //Add subtitles
+    public TextMeshProUGUI Subtitle;
     void Update()
     {
+
         Pickup();
 
-
-
-        if (GameObject.Find(obj_carried.name) != null && is_active == true)
+        //if (GameObject.Find(obj_carried.name) != null && is_active == true)
         {
             // Get the player's position in world space
             playerPosition = scr_player_manager.instance.GetPlayerPosition();
@@ -85,8 +93,14 @@ public class scr_pick_up_object : MonoBehaviour
                                 Mat = ChildMesh.materials[0];
                                 ChildMesh.material = transparentMaterial;
                             }
-                          
-
+                            //Refer to picked up obj's scr_pickupable
+                            scr_pickupable = obj_carried.GetComponent<scr_pickupable>();
+                            if (scr_pickupable != null)
+                            {
+                                //play audio from scr_pickupable
+                                scr_pickupable.audioSource.Play();
+                                if (scr_pickupable.audioSource.isPlaying) { Subtitle.text = scr_pickupable.audioTranscript; }
+                            }
                             rb.useGravity = false;
                         }
                         colliders = obj_carried.GetComponentsInChildren<Collider>();
