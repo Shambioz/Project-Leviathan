@@ -3,7 +3,8 @@ using UnityEngine.Rendering.VirtualTexturing;
 
 public class scr_inventory : MonoBehaviour
 {
-    public bool godhelpmeplz = false;
+}
+    /*public bool godhelpmeplz = false;
     public scr_pickupable[] items = new scr_pickupable[3];
     private int index = 0;
     private scr_pick_up_object pick_up_object;

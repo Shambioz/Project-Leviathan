@@ -27,7 +27,7 @@ public class scr_pickupable : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         // Check for a specific collider tag to ensure we're reacting to the correct object
         // For example, if your player has a tag "Player"
@@ -35,5 +35,5 @@ public class scr_pickupable : MonoBehaviour
         {
             gameObject.SetActive(false); // This disables the GameObject the script is attached to
         }
-    }
+    }*/
 }

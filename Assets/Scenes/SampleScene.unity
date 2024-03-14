@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 303262993}
   - component: {fileID: 303262992}
   - component: {fileID: 303262991}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,6 +397,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 29a3a328fadb1ba43ac849c687ba52b7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1355816935}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 29a3a328fadb1ba43ac849c687ba52b7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1355816939}
   m_SourcePrefab: {fileID: 100100000, guid: 29a3a328fadb1ba43ac849c687ba52b7, type: 3}
 --- !u!1 &591015059 stripped
 GameObject:
@@ -452,7 +455,7 @@ GameObject:
   - component: {fileID: 611600892}
   - component: {fileID: 611600893}
   - component: {fileID: 611600894}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -575,7 +578,10 @@ MonoBehaviour:
   inventory: {fileID: 699433245}
   player: {fileID: 0}
   is_active: 0
-  obj_p_copy: {fileID: 0}
+  obj_carried: {fileID: 0}
+  colliders: []
+  rb: {fileID: 0}
+  layerMask: 0
 --- !u!114 &611600893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -804,11 +810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0a40c3f648f1a4f885920ecca615e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  godhelpmeplz: 0
-  items:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!4 &699433246
 Transform:
   m_ObjectHideFlags: 0
@@ -956,7 +957,7 @@ GameObject:
   - component: {fileID: 963194230}
   - component: {fileID: 963194231}
   - component: {fileID: 963194232}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1160,6 +1161,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171ab81958cfd0447b994a18d91576d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &1355816939
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355816929}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 3
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1494130025
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,6 +1269,7 @@ GameObject:
   - component: {fileID: 1613709538}
   - component: {fileID: 1613709537}
   - component: {fileID: 1613709542}
+  - component: {fileID: 1613709543}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1343,9 +1372,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 1613709536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 171ab81958cfd0447b994a18d91576d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 7671af360ea10394f99b1c734d7392d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &1613709543
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613709536}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2131911152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,7 +1414,7 @@ GameObject:
   - component: {fileID: 2131911155}
   - component: {fileID: 2131911154}
   - component: {fileID: 2131911153}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Plane (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
