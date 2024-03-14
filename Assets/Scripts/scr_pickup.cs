@@ -61,18 +61,18 @@ public class scr_pick_up_object : MonoBehaviour
                     if (obj_carried != null)
                     {
                         is_active = true;
+                        rb = obj_carried.GetComponent<Rigidbody>();
+                        if (rb != null)
+                        {
+                            rb.useGravity = false;
+                        }
+                        colliders = obj_carried.GetComponentsInChildren<Collider>();
+                        foreach (Collider collider in colliders)
+                        {
+                            collider.enabled = false;
+                        }
                         state = 2;
                         DisableNextFrame(obj_carried);
-                    }
-                    rb = obj_carried.GetComponent<Rigidbody>();
-                    if (rb != null)
-                    {
-                        rb.useGravity = false;
-                    }
-                    colliders = obj_carried.GetComponentsInChildren<Collider>();
-                    foreach (Collider collider in colliders)
-                    {
-                        collider.enabled = false;
                     }
                 }
             }
