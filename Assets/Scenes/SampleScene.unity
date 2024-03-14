@@ -507,6 +507,11 @@ MonoBehaviour:
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
   Mat: {fileID: 0}
+--- !u!1 &156735234 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: 7194e0301fac67f45be1f11fc87e328b, type: 3}
+  m_PrefabInstance: {fileID: 296649917}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &198356969 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 667d8b95877d7d04e8bf3b9bf12e7e7c, type: 3}
@@ -5939,7 +5944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UItext: {fileID: 0}
-  ChildLayer: {fileID: 0}
+  ChildLayer: {fileID: 156735234}
   audioSource: {fileID: 0}
   Mat: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
