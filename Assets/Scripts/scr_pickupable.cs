@@ -51,5 +51,5 @@ public class scr_pickupable : MonoBehaviour
         {
             gameObject.SetActive(false); // This disables the GameObject the script is attached to
         }
-    }
+    }*/
 }
