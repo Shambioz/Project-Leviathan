@@ -447,7 +447,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 145668881}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!1 &146593767 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 012e59f3ef175c94abf384cfea77276b, type: 3}
@@ -523,7 +522,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &146593772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,7 +537,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1934225235}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &146593773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -606,7 +603,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 198356969}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!65 &198356972
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -667,7 +663,6 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &205846531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -706,7 +701,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1888837562}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!65 &217358517
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1071,7 +1065,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 465192857}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &372010888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1087,7 +1080,6 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &372010889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1387,7 +1379,6 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!65 &591015062
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1630,6 +1621,7 @@ MonoBehaviour:
   colliders: []
   rb: {fileID: 0}
   layerMask: 0
+  transparentMaterial: {fileID: 2100000, guid: a0a8688b4bf6dee43bfc44007b03c713, type: 2}
 --- !u!114 &611600893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1883,7 +1875,6 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!54 &639537249
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2025,7 +2016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3da99d4083790de4896e87eb8089e14d, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2611,7 +2602,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1184038922}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &932111820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2627,7 +2617,6 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &932111821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3036,7 +3025,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 536849761}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1013056769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3281,7 +3269,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 772789837}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1135690087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3376,7 +3363,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1119246975}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1186686959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3392,7 +3378,6 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1186686960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3480,7 +3465,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1211206466}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!1 &1238691567 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a904197050d2444ab6968d42ee3000a, type: 3}
@@ -3556,7 +3540,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1837381}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1238691572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3572,7 +3555,6 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1238691573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3764,7 +3746,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1305172828}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!54 &1305172830
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3930,7 +3911,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1355816929}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1355816935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4407,7 +4387,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1568551368}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!54 &1568551371
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4591,7 +4570,6 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!1001 &1630591471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4689,7 +4667,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1671698828}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!4 &1671698832 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3da99d4083790de4896e87eb8089e14d, type: 3}
@@ -4832,7 +4809,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1739893634}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1682491367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4991,7 +4967,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1539044176}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1700460549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5007,7 +4982,6 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1700460550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5097,7 +5071,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1708095579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5113,7 +5086,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 762713185}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1708095580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5203,7 +5175,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1102216644}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1708890340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5659,7 +5630,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 266076622}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1811664249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5675,7 +5645,6 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1811664250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5838,7 +5807,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1869244241}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1824738541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5854,7 +5822,6 @@ MonoBehaviour:
   UItext: {fileID: 0}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1824738542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6160,7 +6127,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1883509273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6176,7 +6142,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 2142760656}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1883509274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6271,7 +6236,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1660889179}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1894623501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6306,7 +6270,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 1917237008}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!54 &1917237013
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6435,7 +6398,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1925242660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6451,7 +6413,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 637823319}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &1925242661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6622,7 +6583,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 2096784704}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!1 &2122799323
 GameObject:
   m_ObjectHideFlags: 0
@@ -6938,7 +6898,6 @@ MonoBehaviour:
   UItext: {fileID: 2122799325}
   ChildLayer: {fileID: 156735234}
   audioSource: {fileID: 0}
-  Mat: {fileID: 0}
 --- !u!114 &2139434705
 MonoBehaviour:
   m_ObjectHideFlags: 0

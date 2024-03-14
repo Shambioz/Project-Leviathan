@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using Unity.VisualScripting;
+using UnityEngine.Rendering;
 
 public class scr_pick_up_object : MonoBehaviour
 {
@@ -19,6 +20,12 @@ public class scr_pick_up_object : MonoBehaviour
     public Collider[] colliders;
     public Rigidbody rb;
     public int layerMask;
+    public Material transparentMaterial;
+    private Material Mat;
+    private Material ParentMat;
+    private MeshRenderer ChildMesh;
+    private Transform Child;
+    private MeshRenderer ParentMesh;
 
     void Update()
     {
@@ -64,6 +71,22 @@ public class scr_pick_up_object : MonoBehaviour
                         rb = obj_carried.GetComponent<Rigidbody>();
                         if (rb != null)
                         {
+                            //store original matterial in Mat change material to transparent
+                            ParentMesh = obj_carried.GetComponent<MeshRenderer>();
+                            if (ParentMesh != null)
+                            {
+                                ParentMat = ParentMesh.materials[0];
+                                ParentMesh.material = transparentMaterial;
+                            }
+                            else
+                            {
+                                Child = obj_carried.transform.GetChild(0);
+                                ChildMesh = Child.GetComponent<MeshRenderer>();
+                                Mat = ChildMesh.materials[0];
+                                ChildMesh.material = transparentMaterial;
+                            }
+                          
+
                             rb.useGravity = false;
                         }
                         colliders = obj_carried.GetComponentsInChildren<Collider>();
@@ -90,6 +113,9 @@ public class scr_pick_up_object : MonoBehaviour
                 }
                 obj_carried = null;
                 is_active = false;
+                //give back the original material
+                if (ParentMesh != null) { ParentMesh.material = ParentMat; }
+                else { ChildMesh.material = Mat; }
                 state = 1;
             }
         }

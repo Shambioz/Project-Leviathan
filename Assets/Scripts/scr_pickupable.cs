@@ -12,8 +12,12 @@ public class scr_pickupable : MonoBehaviour
     public TextMeshProUGUI UItext;
     public GameObject ChildLayer;
     public AudioSource audioSource;
-    public Material Mat;
-    public SurfaceDataAttributes surfaceData;
+    //public MeshRenderer ChildMesh;
+    //public Material Mat;
+    //public SurfaceDataAttributes surfaceData;
+    //public Material transparentMaterial;
+
+    private Color transparentColor = new Color(204, 204, 204, 150); // Use the respective rgba values you want
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +30,13 @@ public class scr_pickupable : MonoBehaviour
         gameObject.layer = 3;
         UItext.text = "" + gameObject.name;
         ChildLayer.layer = 3;
-        Mat = ChildLayer.GetComponent<Material>();
+        //Mat = ChildMesh.materials[0];
+        //MeshRenderer renderer = ChildMesh.GetComponent<MeshRenderer>();
+        //Material originalMat = renderer.sharedMaterial;
+        //Material materialTrans = new Material(transparentMaterial);
+        //materialTrans.CopyPropertiesFromMaterial(originalMat);
+       // renderer.sharedMaterial = materialTrans;
+        //ChildMesh.material = transparentMaterial;
         audioSource.Play();
     }
 
@@ -36,6 +46,7 @@ public class scr_pickupable : MonoBehaviour
         gameObject.layer = 0;
         UItext.text = "";
         ChildLayer.layer = 0;
+        //ChildMesh.material = Mat;
     }
 
     // Update is called once per frame
