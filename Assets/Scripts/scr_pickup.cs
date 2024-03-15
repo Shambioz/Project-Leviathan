@@ -40,8 +40,6 @@ public class scr_pick_up_object : MonoBehaviour
     {
 
         Pickup();
-
-        //if (GameObject.Find(obj_carried.name) != null && is_active == true)
         {
             // Get the player's position in world space
             playerPosition = scr_player_manager.instance.GetPlayerPosition();
@@ -97,9 +95,12 @@ public class scr_pick_up_object : MonoBehaviour
                             scr_pickupable = obj_carried.GetComponent<scr_pickupable>();
                             if (scr_pickupable != null)
                             {
-                                //play audio from scr_pickupable
-                                scr_pickupable.audioSource.Play();
-                                if (scr_pickupable.audioSource.isPlaying) { Subtitle.text = scr_pickupable.audioTranscript; }
+                                if (scr_pickupable.audioSource != null)
+                                {
+                                    //play audio from scr_pickupable
+                                    scr_pickupable.audioSource.Play();
+                                    if (scr_pickupable.audioSource.isPlaying) { Subtitle.text = scr_pickupable.audioTranscript; }
+                                }
                             }
                             rb.useGravity = false;
                         }
