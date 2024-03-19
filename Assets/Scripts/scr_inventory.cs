@@ -1,8 +1,28 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.VirtualTexturing;
 
 public class scr_inventory : MonoBehaviour
 {
+
+    private GameObject the_chosen_one;
+
+    /*private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mousePosition = Input.mousePosition;
+
+            Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+            RaycastHit hit;
+            int layerMask = LayerMask.GetMask("Ignore Raycast");
+            if (Physics.Raycast(ray, out hit, 10, layerMask))
+            {
+                the_chosen_one = hit.collider.GameObject();
+                the_chosen_one.GetComponent<Animation>().Play("AnimationName");
+            }
+        }
+    }*/
 }
     /*public bool godhelpmeplz = false;
     public scr_pickupable[] items = new scr_pickupable[3];
