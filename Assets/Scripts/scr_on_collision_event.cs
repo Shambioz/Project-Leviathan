@@ -8,18 +8,20 @@ public class scr_on_collision_event : MonoBehaviour
     public GameObject EffectedObject;
     public TextMeshProUGUI Subtitle;
     private Collider oc;
+    private AudioSource AudioSource;
+    private float AudioClipLength;
     public AudioSource Audio1;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        AudioSource = Audio1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        AudioClipLength = AudioSource.clip.length;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -31,14 +33,17 @@ public class scr_on_collision_event : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    private IEnumerator OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Player")
         {
-           
-            Debug.Log("Entered");
-            Audio1.Play();
-            if (Audio1.isPlaying) { Subtitle.text = "RAAAAAAG"; }
+            while (other.gameObject.name == "Player")
+            {
+                Debug.Log("Entered");
+                AudioSource.Play();
+                yield return new WaitForSeconds(AudioClipLength);
+                if (Audio1.isPlaying) { Subtitle.text = "RAAAAAAG"; }
+            }
 
         }
         
@@ -48,10 +53,10 @@ public class scr_on_collision_event : MonoBehaviour
     {
         if (other.gameObject.name == "Player")
         {
-            Audio1.Stop();
+            AudioSource.Stop();
             Subtitle.text = "";
         }
     }
-        
+
 
 }

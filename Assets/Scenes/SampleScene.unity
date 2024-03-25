@@ -1704,6 +1704,7 @@ MonoBehaviour:
   scr_pick_up_object: {fileID: 0}
   Subtitle: {fileID: 1616457107}
   Player: {fileID: 611600886}
+  time: 0
 --- !u!114 &611600892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1725,6 +1726,8 @@ MonoBehaviour:
   transparentMaterial: {fileID: 2100000, guid: a0a8688b4bf6dee43bfc44007b03c713, type: 2}
   scr_pickupable: {fileID: 0}
   Subtitle: {fileID: 1616457107}
+  scr_player_movement: {fileID: 0}
+  myVar: 0
 --- !u!114 &611600893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2494,7 +2497,7 @@ GameObject:
   - component: {fileID: 797001899}
   - component: {fileID: 797001901}
   - component: {fileID: 797001900}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EventCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

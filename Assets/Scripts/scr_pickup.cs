@@ -5,6 +5,8 @@ using Unity.VisualScripting;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.UIElements;
+using System.Runtime.CompilerServices;
 
 public class scr_pick_up_object : MonoBehaviour
 {
@@ -36,9 +38,25 @@ public class scr_pick_up_object : MonoBehaviour
     public scr_pickupable scr_pickupable;
     //Add subtitles
     public TextMeshProUGUI Subtitle;
+    //Stuff
+    private GameObject obj_last_looked;
+    private GameObject obj_Looking;
+    private scr_pickupable scr_pickupable2;
+    private scr_pickupable scr_pickupable3;
+    public scr_player_movement scr_player_movement;
+    private int switcharoo;
+    private float time;
+    private int m_MyVar = 0;
+    public int myVar = 0;
+
+    void Start() 
+    {
+        obj_Looking = null;
+        scr_player_movement = gameObject.GetComponent<scr_player_movement>();
+    }
+    
     void Update()
     {
-
         Pickup();
         {
             // Get the player's position in world space
@@ -52,19 +70,47 @@ public class scr_pick_up_object : MonoBehaviour
 
             // Set the object's position to be in the center of the screen
             obj_carried.transform.position = centerPosition;
-            Debug.Log("object position: " + screenPosition.x + (screenPosition.y-25) + 0f);
+            Debug.Log("object position: " + screenPosition.x + (screenPosition.y - 25) + 0f);
+
         }
     }
 
     void Pickup()
     {
+        int x = Screen.width / 2;
+        int y = Screen.height / 2;
+
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(x, y));
+        RaycastHit hit;
+        layerMask = ~LayerMask.GetMask("Ignore Raycast");
+        Physics.Raycast(ray, out hit, 10, layerMask);
+        obj_Looking = hit.collider.GameObject();
+
+            if (scr_player_movement.time >= 0.02) 
+            { obj_last_looked = hit.collider.GameObject(); 
+                Debug.Log(""+ obj_last_looked.name); 
+            }
+
+
+            if (obj_Looking != null)
+            {
+                scr_pickupable2 = obj_Looking.GetComponent<scr_pickupable>();
+                obj_Looking.layer = 3;
+                scr_pickupable2.ChildLayer.layer = 3;
+                scr_pickupable2.UItext.text = "" + obj_last_looked.name;
+                obj_Looking = obj_last_looked;
+                obj_Looking = null;
+            }
+            else
+            {
+            scr_pickupable3 = obj_last_looked.GetComponent<scr_pickupable>();
+            obj_last_looked.layer = 0;
+            scr_pickupable3.ChildLayer.layer = 0;
+            scr_pickupable3.UItext.text = "";
+            }
+
         if (Input.GetMouseButtonDown(1)) 
         {
-            int x = Screen.width / 2;
-            int y = Screen.height / 2;
-
-            Ray ray = Camera.main.ScreenPointToRay(new Vector3(x, y));
-            RaycastHit hit;
             if (state == 1)
             {
                 layerMask = ~LayerMask.GetMask("Ignore Raycast");
@@ -89,7 +135,7 @@ public class scr_pick_up_object : MonoBehaviour
                                 Child = obj_carried.transform.GetChild(0);
                                 ChildMesh = Child.GetComponent<MeshRenderer>();
                                 Mat = ChildMesh.materials[0];
-                                ChildMesh.material = transparentMaterial;
+                                ChildMesh.materials[0] = transparentMaterial;
                             }
                             //Refer to picked up obj's scr_pickupable
                             scr_pickupable = obj_carried.GetComponent<scr_pickupable>();

@@ -12,6 +12,7 @@ public class scr_player_movement : MonoBehaviour
     public TextMeshProUGUI Subtitle;
     public GameObject Player;
     private float lmb;
+    public float time;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,10 @@ public class scr_player_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        //timer resets every 0.5 sec
+        time += Time.deltaTime;
+        if (time <= 0.03) { } else { time = 0; Debug.Log("Time Reset"); }
+
         if (Input.GetMouseButton(0))
         {
             
@@ -39,5 +43,7 @@ public class scr_player_movement : MonoBehaviour
 
         //delete subtitles when audio finishes
         if (!scr_pick_up_object.scr_pickupable.audioSource.isPlaying) { if (Subtitle.text != "") { Subtitle.text = ""; } }
+
+        
     }
 }

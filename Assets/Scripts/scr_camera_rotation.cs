@@ -34,5 +34,6 @@ public class PlayerBehavior : MonoBehaviour
 
         //rotate the player object and the camera around its Y axis
         player.Rotate(Vector3.up * inputX);
+
     }
 }
