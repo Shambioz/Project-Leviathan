@@ -36,6 +36,7 @@ public class scr_pick_up_object : MonoBehaviour
     public scr_pickupable scr_pickupable;
     //Add subtitles
     public TextMeshProUGUI Subtitle;
+    public GameObject the_one_you_picked_up;
     void Update()
     {
 
@@ -71,6 +72,7 @@ public class scr_pick_up_object : MonoBehaviour
                 if (Physics.Raycast(ray, out hit, 10, layerMask))
                 {
                     obj_carried = hit.collider.GameObject();
+                    the_one_you_picked_up = hit.collider.GameObject();
                     if (obj_carried != null)
                     {
                         is_active = true;
