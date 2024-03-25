@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class scr_deactivation : MonoBehaviour
 {
-
+    public int testtest = 2137;
     private scr_pickupable pickupable;
     private scr_place_objects place_obj;
     private GameObject the_chosen_one;
@@ -12,7 +12,8 @@ public class scr_deactivation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //this.gameObject.SetActive(false);
+        Debug.Log(testtest);
+        this.gameObject.SetActive(true);
     }
 
     // Update is called once per frame

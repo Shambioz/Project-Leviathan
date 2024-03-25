@@ -29,7 +29,7 @@ public class scr_place_objects : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(new Vector3(x, y));
             RaycastHit hit;
 
-            layerMask = LayerMask.GetMask("Ignore Raycast");
+            layerMask = ~LayerMask.GetMask("Ignore Raycast");
             if (Physics.Raycast(ray, out hit, 10, layerMask))
             {
                 the_name = hit.collider.gameObject.name;
