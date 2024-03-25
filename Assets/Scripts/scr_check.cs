@@ -40,11 +40,16 @@ public class scr_check : MonoBehaviour
         fun2 = the_chosen_one.GetComponent<Collider>();
         //2nd one
         fun3 = the_chosen_one2.GetComponent<Collider>();
-        the_chosen_one = GameObject.Find("Frame_square");
+        the_chosen_one2 = GameObject.Find("Frame_square");
         fun4 = the_chosen_one2.GetComponent<Collider>();
         //3rd one
+        fun5 = the_chosen_one3.GetComponent<Collider>();
+        the_chosen_one3 = GameObject.Find("frame oval");
+        fun6 = the_chosen_one3.GetComponent<Collider>();    
         //4th one
-        
+        fun7 = the_chosen_one4.GetComponent<Collider>();
+        the_chosen_one4 = GameObject.Find("frame rectangle");
+        fun8 = the_chosen_one4.GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -72,11 +77,23 @@ public class scr_check : MonoBehaviour
         }
         if(fun5.bounds.Intersects(fun6.bounds))
         {
-
+            layerMask = LayerMask.GetMask("Ignore Raycast");
+            the_chosen_one3.layer = layerMask;
+            the_chosen_one3.SetActive(false);
+            the_chosen_one3 = GameObject.Find("object3_spot");
+            the_chosen_one3.SetActive(false);
+            Instantiate(prefabtoplace3, transform.position, Quaternion.identity);
+            how_many_you_have_placed++;
         }
         if(fun7.bounds.Intersects(fun8.bounds))
         {
-
+            layerMask = LayerMask.GetMask("Ignore Raycast");
+            the_chosen_one4.layer = layerMask;
+            the_chosen_one4.SetActive(false);
+            the_chosen_one4 = GameObject.Find("object4_spot");
+            the_chosen_one4.SetActive(false);
+            Instantiate(prefabtoplace4, transform.position, Quaternion.identity);
+            how_many_you_have_placed++;
         }
     }
 }
