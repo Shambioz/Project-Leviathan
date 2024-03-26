@@ -3,7 +3,9 @@ using UnityEngine;
 public enum BoxState
 {
     Closed,
-    Opened
+    Opened,
+    Closed2,
+    Opened2
 }
 
 public enum CameraState
@@ -19,9 +21,11 @@ public class StateMachine : MonoBehaviour
 
     private GameObject The_box;
 
+
+
     void Start()
     {
-        The_box = GameObject.Find("ScaledBox");
+        The_box = GameObject.Find("PrefScaledBox");
     }
 
     void Update()
@@ -35,32 +39,37 @@ public class StateMachine : MonoBehaviour
             int layerMask = LayerMask.GetMask("Ignore Raycast");
             if (Physics.Raycast(ray, out hit, 10, layerMask))
             {
-                if (hit.collider.gameObject == The_box)
+                if (hit.collider.gameObject.tag == "Box")
                 {
                     if (boxState == BoxState.Closed)
                     {
-                        OpenBox();
+                        OpenBox(hit.transform.gameObject);
+                        Debug.Log("Open");
                     }
                     else if (boxState == BoxState.Opened)
                     {
-                        CloseBox();
+                        CloseBox(hit.transform.gameObject);
+                        Debug.Log("Close");
                     }
 
                     UpdateCameraState();
                 }
             }
         }
+
+        
+
     }
 
-    void OpenBox()
+    void OpenBox(GameObject Clicked)
     {
-        The_box.GetComponent<Animator>().Play("Open");
+        Clicked.GetComponent<Animator>().Play("OpenLoc");
         boxState = BoxState.Opened;
     }
 
-    void CloseBox()
+    void CloseBox(GameObject Clicked)
     {
-        The_box.GetComponent<Animator>().Play("Close");
+        Clicked.GetComponent<Animator>().Play("CloseLoc");
         boxState = BoxState.Closed;
     }
 
