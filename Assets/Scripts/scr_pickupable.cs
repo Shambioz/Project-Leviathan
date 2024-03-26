@@ -18,6 +18,7 @@ public class scr_pickupable : MonoBehaviour
     //public SurfaceDataAttributes surfaceData;
     //public Material transparentMaterial;
 
+
    // private Color transparentColor = new Color(204, 204, 204, 150); // Use the respective rgba values you want
     // Start is called before the first frame update
     void Start()
@@ -51,10 +52,7 @@ public class scr_pickupable : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     /*private void OnTriggerEnter(Collider other)
     {
         // Check for a specific collider tag to ensure we're reacting to the correct object
@@ -64,4 +62,22 @@ public class scr_pickupable : MonoBehaviour
             gameObject.SetActive(false); // This disables the GameObject the script is attached to
         }
     }*/
+
+
+
+    //Przemek's stuff
+
+
+    public bool is_in_place = false;
+
+
+    void Update()
+    {
+        if (is_in_place == true)
+        {
+            this.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+        }
+    }
+
+
 }

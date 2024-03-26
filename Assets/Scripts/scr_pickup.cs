@@ -8,7 +8,7 @@ using TMPro;
 
 public class scr_pick_up_object : MonoBehaviour
 {
-    private bool isCarrying = false;
+    public bool is_carrying = false;
     public scr_inventory inventory; // Assign this in the inspector
     public Transform player; // Reference to the player's transform
     public bool is_active = false;
@@ -36,6 +36,7 @@ public class scr_pick_up_object : MonoBehaviour
     public scr_pickupable scr_pickupable;
     //Add subtitles
     public TextMeshProUGUI Subtitle;
+    public GameObject the_one_you_picked_up;
     void Update()
     {
 
@@ -71,9 +72,11 @@ public class scr_pick_up_object : MonoBehaviour
                 if (Physics.Raycast(ray, out hit, 10, layerMask))
                 {
                     obj_carried = hit.collider.GameObject();
+                    the_one_you_picked_up = hit.collider.GameObject();
                     if (obj_carried != null)
                     {
                         is_active = true;
+                        is_carrying = true;
                         rb = obj_carried.GetComponent<Rigidbody>();
                         if (rb != null)
                         {
@@ -116,6 +119,7 @@ public class scr_pick_up_object : MonoBehaviour
             }
             else if (state == 2)
             {
+                is_carrying = false;
                 rb = obj_carried.GetComponent<Rigidbody>();
                 if (rb != null)
                 {
