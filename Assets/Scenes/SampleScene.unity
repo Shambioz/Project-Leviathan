@@ -2138,6 +2138,10 @@ MonoBehaviour:
   prefabtoplace2: {fileID: 5823771161336773032, guid: cc203ab628bd11e479852f0a362a2827, type: 3}
   prefabtoplace3: {fileID: 8213094873601341634, guid: 50515db82fa78ba42aad40bbce4b45a0, type: 3}
   prefabtoplace4: {fileID: 6605675580759582784, guid: 89ac69bfe5660aa43a042ec5cc8dca91, type: 3}
+  position1: {fileID: 212753957}
+  position2: {fileID: 1802167756}
+  position3: {fileID: 1299531075}
+  position4: {fileID: 1990133012}
 --- !u!1001 &616721614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6435,6 +6439,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 70755766}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1802167756 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5823771161336773032, guid: cc203ab628bd11e479852f0a362a2827, type: 3}
+  m_PrefabInstance: {fileID: 2546506094228886839}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1811664244 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f29bdf02ef0138f49ac50602ba2b60c9, type: 3}

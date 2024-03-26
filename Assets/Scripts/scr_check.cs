@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class scr_check : MonoBehaviour
 {
@@ -23,6 +24,16 @@ public class scr_check : MonoBehaviour
     public GameObject prefabtoplace3;
     public GameObject prefabtoplace4;
     private LayerMask layerMask;
+    public GameObject position1;
+    public GameObject position2;
+    public GameObject position3;
+    public GameObject position4;
+    private Vector3 spawnPoint = new Vector3(0,0,0);
+    private Vector3 spawnPoint2 = new Vector3(0,0,0);
+    private Vector3 spawnPoint3 = new Vector3(0,0,0);
+    private Vector3 spawnPoint4 = new Vector3(0,0,0);
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -50,49 +61,54 @@ public class scr_check : MonoBehaviour
         fun7 = the_chosen_one4.GetComponent<Collider>();
         the_chosen_one4 = GameObject.Find("frame rectangle");
         fun8 = the_chosen_one4.GetComponent<Collider>();
+        //positions for spawning objects
+        spawnPoint = position1.transform.position;
+        spawnPoint2 = position2.transform.position;
+        spawnPoint3 = position3.transform.position;
+        spawnPoint4 = position4.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (fun1.bounds.Intersects(fun2.bounds))
+        if (Input.GetMouseButtonDown(1) && fun1.bounds.Intersects(fun2.bounds))
         {
             layerMask = LayerMask.GetMask("Ignore Raycast");
             the_chosen_one.layer = layerMask;
             the_chosen_one.SetActive(false);
             the_chosen_one = GameObject.Find("object_1_spot");
             the_chosen_one.SetActive(false);
-            Instantiate(prefabtoplace1, transform.position, Quaternion.identity);
+            Instantiate(prefabtoplace1, spawnPoint, Quaternion.identity);
             how_many_you_have_placed++;
         }
-        if (fun3.bounds.Intersects(fun4.bounds))
+        if (Input.GetMouseButtonDown(1) && fun3.bounds.Intersects(fun4.bounds))
         {
             layerMask = LayerMask.GetMask("Ignore Raycast");
             the_chosen_one2.layer = layerMask;
             the_chosen_one2.SetActive(false);
             the_chosen_one2 = GameObject.Find("object2_spot");
             the_chosen_one2.SetActive(false);
-            Instantiate(prefabtoplace2, transform.position, Quaternion.identity);
+            Instantiate(prefabtoplace2, spawnPoint2, Quaternion.identity);
             how_many_you_have_placed++;
         }
-        if(fun5.bounds.Intersects(fun6.bounds))
+        if(Input.GetMouseButtonDown(1) && fun5.bounds.Intersects(fun6.bounds))
         {
             layerMask = LayerMask.GetMask("Ignore Raycast");
             the_chosen_one3.layer = layerMask;
             the_chosen_one3.SetActive(false);
             the_chosen_one3 = GameObject.Find("object3_spot");
             the_chosen_one3.SetActive(false);
-            Instantiate(prefabtoplace3, transform.position, Quaternion.identity);
+            Instantiate(prefabtoplace3, spawnPoint3, Quaternion.identity);
             how_many_you_have_placed++;
         }
-        if(fun7.bounds.Intersects(fun8.bounds))
+        if(Input.GetMouseButtonDown(1) && fun7.bounds.Intersects(fun8.bounds))
         {
             layerMask = LayerMask.GetMask("Ignore Raycast");
             the_chosen_one4.layer = layerMask;
             the_chosen_one4.SetActive(false);
             the_chosen_one4 = GameObject.Find("object4_spot");
             the_chosen_one4.SetActive(false);
-            Instantiate(prefabtoplace4, transform.position, Quaternion.identity);
+            Instantiate(prefabtoplace4, spawnPoint4, Quaternion.identity);
             how_many_you_have_placed++;
         }
     }
