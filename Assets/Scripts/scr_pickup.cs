@@ -41,6 +41,7 @@ public class scr_pick_up_object : MonoBehaviour
     //Stuff
     private GameObject obj_last_looked;
     private GameObject obj_Looking;
+    private GameObject obj_Looking_duplicate;
     private scr_pickupable scr_pickupable2;
     private scr_pickupable scr_pickupable3;
     public scr_player_movement scr_player_movement;
@@ -75,6 +76,26 @@ public class scr_pick_up_object : MonoBehaviour
         }
     }
 
+    void ColorTheObject(GameObject color_this_one)
+    {
+        scr_pickupable2 = color_this_one.GetComponent<scr_pickupable>();
+        color_this_one.layer = 3;
+        //scr_pickupable2.ChildLayer.layer = 3;
+        scr_pickupable2.UItext.text = "" + obj_last_looked.name;
+        //obj_Looking = obj_last_looked; This is pointless, you're assigning this and than setting it to null in the next line
+        //obj_Looking = null; I just don't need that
+    }
+
+    void DeColorTheObject(GameObject decolor_this_one)
+    {
+        scr_pickupable3 = decolor_this_one.GetComponent<scr_pickupable>();
+        decolor_this_one.layer = 0;
+        //scr_pickupable3.ChildLayer.layer = 0;
+        scr_pickupable3.UItext.text = "";
+        //obj_Looking = obj_last_looked; This is pointless, you're assigning this and than setting it to null in the next line
+        //obj_Looking = null; I just don't need that
+    }
+
     void Pickup()
     {
         int x = Screen.width / 2;
@@ -84,30 +105,26 @@ public class scr_pick_up_object : MonoBehaviour
         RaycastHit hit;
         layerMask = ~LayerMask.GetMask("Ignore Raycast");
         Physics.Raycast(ray, out hit, 10, layerMask);
+        if (obj_Looking != null)
+        {
+            DeColorTheObject(obj_Looking.gameObject);
+            Debug.Log("Working " + obj_Looking);
+        }
         obj_Looking = hit.collider.GameObject();
+        Debug.Log("Working2 " + obj_Looking);
+        if (obj_Looking != obj_Looking_duplicate && obj_Looking != null)
+        {
+            ColorTheObject(obj_Looking.gameObject);
+            Debug.Log("Working3 " + obj_Looking);
+        }
+        obj_Looking_duplicate = obj_Looking;
+        Debug.Log("Working4 " + obj_Looking_duplicate);
 
-            if (scr_player_movement.time >= 0.02) 
-            { obj_last_looked = hit.collider.GameObject(); 
-                Debug.Log(""+ obj_last_looked.name); 
-            }
-
-
-            if (obj_Looking != null)
-            {
-                scr_pickupable2 = obj_Looking.GetComponent<scr_pickupable>();
-                obj_Looking.layer = 3;
-                scr_pickupable2.ChildLayer.layer = 3;
-                scr_pickupable2.UItext.text = "" + obj_last_looked.name;
-                obj_Looking = obj_last_looked;
-                obj_Looking = null;
-            }
-            else
-            {
-            scr_pickupable3 = obj_last_looked.GetComponent<scr_pickupable>();
-            obj_last_looked.layer = 0;
-            scr_pickupable3.ChildLayer.layer = 0;
-            scr_pickupable3.UItext.text = "";
-            }
+        if (scr_player_movement.time >= 0.02) 
+        { 
+            obj_last_looked = hit.collider.GameObject();
+            Debug.Log(""+ obj_last_looked.name); 
+        }
 
         if (Input.GetMouseButtonDown(1)) 
         {
