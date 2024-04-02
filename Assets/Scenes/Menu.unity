@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 140077490}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: UpperDrawer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,7 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 166746180}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: MiddleDrawer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208,9 +208,13 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -609967077227539181, guid: dcbf204b5eeae0a4a80fa36e1b1e5373, type: 3}
+      propertyPath: m_Size.y
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7091195999891664037, guid: dcbf204b5eeae0a4a80fa36e1b1e5373, type: 3}
       propertyPath: m_Name
-      value: PrefScaledBox
+      value: Middle
       objectReference: {fileID: 0}
     - target: {fileID: 7091195999891664037, guid: dcbf204b5eeae0a4a80fa36e1b1e5373, type: 3}
       propertyPath: m_Layer
@@ -218,7 +222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7091195999891664037, guid: dcbf204b5eeae0a4a80fa36e1b1e5373, type: 3}
       propertyPath: m_TagString
-      value: Box
+      value: Box2
       objectReference: {fileID: 0}
     - target: {fileID: 7575949148160456223, guid: dcbf204b5eeae0a4a80fa36e1b1e5373, type: 3}
       propertyPath: m_LocalPosition.x
@@ -404,9 +408,25 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -609967077227539181, guid: dcbf204b5eeae0a4a80fa36e1b1e5373, type: 3}
+      propertyPath: m_Size.y
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -609967077227539181, guid: dcbf204b5eeae0a4a80fa36e1b1e5373, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -609967077227539181, guid: dcbf204b5eeae0a4a80fa36e1b1e5373, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 303498470546718801, guid: dcbf204b5eeae0a4a80fa36e1b1e5373, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7091195999891664037, guid: dcbf204b5eeae0a4a80fa36e1b1e5373, type: 3}
       propertyPath: m_Name
-      value: PrefScaledBox
+      value: Upper
       objectReference: {fileID: 0}
     - target: {fileID: 7091195999891664037, guid: dcbf204b5eeae0a4a80fa36e1b1e5373, type: 3}
       propertyPath: m_Layer
@@ -482,9 +502,13 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -609967077227539181, guid: dcbf204b5eeae0a4a80fa36e1b1e5373, type: 3}
+      propertyPath: m_Size.y
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7091195999891664037, guid: dcbf204b5eeae0a4a80fa36e1b1e5373, type: 3}
       propertyPath: m_Name
-      value: PrefScaledBox
+      value: Lower
       objectReference: {fileID: 0}
     - target: {fileID: 7091195999891664037, guid: dcbf204b5eeae0a4a80fa36e1b1e5373, type: 3}
       propertyPath: m_Layer
@@ -492,7 +516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7091195999891664037, guid: dcbf204b5eeae0a4a80fa36e1b1e5373, type: 3}
       propertyPath: m_TagString
-      value: Box
+      value: Box3
       objectReference: {fileID: 0}
     - target: {fileID: 7575949148160456223, guid: dcbf204b5eeae0a4a80fa36e1b1e5373, type: 3}
       propertyPath: m_LocalPosition.x
@@ -898,7 +922,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2118766223}
   m_Layer: 0
-  m_Name: GameObject (2)
+  m_Name: LowerDrawer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
