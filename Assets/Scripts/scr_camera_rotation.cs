@@ -7,6 +7,7 @@ public class PlayerBehavior : MonoBehaviour
     public Transform player;
     public float mouseSensitivity = 10000f;
     float cameraVerticalRotation = 0f;
+    float cameraHorizontalRotation = 0f;
     public float inputX = 0f;
     public float inputY = 0f;
 
@@ -34,5 +35,6 @@ public class PlayerBehavior : MonoBehaviour
 
         //rotate the player object and the camera around its Y axis
         player.Rotate(Vector3.up * inputX);
+
     }
 }
