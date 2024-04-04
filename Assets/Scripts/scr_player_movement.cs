@@ -11,8 +11,8 @@ public class scr_player_movement : MonoBehaviour
     public scr_pick_up_object scr_pick_up_object;
     public TextMeshProUGUI Subtitle;
     public GameObject Player;
-    private float movespd = 3f;
-    private float flyspd = 2.5f;
+    private float movespd = 7.5f;
+    private float flyspd = 5f;
     private float rotspeed = 200f;
     // Start is called before the first frame update
     void Start()
