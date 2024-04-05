@@ -35,37 +35,15 @@ public class scr_on_collision_event : MonoBehaviour
 
     private IEnumerator OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == EffectedObject.name)
-        {
-            while (other.gameObject.name == EffectedObject.name)
+            if (other.gameObject.name == EffectedObject.name)
             {
-                if (Switch == 2)
-                {
-                    Debug.Log("Entered");
-                    AudioSource.Play();
-                    if (Audio1.isPlaying)
-                    {
-                        Subtitle.text = "" + Text;
-                    }
-                }
-                else
-                {
-                    if (Switch == 0)
-                    Debug.Log("Entered");
-                    AudioSource.Play();
-                    if (Audio1.isPlaying)
-                        {
-                            Subtitle.text = "" + Text;
-                        }
-                    Switch = 1;
-                }
-
+                Debug.Log("Entered");
+                AudioSource.Play();
+                if (AudioSource.isPlaying){ Subtitle.text = "" + Text; }
                 yield return new WaitForSeconds(AudioClipLength);
-
+                if (AudioSource.isPlaying) { Subtitle.text = ""; }
+                Destroy(this);
             }
-
-        }
-
     }
 
     void OnTriggerExit(Collider other)
