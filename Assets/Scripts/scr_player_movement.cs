@@ -14,6 +14,7 @@ public class scr_player_movement : MonoBehaviour
     private float movespd = 7.5f;
     private float flyspd = 5f;
     private float rotspeed = 200f;
+    public float CanMove = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,36 +25,39 @@ public class scr_player_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Move forward
-        if (Input.GetKey(KeyCode.W))
+        if (CanMove == 1)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * movespd);
-        }
-        //Move Back
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(-1 * Vector3.forward * Time.deltaTime * movespd);
-        }
-        // Move left
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(Vector3.left * Time.deltaTime * movespd);
-        }
-        // Move right
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(Vector3.right * Time.deltaTime * movespd);
-        }
+            //Move forward
+            if (Input.GetKey(KeyCode.W))
+            {
+                transform.Translate(Vector3.forward * Time.deltaTime * movespd);
+            }
+            //Move Back
+            if (Input.GetKey(KeyCode.S))
+            {
+                transform.Translate(-1 * Vector3.forward * Time.deltaTime * movespd);
+            }
+            // Move left
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.Translate(Vector3.left * Time.deltaTime * movespd);
+            }
+            // Move right
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.Translate(Vector3.right * Time.deltaTime * movespd);
+            }
 
-        // Fly up
-        if (Input.GetKey(KeyCode.Space))
-        {
-            transform.Translate(Vector3.up * Time.deltaTime * flyspd);
-        }
-        // Fly down
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-        {
-            transform.Translate(Vector3.down * Time.deltaTime * flyspd);
+            // Fly up
+            if (Input.GetKey(KeyCode.Space))
+            {
+                transform.Translate(Vector3.up * Time.deltaTime * flyspd);
+            }
+            // Fly down
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+            {
+                transform.Translate(Vector3.down * Time.deltaTime * flyspd);
+            }
         }
 
 

@@ -10,6 +10,7 @@ public class PlayerBehavior : MonoBehaviour
     float cameraHorizontalRotation = 0f;
     public float inputX = 0f;
     public float inputY = 0f;
+    public Transform target;
 
     bool lockedCursor = true;
 
@@ -28,13 +29,20 @@ public class PlayerBehavior : MonoBehaviour
         inputX = Input.GetAxis("Mouse X");
         inputY = Input.GetAxis("Mouse Y");
 
-        //Rotate Camera around its local x-axis
-        cameraVerticalRotation -= inputY;
-        cameraVerticalRotation = Mathf.Clamp(cameraVerticalRotation, -90f, 90f);
-        transform.localEulerAngles = Vector3.right * cameraVerticalRotation;
+        if (target != null)
+        {
+            transform.LookAt(target);
+        }
+        else
+        {
+            //Rotate Camera around its local x-axis
+            cameraVerticalRotation -= inputY;
+            cameraVerticalRotation = Mathf.Clamp(cameraVerticalRotation, -90f, 90f);
+            transform.localEulerAngles = Vector3.right * cameraVerticalRotation;
 
-        //rotate the player object and the camera around its Y axis
-        player.Rotate(Vector3.up * inputX);
+            //rotate the player object and the camera around its Y axis
+            player.Rotate(Vector3.up * inputX);
+        }
 
     }
 }

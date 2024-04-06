@@ -14,6 +14,7 @@ public class scr_pick_up_object : MonoBehaviour
     public bool is_active = false;
     private int state = 1;
     private GameObject obj_carried;
+    private GameObject obj_interacting;
     private Vector3 playerPosition;
     private Vector3 screenPosition;
     private Vector3 cameraPosition;
@@ -30,9 +31,6 @@ public class scr_pick_up_object : MonoBehaviour
     private Transform Child;
     private MeshRenderer ParentMesh;
     //play sound of object carried
-    private MonoBehaviour objPickupScr;
-    private AudioSource objPickupAudio;
-    private AudioSource objPickupAudio2;
     public scr_pickupable scr_pickupable;
     //Add subtitles
     public TextMeshProUGUI Subtitle;
@@ -55,6 +53,7 @@ public class scr_pick_up_object : MonoBehaviour
             obj_carried.transform.position = centerPosition;
             Debug.Log("object position: " + screenPosition.x + (screenPosition.y-25) + 0f);
         }
+
     }
 
     void Pickup()
@@ -73,7 +72,7 @@ public class scr_pick_up_object : MonoBehaviour
                 {
                     obj_carried = hit.collider.GameObject();
                     the_one_you_picked_up = hit.collider.GameObject();
-                    if (obj_carried != null)
+                    if (obj_carried != null && obj_carried.GetComponent<scr_pickupable>() != null)
                     {
                         is_active = true;
                         is_carrying = true;
