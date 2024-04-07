@@ -11,51 +11,59 @@ public class scr_on_collision_event : MonoBehaviour
     public float Switch = 0f;
     private AudioSource AudioSource;
     private float AudioClipLength;
+    public float PredictedEndTime = 0;
     public AudioSource Audio1;
     public string Text;
     public PlayerBehavior PlayerBehavior;
     public scr_player_movement scr_player_movement;
-    private float Destroy = 0f;
+    private float Destroy = 1;
 
     // Start is called before the first frame update
     void Start()
     {
         AudioSource = Audio1;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         AudioClipLength = AudioSource.clip.length;
     }
 
-   // void OnCollisionEnter(Collision collision)
-    //{
-      //  if (collision.gameObject.name == "Player")
-        //{
-          //  Debug.Log("Entered");
-        //}
-    //}
+    void Update()
+    {
+        if (PredictedEndTime != 0 && Time.time >= PredictedEndTime) 
+        {
+            //Erase subtitle
+            Subtitle.text = "";
+            //Toffle player movement back on
+            scr_player_movement.CanMove = 1;
+            //empty camera target to resume normal functionality
+            PlayerBehavior.target = null;
+            //empty camera target to resume normal functionality
+            PredictedEndTime = 0;
+            //destroy this component when subtitle has been activated at end
+            if (Destroy == 1) { Destroy(this); }
+        }
+    }
 
-    private IEnumerator OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
             if (other.gameObject.name == EffectedObject.name)
             {
                 Debug.Log("Entered");
+            //play specified Audio
                 AudioSource.Play();
+            //define Transform target in scr_camera movement
                 PlayerBehavior.target = LookAt.GetComponent<Transform>();
+            //Toggle player ability to move off
                 scr_player_movement.CanMove = 0;
-                if (AudioSource.isPlaying){ Subtitle.text = "" + Text; Destroy = 1;}
-                yield return new WaitForSeconds(AudioClipLength);
-                Subtitle.text = "";
-                scr_player_movement.CanMove = 1;
-                PlayerBehavior.target = null;
-                if (Destroy == 1){ AudioSource.Stop(); Destroy(this);} 
+            //Calculate time for audio clip will be done
+                PredictedEndTime = Time.time + AudioClipLength;
+            //if audio is playing change text in TextMeshProUGUI for subtitle & trigger destruction
+            if (AudioSource.isPlaying){ Subtitle.text = "" + Text;}
+            
             }
     }
 
     void OnTriggerExit(Collider other)
     {
+        //if player is no longer inside collider stop audio & text
         if (other.gameObject.name == EffectedObject.name)
         {
             AudioSource.Stop();
