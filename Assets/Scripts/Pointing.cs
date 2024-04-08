@@ -1,6 +1,7 @@
 
 using Unity.Burst.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum BoxState
 {
@@ -39,20 +40,23 @@ public class StateMachine : MonoBehaviour
 
     void Update()
     {
-        if(The_box1.GetComponent<BoxCollider>().enabled)
+        if (The_box1.GetComponent<BoxCollider>().enabled)
         {
             ManagingDrawers1();
         }
-        if(The_box2.GetComponent<BoxCollider>().enabled)
+        if (The_box2.GetComponent<BoxCollider>().enabled)
         {
             ManagingDrawers2();
         }
-        if(The_box3.GetComponent<BoxCollider>().enabled)
+        if (The_box3.GetComponent<BoxCollider>().enabled)
         {
             ManagingDrawers3();
         }
+        if (The_box1.GetComponent<BoxCollider>().enabled)
+        {
+            PlayButton();
+        }
 
-        
 
     }
 
@@ -97,7 +101,7 @@ public class StateMachine : MonoBehaviour
 
 
                 }
-                
+
             }
         }
     }
@@ -180,7 +184,24 @@ public class StateMachine : MonoBehaviour
             }
         }
     }
+    void PlayButton()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mousePosition = Input.mousePosition;
 
+            Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+            RaycastHit hit;
+            int layerMask = LayerMask.GetMask("Ignore Raycast");
+            if (Physics.Raycast(ray, out hit, 10, layerMask))
+            {
+                if (hit.collider.gameObject.tag == "Button")
+                {
+                    SceneManager.LoadScene("SampleScene");
+                }
+            }
+        }
+    }
 
 
 
