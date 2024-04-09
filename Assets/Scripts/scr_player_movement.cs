@@ -11,6 +11,7 @@ public class scr_player_movement : MonoBehaviour
 
     public scr_pick_up_object scr_pick_up_object;
     public TextMeshProUGUI Subtitle;
+    public AudioSource Audio;
     public GameObject Player;
     private float movespd = 7.5f;
     private float flyspd = 5f;
@@ -112,7 +113,7 @@ public class scr_player_movement : MonoBehaviour
         //this.transform.Translate(Vector3.forward * lmb  * Time.deltaTime);
 
         //delete subtitles when audio finishes
-        if (!scr_pick_up_object.scr_pickupable.audioSource.isPlaying) { if (Subtitle.text != "") { Subtitle.text = ""; } }
+        if (!scr_pick_up_object.scr_pickupable.audioSource.isPlaying && !Audio.isPlaying && Audio.isPlaying) { if (Subtitle.text != "") { Subtitle.text = ""; } }
     }
 
 

@@ -13,6 +13,7 @@ public class scr_interact_object : MonoBehaviour
     public scr_inventory inventory; // Assign this in the inspector
     public Transform player; // Reference to the player's transform
     public bool is_active = false;
+    public bool spoke = false;
     private GameObject obj_interacting;
     public Collider[] colliders;
     public Rigidbody rb;
@@ -24,6 +25,7 @@ public class scr_interact_object : MonoBehaviour
     public TextMeshProUGUI Subtitle;
     public GameObject the_one_you_picked_up;
     private float AudioClipLength;
+    private float AudioClipLengthEnd = 0;
 
 
     // Start is called before the first frame update
@@ -36,9 +38,10 @@ public class scr_interact_object : MonoBehaviour
     {
         Interact();
         {
-            if (!scr_pickupableInt.audioSource.isPlaying)
+            if (AudioClipLengthEnd !=0 && Time.time >= AudioClipLengthEnd && spoke == true)
             {
                 Subtitle.text = "";
+                AudioClipLengthEnd = 0;
             }
         }
     }
@@ -58,23 +61,25 @@ public class scr_interact_object : MonoBehaviour
                 obj_interacting = hit.collider.GameObject();
                 Debug.Log(obj_interacting.name);
                 scr_pickupableInt = obj_interacting.GetComponent<scr_pickupable>();
-                if (scr_pickupableInt != null && scr_pickupableInt.audioSource.isPlaying)
+                if (scr_pickupableInt != null && scr_pickupableInt.audioSourceInt.isPlaying)
                 {
-                    scr_pickupableInt.audioSource.Stop();
+                    scr_pickupableInt.audioSourceInt.Stop();
                     Subtitle.text = null;
                 }
                 
                 if (scr_pickupableInt != null)
                 {
 
-                    if (scr_pickupableInt.audioSource != null)
+                    if (scr_pickupableInt.audioSourceInt != null)
                     {
                         //play audio from scr_pickupable
-                        AudioClipLength = scr_pickupableInt.audioSource.clip.length;
-                        scr_pickupableInt.audioSource.Play();
-                        if (scr_pickupableInt.audioSource.isPlaying)
+                        AudioClipLength = scr_pickupableInt.audioSourceInt.clip.length;
+                        AudioClipLengthEnd = Time.time + AudioClipLength;
+                        scr_pickupableInt.audioSourceInt.Play();
+                        if (scr_pickupableInt.audioSourceInt.isPlaying)
                         {
-                            Subtitle.text = scr_pickupableInt.audioTranscript;
+                            Subtitle.text = scr_pickupableInt.audioTranscriptInt;
+                            spoke = true;
                         }
 
                     }

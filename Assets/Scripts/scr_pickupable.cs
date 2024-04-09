@@ -12,14 +12,16 @@ public class scr_pickupable : MonoBehaviour
     public TextMeshProUGUI UItext;
     public GameObject ChildLayer;
     public AudioSource audioSource;
+    public AudioSource audioSourceInt;
     public String audioTranscript;
+    public String audioTranscriptInt;
     //public MeshRenderer ChildMesh;
     //public Material Mat;
     //public SurfaceDataAttributes surfaceData;
     //public Material transparentMaterial;
 
 
-   // private Color transparentColor = new Color(204, 204, 204, 150); // Use the respective rgba values you want
+    // private Color transparentColor = new Color(204, 204, 204, 150); // Use the respective rgba values you want
     // Start is called before the first frame update
     void Start()
     {

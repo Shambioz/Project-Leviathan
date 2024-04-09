@@ -16,6 +16,7 @@ public class scr_on_collision_event : MonoBehaviour
     public string Text;
     public PlayerBehavior PlayerBehavior;
     public scr_player_movement scr_player_movement;
+    public AudioSource Audio;
     private float Destroy = 1;
 
     // Start is called before the first frame update
@@ -49,6 +50,8 @@ public class scr_on_collision_event : MonoBehaviour
                 Debug.Log("Entered");
             //play specified Audio
                 AudioSource.Play();
+            //tell audio
+            scr_player_movement.Audio = AudioSource;
             //define Transform target in scr_camera movement
                 PlayerBehavior.target = LookAt.GetComponent<Transform>();
             //Toggle player ability to move off
