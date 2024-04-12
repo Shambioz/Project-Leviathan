@@ -1,12 +1,13 @@
+
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
-public class scr_pick_up_object : MonoBehaviour
+public class PickupObject : MonoBehaviour
 {
     private bool isCarrying = false;
     private GameObject carriedObject;
-    public scr_inventory inventory; // Assign this in the inspector
+    public Inventory inventory; // Assign this in the inspector
 
     void Update()
     {
@@ -36,9 +37,9 @@ public class scr_pick_up_object : MonoBehaviour
                 {
                     isCarrying = true;
                     carriedObject = p.gameObject;
+                    inventory.AddItem(p);
                     StartCoroutine(DisableNextFrame(p.gameObject));
                 }
-                inventory.AddItem(p);
             }
         }
     }
@@ -63,3 +64,6 @@ public class scr_pick_up_object : MonoBehaviour
         carriedObject = null;
     }
 }
+
+
+
