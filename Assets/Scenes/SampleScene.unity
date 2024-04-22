@@ -4408,6 +4408,7 @@ GameObject:
   - component: {fileID: 611600896}
   - component: {fileID: 611600897}
   - component: {fileID: 611600898}
+  - component: {fileID: 611600899}
   m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
@@ -4629,6 +4630,19 @@ MonoBehaviour:
   scr_pickupable: {fileID: 0}
   Subtitle: {fileID: 1616457107}
   the_one_you_picked_up: {fileID: 0}
+--- !u!114 &611600899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611600886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a284f263da9744446ad7ce64ce31c764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer_mask: 0
 --- !u!1001 &616721614
 PrefabInstance:
   m_ObjectHideFlags: 0

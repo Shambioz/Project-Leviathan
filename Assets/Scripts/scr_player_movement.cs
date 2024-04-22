@@ -37,9 +37,9 @@ public class scr_player_movement : MonoBehaviour
             {
                 rayOrigin = transform.position;
                 rayDirection = transform.forward;
-                RaycastHit hit;
-                layerMask = LayerMask.GetMask("Ignore Raycast");
-                if (!Physics.Raycast(rayOrigin, rayDirection, out hit, 1, layerMask))
+                RaycastHit hit; //Ray pew pew pew
+                layerMask = LayerMask.GetMask("Ignore Raycast"); //Ignore raycas is assigned to all the objects that you can't go through
+                if (!Physics.Raycast(rayOrigin, rayDirection, out hit, 1, layerMask)) // Only if there isn't an object in in the place you're trying to go to, you can move
                 {
                     transform.Translate(Vector3.forward * Time.deltaTime * movespd);
                 }
