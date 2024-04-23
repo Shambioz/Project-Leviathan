@@ -7,10 +7,13 @@ public class scr_pew_pew_pew : MonoBehaviour
 
     public int layer_mask;
 
+    public LineRenderer line_renderer;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        line_renderer = this.GetComponent<LineRenderer>();
+        line_renderer.enabled = false;
     }
 
     // Update is called once per frame
@@ -18,20 +21,22 @@ public class scr_pew_pew_pew : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            int x = Screen.width / 2;
-            int y = Screen.height / 2;
 
-            Ray ray = Camera.main.ScreenPointToRay(new Vector3(x, y));
+            line_renderer.enabled = true;
+
+            Ray ray = new Ray(transform.position, transform.forward);
             RaycastHit hit;
             layer_mask = ~LayerMask.GetMask("Ignore Raycast");
 
-            Physics.Raycast(ray, out hit, 10, layer_mask);
-            Debug.DrawRay(new Vector3(x, y), transform.forward * 10, Color.blue);
 
-            if (Physics.Raycast(ray, out hit, 10, layer_mask))
+            if (Physics.Raycast(ray, out hit, 10))
             {
-
+                line_renderer.SetPositions(new Vector3[] { ray.origin, hit.point });
             }
+        }
+        else
+        {
+            line_renderer.enabled = false;
         }
     }
 }
