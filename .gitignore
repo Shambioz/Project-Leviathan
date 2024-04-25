@@ -70,3 +70,7 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Assets/Videos/Leeuwarden in the Golden Era.mp4
+Assets/Videos/Leeuwarden in the Golden Era.mp4.meta
+Assets/Videos/Leeuwarden in the Golden Era.mp4
+*.mp4
