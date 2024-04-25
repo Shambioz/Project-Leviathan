@@ -37,7 +37,7 @@ public class scr_player_movement : MonoBehaviour
     {
         if (CanMove == 1)
         {
-            
+
             //Move forward
             if (Input.GetKey(KeyCode.W))
             {
@@ -50,8 +50,8 @@ public class scr_player_movement : MonoBehaviour
                     transform.Translate(Vector3.forward * Time.deltaTime * movespd);
                 }
             }
-        
-            }
+
+
             //Move Back
             if (Input.GetKey(KeyCode.S))
             {
@@ -108,15 +108,15 @@ public class scr_player_movement : MonoBehaviour
                 rayDirection = -transform.up;
                 RaycastHit hit;
                 layerMask = LayerMask.GetMask("Ignore Raycast");
-                if (!Physics.Raycast(rayOrigin, rayDirection, out hit, 1 , layerMask))
+                if (!Physics.Raycast(rayOrigin, rayDirection, out hit, 1, layerMask))
                 {
                     transform.Translate(Vector3.down * Time.deltaTime * flyspd);
                 }
             }
-        
 
 
 
+        }
         // 5
         //this.transform.Translate(Vector3.forward * lmb  * Time.deltaTime);
 
