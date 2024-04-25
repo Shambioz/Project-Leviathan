@@ -12685,6 +12685,7 @@ MonoBehaviour:
   layerMask: 0
   rayOrigin: {x: 0, y: 0, z: 0}
   rayDirection: {x: 0, y: 0, z: 0}
+  rb: {fileID: 611600894}
 --- !u!4 &1468131431
 Transform:
   m_ObjectHideFlags: 0

@@ -20,10 +20,15 @@ public class scr_player_movement : MonoBehaviour
     public int layerMask;
     public Vector3 rayOrigin;
     public Vector3 rayDirection;
+    public Rigidbody rb;
+
+    [SerializeField] float navigationSpeed = 2.4f;
+    [SerializeField] float shiftMultiplier = 2f;
+    [SerializeField] float sensitivity = 1.0f;
 
     void Start()
     {
-
+        
         scr_pick_up_object = Player.gameObject.GetComponent<scr_pick_up_object>();
     }
 
@@ -32,6 +37,7 @@ public class scr_player_movement : MonoBehaviour
     {
         if (CanMove == 1)
         {
+            
             //Move forward
             if (Input.GetKey(KeyCode.W))
             {
@@ -43,6 +49,8 @@ public class scr_player_movement : MonoBehaviour
                 {
                     transform.Translate(Vector3.forward * Time.deltaTime * movespd);
                 }
+            }
+        
             }
             //Move Back
             if (Input.GetKey(KeyCode.S))
@@ -82,7 +90,7 @@ public class scr_player_movement : MonoBehaviour
             }
 
             // Fly up
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.Space))
             {
                 rayOrigin = transform.position;
                 rayDirection = transform.up;
@@ -94,7 +102,7 @@ public class scr_player_movement : MonoBehaviour
                 }
             }
             // Fly down
-            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+            if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.LeftShift))
             {
                 rayOrigin = transform.position;
                 rayDirection = -transform.up;
@@ -105,7 +113,7 @@ public class scr_player_movement : MonoBehaviour
                     transform.Translate(Vector3.down * Time.deltaTime * flyspd);
                 }
             }
-        }
+        
 
 
 
