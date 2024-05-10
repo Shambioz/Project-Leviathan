@@ -9472,6 +9472,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136466860}
   m_CullTransparentMesh: 1
+--- !u!1 &1150060260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+  m_PrefabInstance: {fileID: 1615048144}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1150060261
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150060260}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 66194b634cfb32547b2b64e475b0c96a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1163105161
 GameObject:
   m_ObjectHideFlags: 0
@@ -14154,6 +14180,90 @@ MonoBehaviour:
   audioTranscript: 
   audioTranscriptInt: 
   is_in_place: 0
+--- !u!1001 &1615048144
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -34.163445
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2831278
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 94.106
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.08002347
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.996793
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 189.18
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+      propertyPath: m_Name
+      value: Rumba Dancing
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 65702495048144492, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+    - {fileID: 5233112405309087440, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+    - {fileID: 8821623529969584324, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+    - {fileID: -4714817154256824709, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+    - {fileID: -8700617353114198275, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1150060261}
+    - targetCorrespondingSourceObject: {fileID: -1018664272722485354, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2038480726}
+  m_SourcePrefab: {fileID: 100100000, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
 --- !u!1 &1616457105
 GameObject:
   m_ObjectHideFlags: 0
@@ -17480,6 +17590,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2008402920}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2038480724 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1018664272722485354, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
+  m_PrefabInstance: {fileID: 1615048144}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2038480726
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038480724}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 66194b634cfb32547b2b64e475b0c96a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2043047117
 GameObject:
   m_ObjectHideFlags: 0
@@ -18851,3 +18987,4 @@ SceneRoots:
   - {fileID: 2107214710}
   - {fileID: 1575885329}
   - {fileID: 72745573}
+  - {fileID: 1615048144}
