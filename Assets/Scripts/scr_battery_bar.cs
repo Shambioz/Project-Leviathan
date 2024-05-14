@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class scr_battery_bar : MonoBehaviour
 {
 
-    public scr_pew_pew_pew pew_pew;
+    public scr_pew_pew_pew_2 pew_pew;
     public Slider slider;
     //public Image fill;
 
