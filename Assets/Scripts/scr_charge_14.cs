@@ -8,6 +8,8 @@ public class scr_charge_14 : MonoBehaviour
     public GameObject player;
     public Collider charge_14_collider;
     public Collider player_collider;
+    public scr_pew_pew_pew pew_pew_pew;
+    public scr_pew_pew_pew_2 pew_pew_pew_2;
 
 
     // Start is called before the first frame update
@@ -22,9 +24,13 @@ public class scr_charge_14 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (charge_14_collider.bounds.Intersects(player_collider.bounds))
+        if (charge_14_collider.bounds.Intersects(player_collider.bounds) && pew_pew_pew_2.battery < pew_pew_pew_2.maxbattery)
         {
-
+            pew_pew_pew_2.battery += 0.003f;
+            if (pew_pew_pew_2.battery > pew_pew_pew_2.maxbattery)
+            {
+                pew_pew_pew_2.battery = pew_pew_pew_2.maxbattery;
+            }
         }
     }
 }
