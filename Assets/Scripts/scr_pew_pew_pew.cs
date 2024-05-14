@@ -9,6 +9,8 @@ public class scr_pew_pew_pew : MonoBehaviour
     private GameObject playerrro;
     private Vector3 drone_position;
     private Vector3 hit_marker;
+    public float battery;
+    public float maxbattery;
 
 
     // Start is called before the first frame update
