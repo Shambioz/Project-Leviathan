@@ -5,7 +5,7 @@ using UnityEngine;
 public class scr_pew_pew_pew_2 : MonoBehaviour
 {
     public float battery;
-    public float maxbattery;
+    public float maxbattery;    
 
     // Update is called once per frame
     void Update()
