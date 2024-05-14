@@ -35,31 +35,12 @@ public class scr_pew_pew_pew : MonoBehaviour
             lr.enabled = true;
             drone_position = drone.transform.position;
             hit_marker = playerrro.transform.position + playerrro.transform.forward * 2;
-            //lr.SetPosition(0, drone_position);
-            //lr.SetPosition(1, hit_marker);
-            if (battery > 0)
-            {
-                battery -= 0.001f;
-            }
-            if (battery < 0f)
-            {
-                battery = 0f;
-            }
-            Debug.Log("BATERY:" + battery);
-            Debug.Log("SHBDYAHSIDJ: " + battery / maxbattery);
+            lr.SetPosition(0, drone_position);
+            lr.SetPosition(1, hit_marker);
         }
         else
         {
             lr.enabled = false;
-        }
-    }
-
-    private void LateUpdate()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            lr.SetPosition(0, drone_position);
-            lr.SetPosition(1, hit_marker);            
         }
     }
 }

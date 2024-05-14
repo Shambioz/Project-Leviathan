@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UiFill : MonoBehaviour
+public class scr_energy_bar : MonoBehaviour
 {
     [SerializeField] private Slider slider;
     [SerializeField] private scr_pew_pew_pew_2 pew_pew_pew;
