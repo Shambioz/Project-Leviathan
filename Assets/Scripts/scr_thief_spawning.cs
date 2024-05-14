@@ -14,11 +14,11 @@ public class scr_thief_spawning : MonoBehaviour
     void Start()
     {
         coordinates = new Vector3[4];
-        coordinates[0] = new Vector3(-41, 0.7f, 90);
-        coordinates[1] = new Vector3(-34, 0.7f, 91);
-        coordinates[2] = new Vector3(-15, 0.7f, 108);
-        coordinates[3] = new Vector3(-19, 0.7f, 100);
-        coordinates[4] = new Vector3(-29.7f, 0.7f, 61);
+        coordinates[0] = new Vector3(-41, 6.5f, 90);
+        coordinates[1] = new Vector3(-34, 6.5f, 91);
+        coordinates[2] = new Vector3(-15, 6.5f, 108);
+        coordinates[3] = new Vector3(-19, 6.5f, 100);
+        coordinates[4] = new Vector3(-29.7f, 6.5f, 61);
     }
 
     // Update is called once per frame 
