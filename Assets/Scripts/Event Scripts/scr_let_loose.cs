@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class scr_on_collision_event : MonoBehaviour
+public class scr_let_loose : MonoBehaviour
 {
     public GameObject EffectedObject;
     public GameObject LookAt;
@@ -16,8 +16,8 @@ public class scr_on_collision_event : MonoBehaviour
     public string Text;
     public PlayerBehavior PlayerBehavior;
     public scr_player_movement scr_player_movement;
+    public scr_kick_thief_event scr_kick_thief_event;
     public AudioSource Audio;
-    private float Destroy = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,7 @@ public class scr_on_collision_event : MonoBehaviour
 
     void Update()
     {
-        if (PredictedEndTime != 0 && Time.time >= PredictedEndTime) 
+        if (PredictedEndTime != 0 && Time.time >= PredictedEndTime)
         {
             //Erase subtitle
             Subtitle.text = "";
@@ -39,29 +39,30 @@ public class scr_on_collision_event : MonoBehaviour
             //empty camera target to resume normal functionality
             PredictedEndTime = 0;
             //destroy this component when subtitle has been activated at end
-            if (Destroy == 1) { Destroy(this); }
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-            if (other.gameObject.name == EffectedObject.name)
-            {
-                Debug.Log("Entered");
+        if (other.gameObject.name == EffectedObject.name)
+        {
+            Debug.Log("Entered");
             //play specified Audio
-                AudioSource.Play();
+            AudioSource.Play();
             //tell audio
             scr_player_movement.Audio = AudioSource;
             //define Transform target in scr_camera movement
-                PlayerBehavior.target = LookAt.GetComponent<Transform>();
+            PlayerBehavior.target = LookAt.GetComponent<Transform>();
             //Toggle player ability to move off
-                scr_player_movement.CanMove = 0;
+            scr_player_movement.CanMove = 0;
             //Calculate time for audio clip will be done
-                PredictedEndTime = Time.time + AudioClipLength;
+            PredictedEndTime = Time.time + AudioClipLength;
             //if audio is playing change text in TextMeshProUGUI for subtitle & trigger destruction
-            if (AudioSource.isPlaying){ Subtitle.text = "" + Text;}
-            
-            }
+            if (AudioSource.isPlaying) { Subtitle.text = "" + Text; }
+            //destroy thief
+            Destroy(other.gameObject);
+            scr_kick_thief_event.button = 1;
+        }
     }
 
     void OnTriggerExit(Collider other)

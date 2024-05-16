@@ -113,7 +113,7 @@ NavMeshSettings:
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
-    manualCellSize: 0
+    manualCellSize: 1
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
@@ -12188,6 +12188,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 644731221}
     m_Modifications:
+    - target: {fileID: 8513859187771203891, guid: a1ede45d5aba4584facf07130f2ddb08, type: 3}
+      propertyPath: m_Name
+      value: Cylinder.0011
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6d30b0f3d48a4b4d81d402d8da2ac0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 54.555172
@@ -12279,10 +12283,6 @@ PrefabInstance:
     - target: {fileID: 1698912862907734937, guid: c6d30b0f3d48a4b4d81d402d8da2ac0b, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 8513859187771203891, guid: a1ede45d5aba4584facf07130f2ddb08, type: 3}
-      propertyPath: m_Name
-      value: Cylinder.0011
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15317,8 +15317,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2060027048}
-  - component: {fileID: 2060027050}
   - component: {fileID: 2060027049}
+  - component: {fileID: 2060027051}
+  - component: {fileID: 2060027052}
   m_Layer: 0
   m_Name: Capture Theif
   m_TagString: Untagged
@@ -15362,7 +15363,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 85.85709, y: 60, z: 63.956142}
   m_Center: {x: -12.928542, y: 0, z: 1.9780834}
---- !u!114 &2060027050
+--- !u!114 &2060027051
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15371,10 +15372,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 2060027047}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccd366f47bcc92d4fa47d5fd6110981d, type: 3}
+  m_Script: {fileID: 11500000, guid: 286ed351dae49de49805827a69e7c221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EffectedObject: {fileID: 0}
+  thief: {fileID: 1682324892}
+  eventcollider: {fileID: 2060027049}
+  button: 0
+--- !u!114 &2060027052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060027047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca8531648a7f8344e9b9af82a58dd19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectedObject: {fileID: 1682324892}
   LookAt: {fileID: 94229616}
   Subtitle: {fileID: 1616457107}
   Switch: 0
@@ -15384,6 +15400,7 @@ MonoBehaviour:
     cause trouble. Keep patrolling for any suspicious activity.
   PlayerBehavior: {fileID: 963194230}
   scr_player_movement: {fileID: 1468131430}
+  scr_kick_thief_event: {fileID: 2060027051}
   Audio: {fileID: 0}
 --- !u!1 &2067976090
 GameObject:
