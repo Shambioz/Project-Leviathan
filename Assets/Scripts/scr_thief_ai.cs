@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class scr_thief_ai : MonoBehaviour
 {
-    [SerializeField] private NavMeshAgent agent;
+    [SerializeField] public NavMeshAgent agent;
     public Transform target;
 
 
