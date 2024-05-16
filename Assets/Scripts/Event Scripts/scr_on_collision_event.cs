@@ -38,6 +38,7 @@ public class scr_on_collision_event : MonoBehaviour
             //empty camera target to resume normal functionality
             PredictedEndTime = 0;
             //destroy this component when subtitle has been activated at end
+            Destroy(gameObject);
         }
     }
 
@@ -58,6 +59,7 @@ public class scr_on_collision_event : MonoBehaviour
                 PredictedEndTime = Time.time + AudioClipLength;
             //if audio is playing change text in TextMeshProUGUI for subtitle & trigger destruction
             if (AudioSource.isPlaying){ Subtitle.text = "" + Text;}
+            //destroy thief
             }
     }
 
