@@ -12,6 +12,7 @@ public class scr_pew_pew_pew : MonoBehaviour
     private Vector3 hit_marker;
     public scr_thief_hit thief_hit;
     public GameObject hitted;
+    public scr_pew_pew_pew_2 pew_pew_pew_2;
 
 
     // Start is called before the first frame update
@@ -31,7 +32,7 @@ public class scr_pew_pew_pew : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && pew_pew_pew_2.battery > 0)
         {
             lr.enabled = true;
             drone_position = drone.transform.position;
