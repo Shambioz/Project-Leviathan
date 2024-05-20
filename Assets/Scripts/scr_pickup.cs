@@ -35,6 +35,8 @@ public class scr_pick_up_object : MonoBehaviour
     //Add subtitles
     public TextMeshProUGUI Subtitle;
     public GameObject the_one_you_picked_up;
+    public scr_thief_hit thief_hit;
+    public bool hilfe1 = false;
     void Update()
     {
 
@@ -42,7 +44,7 @@ public class scr_pick_up_object : MonoBehaviour
         {
             // Get the player's position in world space
             playerPosition = scr_player_manager.instance.GetPlayerPosition();
-            Debug.Log("player position: " + player);
+            //Debug.Log("player position: " + player);
             // Convert the player's position to screen coordinates
             cameraPosition = Camera.main.transform.position;
             cameraForward = Camera.main.transform.forward;
@@ -51,7 +53,7 @@ public class scr_pick_up_object : MonoBehaviour
 
             // Set the object's position to be in the center of the screen
             obj_carried.transform.position = centerPosition;
-            Debug.Log("object position: " + screenPosition.x + (screenPosition.y-25) + 0f);
+            //Debug.Log("object position: " + screenPosition.x + (screenPosition.y-25) + 0f);
         }
 
     }
@@ -72,10 +74,16 @@ public class scr_pick_up_object : MonoBehaviour
                 {
                     obj_carried = hit.collider.GameObject();
                     the_one_you_picked_up = hit.collider.GameObject();
-                    if (obj_carried != null && obj_carried.GetComponent<scr_pickupable>() != null)
+                    thief_hit = hit.collider.GameObject().GetComponent<scr_thief_hit>();
+                    if (thief_hit != null)
+                    {
+                        thief_hit.help1 = true;
+                    }
+                    if (obj_carried != null && obj_carried.GetComponent<scr_pickupable>() != null && thief_hit == null || obj_carried != null && obj_carried.GetComponent<scr_pickupable>() != null && thief_hit != null && hilfe1 == true)
                     {
                         is_active = true;
                         is_carrying = true;
+                        hilfe1 = false;
                         rb = obj_carried.GetComponent<Rigidbody>();
                         if (rb != null)
                         {

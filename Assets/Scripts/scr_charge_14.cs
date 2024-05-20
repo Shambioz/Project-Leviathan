@@ -18,11 +18,11 @@ public class scr_charge_14 : MonoBehaviour
         player_collider = player.GetComponent<Collider>();
         if (player_collider == null)
         {
-            Debug.Log("player_collider == nul");
+            //Debug.Log("player_collider == nul");
         }
         if (charge_14_collider == null)
         {
-            Debug.Log("charge_14_collider == nul");
+            //Debug.Log("charge_14_collider == nul");
         }
     }
 
@@ -31,7 +31,7 @@ public class scr_charge_14 : MonoBehaviour
     {
         if (charge_14_collider.bounds.Intersects(player_collider.bounds))
         {
-            Debug.Log("URRRAAAAAAAAAAAAAAAAAAAAAAAA");
+            //Debug.Log("URRRAAAAAAAAAAAAAAAAAAAAAAAA");
             pew_pew_pew_2.battery += 0.003f;
             if (pew_pew_pew_2.battery > pew_pew_pew_2.maxbattery)
             {

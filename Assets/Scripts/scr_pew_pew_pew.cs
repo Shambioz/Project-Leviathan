@@ -10,8 +10,8 @@ public class scr_pew_pew_pew : MonoBehaviour
     private GameObject playerrro;
     private Vector3 drone_position;
     private Vector3 hit_marker;
-    private scr_thief_hit thief_hit;
-    private GameObject hitted;
+    public scr_thief_hit thief_hit;
+    public GameObject hitted;
 
 
     // Start is called before the first frame update
@@ -47,8 +47,10 @@ public class scr_pew_pew_pew : MonoBehaviour
             {
                 hitted = hit.collider.GameObject();
                 thief_hit = hitted.GetComponent < scr_thief_hit >();
+                //thief_hit = hit.collider.GameObject().GetComponent< scr_thief_hit >();
                 if (thief_hit != null )
                 {
+                    Debug.Log("My GF is cute!");
                     thief_hit.is_hit = true;
                 }
             }
