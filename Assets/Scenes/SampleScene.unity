@@ -809,6 +809,7 @@ MonoBehaviour:
   lr: {fileID: 0}
   thief_hit: {fileID: 0}
   hitted: {fileID: 0}
+  pew_pew_pew_2: {fileID: 611600900}
 --- !u!120 &72745572
 LineRenderer:
   serializedVersion: 2
@@ -11202,6 +11203,7 @@ MonoBehaviour:
   lr: {fileID: 0}
   thief_hit: {fileID: 0}
   hitted: {fileID: 0}
+  pew_pew_pew_2: {fileID: 611600900}
 --- !u!1 &1442088871
 GameObject:
   m_ObjectHideFlags: 0
