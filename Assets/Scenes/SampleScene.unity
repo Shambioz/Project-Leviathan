@@ -3092,6 +3092,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: d9074f9fdbfec2d438fd29e7c57be581, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1682324897}
+    - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: d9074f9fdbfec2d438fd29e7c57be581, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1682324903}
   m_SourcePrefab: {fileID: 100100000, guid: d9074f9fdbfec2d438fd29e7c57be581, type: 3}
 --- !u!1 &374240135
 GameObject:
@@ -7685,7 +7688,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003462132}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9c5671fdb2dcc941b8e5968e50615a4, type: 3}
   m_Name: 
@@ -13520,6 +13523,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1682324903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682324892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9c5671fdb2dcc941b8e5968e50615a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thief_ai: {fileID: 424465535}
+  is_hit: 0
+  agent: {fileID: 1682324893}
+  hp: 0
+  help1: 0
+  pick_up: {fileID: 611600892}
 --- !u!1 &1694935786
 GameObject:
   m_ObjectHideFlags: 0
