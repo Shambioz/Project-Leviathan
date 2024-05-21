@@ -61,8 +61,9 @@ public class scr_thief_spawning : MonoBehaviour
             randomIndex = Random.Range(0, coordinates.Length);
             Vector3 randomVector = coordinates[randomIndex];
             GameObject thief = Instantiate(Thief, randomVector, Quaternion.identity);
+            thief.AddComponent<Rigidbody>();
+            thief.AddComponent<scr_pickupable>();
             thief.AddComponent<NavMeshAgent>();
-            //thief.AddComponent<scr_thief_hit>();
             NavMeshAgent agent;
             agent = thief.GetComponent<NavMeshAgent>();
             agent.SetDestination(target.position);
