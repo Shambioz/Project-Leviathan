@@ -15,7 +15,7 @@ public class scr_pew_pew_pew_2 : MonoBehaviour
         {
             if (battery > 0)
             {
-                battery -= 0.005f;
+                battery -= 0.001f;
             }
             if (battery < 0f)
             {
