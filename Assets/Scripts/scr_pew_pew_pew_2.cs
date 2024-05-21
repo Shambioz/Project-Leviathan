@@ -5,8 +5,7 @@ using UnityEngine;
 public class scr_pew_pew_pew_2 : MonoBehaviour
 {
     public float battery;
-    public float maxbattery;
-    //public scr_pew_pew_pew ianhdusbhdaisd;
+    public float maxbattery;    
 
     // Update is called once per frame
     void Update()
@@ -15,14 +14,14 @@ public class scr_pew_pew_pew_2 : MonoBehaviour
         {
             if (battery > 0)
             {
-                battery -= 0.005f;
+                battery -= 0.001f;
             }
             if (battery < 0f)
             {
                 battery = 0f;
             }
-            //Debug.Log("bat:" + battery);
-            //Debug.Log("bat perc: " + battery / maxbattery);
+            Debug.Log("bat:" + battery);
+            Debug.Log("bat perc: " + battery / maxbattery);
         }
     }
 }
