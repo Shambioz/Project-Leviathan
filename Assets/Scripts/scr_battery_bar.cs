@@ -19,8 +19,8 @@ public class scr_battery_bar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log($"thinghu:  {pew_pew.battery / pew_pew.maxbattery}" );
-        Debug.Log($"pew_pew.battery: {pew_pew.battery}  pew_pew.maxbattery {pew_pew.maxbattery}" );
+        //Debug.Log($"thinghu:  {pew_pew.battery / pew_pew.maxbattery}" );
+        //Debug.Log($"pew_pew.battery: {pew_pew.battery}  pew_pew.maxbattery {pew_pew.maxbattery}" );
         slider.value = pew_pew.battery / pew_pew.maxbattery;
         //fill.fillAmount = pew_pew.battery / pew_pew.maxbattery;
     }
