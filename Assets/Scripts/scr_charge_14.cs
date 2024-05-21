@@ -32,7 +32,7 @@ public class scr_charge_14 : MonoBehaviour
         if (charge_14_collider.bounds.Intersects(player_collider.bounds))
         {
             //Debug.Log("URRRAAAAAAAAAAAAAAAAAAAAAAAA");
-            pew_pew_pew_2.battery += 0.010f;
+            pew_pew_pew_2.battery += 0.005f;
             if (pew_pew_pew_2.battery > pew_pew_pew_2.maxbattery)
             {
                 pew_pew_pew_2.battery = pew_pew_pew_2.maxbattery;
