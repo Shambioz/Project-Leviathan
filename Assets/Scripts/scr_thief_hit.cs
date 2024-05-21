@@ -13,6 +13,7 @@ public class scr_thief_hit : MonoBehaviour
     public int hp = 0;
     public bool help1 = false;
     public scr_pick_up_object pick_up;
+    public bool fix_this_shyt = false;
 
     // Start is called before the first frame update
     void Start()
@@ -41,10 +42,14 @@ public class scr_thief_hit : MonoBehaviour
             //}
         }
 
+        Debug.Log("THE TRUTH: " + help1 + " " + thief_ai.stateagent);
+
         if (help1 == true && thief_ai.stateagent == 1)
         {
             pick_up.hilfe1 = true;
+            Debug.Log("WORKS");
         }
         help1 = false;
+
     }
 }
