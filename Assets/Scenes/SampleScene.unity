@@ -867,6 +867,7 @@ MonoBehaviour:
   thief_hit: {fileID: 0}
   hitted: {fileID: 0}
   pew_pew_pew_2: {fileID: 0}
+  battery: 0
 --- !u!120 &72745572
 LineRenderer:
   serializedVersion: 2
@@ -1769,6 +1770,7 @@ MonoBehaviour:
   charge_14_collider: {fileID: 0}
   player_collider: {fileID: 0}
   pew_pew_pew_2: {fileID: 611600900}
+  pew_pew_pew: {fileID: 72745571}
 --- !u!1 &154871508
 GameObject:
   m_ObjectHideFlags: 0
@@ -4708,7 +4710,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 963194228}
-  - {fileID: 1417538262}
   m_Father: {fileID: 1468131431}
   m_LocalEulerAnglesHint: {x: -0.019, y: -0.054, z: 0.522}
 --- !u!114 &611600892
@@ -12506,54 +12507,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 636693460}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!1 &1417538261
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1417538262}
-  - component: {fileID: 1417538263}
-  m_Layer: 2
-  m_Name: pewpewpew
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1417538262
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417538261}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 611600890}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1417538263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417538261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a284f263da9744446ad7ce64ce31c764, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lr: {fileID: 72745572}
-  thief_hit: {fileID: 0}
-  hitted: {fileID: 0}
-  pew_pew_pew_2: {fileID: 0}
 --- !u!1 &1435916078
 GameObject:
   m_ObjectHideFlags: 0

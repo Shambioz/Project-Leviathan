@@ -9,6 +9,7 @@ public class scr_charge_14 : MonoBehaviour
     public Collider charge_14_collider;
     public Collider player_collider;
     public scr_pew_pew_pew_2 pew_pew_pew_2;
+    public scr_pew_pew_pew pew_pew_pew;
 
 
     // Start is called before the first frame update
@@ -33,9 +34,14 @@ public class scr_charge_14 : MonoBehaviour
         {
             Debug.Log("URRRAAAAAAAAAAAAAAAAAAAAAAAA");
             pew_pew_pew_2.battery += 0.003f;
+            pew_pew_pew.battery += 0.003f;
             if (pew_pew_pew_2.battery > pew_pew_pew_2.maxbattery)
             {
                 pew_pew_pew_2.battery = pew_pew_pew_2.maxbattery;
+            }
+            if (pew_pew_pew.battery > 1)
+            {
+                pew_pew_pew.battery = 1;
             }
         }
     }
