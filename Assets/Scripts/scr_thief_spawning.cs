@@ -19,7 +19,7 @@ public class scr_thief_spawning : MonoBehaviour
     int easy = 0;
     int medium = 2;
     int hard = 4;
-    
+
     public Transform target;
     // Start is called before the first frame update 
     void Start()
@@ -44,7 +44,7 @@ public class scr_thief_spawning : MonoBehaviour
         {
             SpawnThief(easy);
             thief_is_free = false;
-            
+
 
 
 
@@ -82,7 +82,7 @@ public class scr_thief_spawning : MonoBehaviour
     {
         if (target != null)
         {
-           
+
         }
     }
 }

@@ -864,6 +864,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lr: {fileID: 0}
+  thief_hit: {fileID: 0}
+  hitted: {fileID: 0}
+  pew_pew_pew_2: {fileID: 0}
 --- !u!120 &72745572
 LineRenderer:
   serializedVersion: 2
@@ -3847,6 +3850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
   target: {fileID: 424465534}
+  stateagent: 0
 --- !u!135 &424465537
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4730,6 +4734,8 @@ MonoBehaviour:
   scr_pickupable: {fileID: 0}
   Subtitle: {fileID: 1616457107}
   the_one_you_picked_up: {fileID: 0}
+  thief_hit: {fileID: 0}
+  hilfe1: 0
 --- !u!114 &611600893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12544,7 +12550,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a284f263da9744446ad7ce64ce31c764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lr: {fileID: 0}
+  lr: {fileID: 72745572}
+  thief_hit: {fileID: 0}
+  hitted: {fileID: 0}
+  pew_pew_pew_2: {fileID: 0}
 --- !u!1 &1435916078
 GameObject:
   m_ObjectHideFlags: 0
