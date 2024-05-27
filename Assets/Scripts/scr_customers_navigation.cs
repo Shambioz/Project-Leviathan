@@ -8,9 +8,10 @@ public class scr_customers_navigation : MonoBehaviour
     public int cust_amount = 5;
     public GameObject[] Customers;
     public GameObject Customer;
-    private Vector3 spawn_point = new Vector3(-28.75f, 0.38f, -8.58f);
+    public Vector3 spawn_point = new Vector3(-28.75f, 0.38f, -8.58f);
     public GameObject[] TargetPosition;
-    private int count = 0;
+    public int count = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class scr_customers_navigation : MonoBehaviour
     // Update is called once per frame
     IEnumerator SpawnCustomersCoroutine()
     {
-        while (count < cust_amount)
+        while (count < 5)
         {
             SpawnCustomer(1);
             count++;

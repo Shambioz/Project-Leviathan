@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,13 +12,16 @@ public class scr_customers_behaviour : MonoBehaviour
     private NavMeshAgent agent;
     private scr_customers_navigation navigation;
     private CustomerState currentState;
+    private Vector3 exit = new Vector3(8.13f, 9.55f, -11.9f);
+    private int count = 0;
 
     private enum CustomerState
     {
         Idle,
         Moving,
         Going,
-        Waiting
+        Waiting,
+        Exiting
     }
 
     // Start is called before the first frame update
@@ -27,16 +31,14 @@ public class scr_customers_behaviour : MonoBehaviour
         if (agent == null)
         {
             agent = gameObject.AddComponent<NavMeshAgent>();
+            Debug.Log("NavMeshAgent component added");
         }
-
-        // Find and get the scr_customers_navigation component
         navigation = FindObjectOfType<scr_customers_navigation>();
         if (navigation == null)
         {
-            Debug.LogError("scr_customers_navigation component not found.");
+            Debug.LogError("Navigation component not found");
             return;
         }
-
         currentState = CustomerState.Idle;
         StartCoroutine(StateMachine());
     }
@@ -59,64 +61,72 @@ public class scr_customers_behaviour : MonoBehaviour
                 case CustomerState.Waiting:
                     yield return StartCoroutine(WaitingState());
                     break;
+                case CustomerState.Exiting:
+                    yield return StartCoroutine(ExitState());
+                    break;
             }
+            yield return null;
         }
     }
 
     IEnumerator IdleState()
     {
-        // Perform idle actions, if any
-        // Transition to Moving state
         TransitionToState(CustomerState.Moving);
         yield break;
     }
 
     IEnumerator MovingState()
     {
-        Debug.Log("Transitioning to Moving state");
-
-        // Pick a random target position
         int randomIndex = Random.Range(0, navigation.TargetPosition.Length);
         Vector3 targetPosition = navigation.TargetPosition[randomIndex].transform.position;
         agent.SetDestination(targetPosition);
-        agent.stoppingDistance = 4;
-
-        // Transition to Going state
+        agent.stoppingDistance = 2;
         TransitionToState(CustomerState.Going);
         yield break;
     }
 
     IEnumerator GoingState()
     {
-        Debug.Log("Moving to target");
-
-        while (true)
+        while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
         {
-            if (agent.remainingDistance <= agent.stoppingDistance)
-            {   
-                TransitionToState(CustomerState.Waiting);
-                yield break;
-            }
             yield return null;
         }
+        TransitionToState(CustomerState.Waiting);
     }
 
     IEnumerator WaitingState()
     {
-        Debug.Log("Waiting at target");
-
-        // Wait for 5 seconds at the target
         yield return new WaitForSeconds(5f);
+        count++;
+        if (count > 5)
+        {
+            TransitionToState(CustomerState.Exiting);
+        }
+        else
+        {
+            TransitionToState(CustomerState.Moving);
+        }
+    }
 
-        // Transition to Moving state
-        TransitionToState(CustomerState.Moving);
+    IEnumerator ExitState()
+    {
+        agent.SetDestination(navigation.spawn_point);
+        agent.stoppingDistance = 1;
+
+        while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance || agent.velocity.sqrMagnitude >= 0.1f)
+        {
+            yield return null;
+        }
+        navigation.count--;
+        Destroy(gameObject, 2);
     }
 
     private void TransitionToState(CustomerState newState)
     {
-        Debug.Log($"Transitioning to {newState}");
         currentState = newState;
     }
+    
 }
+
 
 

@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4875d6f52cc894941bfd64c34732f225, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.31897
+      value: -24.08141
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4875d6f52cc894941bfd64c34732f225, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000023841858
+      value: 0.00000047683716
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4875d6f52cc894941bfd64c34732f225, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.13332
+      value: -15.402489
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4875d6f52cc894941bfd64c34732f225, type: 3}
       propertyPath: m_LocalRotation.w
@@ -73,9 +73,6 @@ PrefabInstance:
       addedObject: {fileID: 8928524915789479370}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4875d6f52cc894941bfd64c34732f225, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2484957342469753294}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4875d6f52cc894941bfd64c34732f225, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 5136417558016129216}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4875d6f52cc894941bfd64c34732f225, type: 3}
       insertIndex: -1
@@ -105,33 +102,6 @@ MonoBehaviour:
   audioTranscript: 
   audioTranscriptInt: 
   is_in_place: 0
---- !u!54 &2484957342469753294
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066861530684342756}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!195 &5136417558016129216
 NavMeshAgent:
   m_ObjectHideFlags: 0
