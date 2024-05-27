@@ -121,7 +121,7 @@ public class scr_player_movement : MonoBehaviour
         //this.transform.Translate(Vector3.forward * lmb  * Time.deltaTime);
 
         //delete subtitles when audio finishes
-        if (!scr_pick_up_object.scr_pickupable.audioSource.isPlaying && !Audio.isPlaying && Audio.isPlaying) { if (Subtitle.text != "") { Subtitle.text = ""; } }
+        //if (!scr_pick_up_object.scr_pickupable.audioSource.isPlaying && !Audio.isPlaying && Audio.isPlaying) { if (Subtitle.text != "") { Subtitle.text = ""; } }
     }
 
 

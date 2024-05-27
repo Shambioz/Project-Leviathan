@@ -15,6 +15,13 @@ public class scr_pickupable : MonoBehaviour
     public AudioSource audioSourceInt;
     public String audioTranscript;
     public String audioTranscriptInt;
+
+    // Array to hold the audio sources
+    public AudioSource[] audioSources;
+
+    // Array to hold the strings to be displayed
+    public string[] displayTexts;
+
     //public MeshRenderer ChildMesh;
     //public Material Mat;
     //public SurfaceDataAttributes surfaceData;

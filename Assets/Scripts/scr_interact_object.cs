@@ -26,6 +26,7 @@ public class scr_interact_object : MonoBehaviour
     public GameObject the_one_you_picked_up;
     private float AudioClipLength;
     private float AudioClipLengthEnd = 0;
+    public scr_audio_manager scr_audio_manager;
 
 
     // Start is called before the first frame update
@@ -61,29 +62,12 @@ public class scr_interact_object : MonoBehaviour
                 obj_interacting = hit.collider.GameObject();
                 Debug.Log(obj_interacting.name);
                 scr_pickupableInt = obj_interacting.GetComponent<scr_pickupable>();
-                if (scr_pickupableInt != null && scr_pickupableInt.audioSourceInt.isPlaying)
-                {
-                    scr_pickupableInt.audioSourceInt.Stop();
-                    Subtitle.text = null;
-                }
-                
                 if (scr_pickupableInt != null)
                 {
-
-                    if (scr_pickupableInt.audioSourceInt != null)
-                    {
-                        //play audio from scr_pickupable
-                        AudioClipLength = scr_pickupableInt.audioSourceInt.clip.length;
-                        AudioClipLengthEnd = Time.time + AudioClipLength;
-                        scr_pickupableInt.audioSourceInt.Play();
-                        if (scr_pickupableInt.audioSourceInt.isPlaying)
-                        {
-                            Subtitle.text = scr_pickupableInt.audioTranscriptInt;
-                            spoke = true;
-                        }
-
-                    }
-
+                    //get array for both audio and text from obj
+                    scr_audio_manager.audioSources = scr_pickupableInt.audioSources;
+                    scr_audio_manager.displayTexts = scr_pickupableInt.displayTexts;
+                    scr_audio_manager.PlayAudioAndDisplayText();
                 }
                 
             }
