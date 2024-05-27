@@ -13,6 +13,17 @@ public class scr_pickupable : MonoBehaviour
     public GameObject ChildLayer;
     public AudioSource audioSource;
     public String audioTranscript;
+<<<<<<< Updated upstream
+=======
+    public String audioTranscriptInt;
+
+    // Array to hold the audio sources
+    public AudioSource[] audioSources;
+
+    // Array to hold the strings to be displayed
+    public string[] displayTexts;
+
+>>>>>>> Stashed changes
     //public MeshRenderer ChildMesh;
     //public Material Mat;
     //public SurfaceDataAttributes surfaceData;
@@ -28,6 +39,7 @@ public class scr_pickupable : MonoBehaviour
     //highlight Objects when mouse hovers over obj
     void OnMouseEnter()
     {
+<<<<<<< Updated upstream
         //gameObject.layer = 3;
         //UItext.text = "" + gameObject.name;
         //ChildLayer.layer = 3;
@@ -39,6 +51,11 @@ public class scr_pickupable : MonoBehaviour
            // renderer.sharedMaterial = materialTrans;
             //ChildMesh.material = transparentMaterial;
             //audioSource.Play();
+=======
+        gameObject.layer = 3;
+        UItext.text = "" + gameObject.name;
+        ChildLayer.layer = 3;
+>>>>>>> Stashed changes
     }
 
     //unhighlight Objects when mouse hovers over obj
@@ -50,6 +67,7 @@ public class scr_pickupable : MonoBehaviour
             //ChildMesh.material = Mat;
     }
 
+<<<<<<< Updated upstream
     // Update is called once per frame
     void Update()
     {
@@ -64,4 +82,18 @@ public class scr_pickupable : MonoBehaviour
             gameObject.SetActive(false); // This disables the GameObject the script is attached to
         }
     }*/
+=======
+
+    //Przemek's stuff
+    public bool is_in_place = false;
+
+
+    void Update()
+    {
+        if (is_in_place == true)
+        {
+            this.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+        }
+    }
+>>>>>>> Stashed changes
 }
