@@ -21,7 +21,8 @@ public class scr_customers_behaviour : MonoBehaviour
         Moving,
         Going,
         Waiting,
-        Exiting
+        Exiting,
+        Finale
     }
 
     // Start is called before the first frame update
@@ -78,6 +79,9 @@ public class scr_customers_behaviour : MonoBehaviour
                     break;
                 case CustomerState.Exiting:
                     yield return StartCoroutine(ExitState());
+                    break;
+                case CustomerState.Finale:
+                    yield return StartCoroutine(FinaleState());
                     break;
             }
             yield return null;
@@ -136,6 +140,11 @@ public class scr_customers_behaviour : MonoBehaviour
         }
         if(navigation.count == 5) { navigation.count--; Destroy(gameObject); }
         
+    }
+
+    IEnumerator FinaleState()
+    {
+        yield return null;
     }
 
     private void TransitionToState(CustomerState newState)

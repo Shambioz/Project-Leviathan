@@ -24,32 +24,33 @@ public class scr_thief_hit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (is_hit == false && hp < maxhp)
-        {
-            hp++;
-        }
+        
         if (is_hit == true)
         {
             hp -= 3;
             is_hit = false;
+            if (hp < 0)
+            {
+                hp = 0;
+            }
         }
         if (hp <= 0)
         {
             //if (agent == thief_ai.agent)
             //{
-            thief_ai.stateagent = 1;
-            Debug.Log("WAGABONGO");
+            //thief_ai.stateagent = 1;
+            //Debug.Log("WAGABONGO");
             //}
         }
 
-        Debug.Log("THE TRUTH: " + help1 + " " + thief_ai.stateagent);
+        //Debug.Log("THE TRUTH: " + help1 + " " + thief_ai.stateagent);
 
-        if (help1 == true && thief_ai.stateagent == 1)
+        /*if (help1 == true && thief_ai.stateagent == 1)
         {
             pick_up.hilfe1 = true;
             Debug.Log("WORKS");
         }
-        help1 = false;
+        help1 = false;*/
 
     }
 }

@@ -22,7 +22,7 @@ public class scr_customers_navigation : MonoBehaviour
     public GameObject[] TargetPosition;
     public GameObject[] Artefacts;
     public int count = 0;
-    public float thief_chance = 0.9f;
+    public float thief_chance = 0.3f;
     public Transform target;
 
     // Start is called before the first frame update
@@ -104,6 +104,7 @@ public class scr_customers_navigation : MonoBehaviour
             //thief.AddComponent<NavMeshAgent>();
             thief.AddComponent<scr_thief_hit>();
             thief.AddComponent<scr_thief_behaviour>();
+            thief.AddComponent<scr_pew_pew_pew>();
             return thief;
     }
 }
