@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
@@ -10,6 +10,7 @@ using UnityEngine.AI;
 public class scr_thief_spawning : MonoBehaviour
 {
     private bool thief_is_free = true;
+    public scr_customers_behaviour scr_customers_behaviour;
     public GameObject targetPoint;
     //private scr_thief_ai agent;
     public Vector3[] coordinates;
@@ -67,6 +68,8 @@ public class scr_thief_spawning : MonoBehaviour
             thief.AddComponent<scr_thief_hit>();
             NavMeshAgent agent;
             agent = thief.GetComponent<NavMeshAgent>();
+            //agent.updateRotation = false;
+            //scr_customers_behaviour.UpdateRotation();
             agent.SetDestination(target.position);
             thief_is_free = false;
             NavMeshAgent agent1 = thief.GetComponent<NavMeshAgent>();
@@ -75,15 +78,19 @@ public class scr_thief_spawning : MonoBehaviour
             {
                 agent.SetDestination(target.position);
             }*/
-            thieves.Add(thief);
+            /*thieves.Add(thief);
         }
         return thieves;
-    }
-    void MoveThief()
+    }*/
+    /*private void UpdateRotation()
     {
-        if (target != null)
+        // Calculate the direction to look at
+        if (agent.velocity.sqrMagnitude > 0.1f) // If the agent is moving
         {
-
+            Vector3 direction = agent.velocity.normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f); // Smooth rotation
         }
-    }
-}
+    }*/
+    
+//}

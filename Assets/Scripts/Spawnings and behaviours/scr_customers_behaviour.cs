@@ -33,16 +33,31 @@ public class scr_customers_behaviour : MonoBehaviour
             agent = gameObject.AddComponent<NavMeshAgent>();
             Debug.Log("NavMeshAgent component added");
         }
+        Rigidbody rb = GetComponent<Rigidbody>();
         navigation = FindObjectOfType<scr_customers_navigation>();
+        rb.mass = 100f; // Increase mass
+        rb.angularDrag = 10f; // Increase angular drag
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ; // Freeze rotation on X and Z axis
         if (navigation == null)
         {
             Debug.LogError("Navigation component not found");
             return;
         }
+        agent.updateRotation = false;
         currentState = CustomerState.Idle;
         StartCoroutine(StateMachine());
     }
 
+    private void UpdateRotation()
+    {
+        // Calculate the direction to look at
+        if (agent.velocity.sqrMagnitude > 0.1f) // If the agent is moving
+        {
+            Vector3 direction = agent.velocity.normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f); // Smooth rotation
+        }
+    }
     IEnumerator StateMachine()
     {
         while (true)
@@ -89,6 +104,7 @@ public class scr_customers_behaviour : MonoBehaviour
     {
         while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
         {
+            UpdateRotation();
             yield return null;
         }
         TransitionToState(CustomerState.Waiting);
@@ -115,10 +131,11 @@ public class scr_customers_behaviour : MonoBehaviour
 
         while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance || agent.velocity.sqrMagnitude >= 0.1f)
         {
+            UpdateRotation();
             yield return null;
         }
-        navigation.count--;
-        Destroy(gameObject, 2);
+        if(navigation.count == 5) { navigation.count--; Destroy(gameObject); }
+        
     }
 
     private void TransitionToState(CustomerState newState)
