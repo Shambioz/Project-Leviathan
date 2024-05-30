@@ -11806,6 +11806,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 644731221}
     m_Modifications:
+    - target: {fileID: 8513859187771203891, guid: a1ede45d5aba4584facf07130f2ddb08, type: 3}
+      propertyPath: m_Name
+      value: Cylinder.0011
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6d30b0f3d48a4b4d81d402d8da2ac0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 54.555172
@@ -11897,10 +11901,6 @@ PrefabInstance:
     - target: {fileID: 1698912862907734937, guid: c6d30b0f3d48a4b4d81d402d8da2ac0b, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 8513859187771203891, guid: a1ede45d5aba4584facf07130f2ddb08, type: 3}
-      propertyPath: m_Name
-      value: Cylinder.0011
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
