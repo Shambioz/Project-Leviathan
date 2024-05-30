@@ -14,6 +14,7 @@ public class scr_thief_behaviour : MonoBehaviour
     public bool is_artefact_stolen = false;
     public bool active = false;
     public float radius = 10f;
+    private Animator Walking;
     public Transform centerPoint;
 
     private enum ThiefState
@@ -35,6 +36,7 @@ public class scr_thief_behaviour : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         Rigidbody rb = GetComponent<Rigidbody>();
         navigation = FindObjectOfType<scr_customers_navigation>();
+        Walking = GetComponent<Animator>();
         rb.mass = 100f; // Increase mass
         rb.angularDrag = 10f; // Increase angular drag
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ; // Freeze rotation on X and Z axis
@@ -137,6 +139,7 @@ public class scr_thief_behaviour : MonoBehaviour
     IEnumerator WaitingState()
     {
         Debug.Log("Waiting");
+        Walking.enabled = false;
         yield return new WaitForSeconds(5f);
         TransitionToState(ThiefState.Stealing);
     }
@@ -162,7 +165,7 @@ public class scr_thief_behaviour : MonoBehaviour
 
     IEnumerator ParalisingState()
     {
-
+        Walking.enabled = false;
         Debug.Log("Paralised");
         if (inventory != null)
         {
@@ -237,6 +240,7 @@ public class scr_thief_behaviour : MonoBehaviour
 
     IEnumerator ExitState()
     {
+        Walking.enabled = true;
         Debug.Log("Leaving");
         agent.SetDestination(navigation.spawn_point);
         agent.stoppingDistance = 1;
@@ -257,6 +261,7 @@ public class scr_thief_behaviour : MonoBehaviour
 
     IEnumerator FinaleState()
     {
+        Walking.enabled = false;
         Debug.Log("Finale");
         if (inventory != null)
         {
