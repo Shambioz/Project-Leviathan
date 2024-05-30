@@ -13,7 +13,7 @@ public class scr_thief_behaviour : MonoBehaviour
     public scr_thief_hit hp;
     public bool is_artefact_stolen = false;
     public bool active = false;
-    public float radius = 2f;
+    public float radius = 10f;
     public Transform centerPoint;
 
     private enum ThiefState
@@ -64,36 +64,36 @@ public class scr_thief_behaviour : MonoBehaviour
             }
             else
             {*/
-                switch (currentState)
-                {
-                    case ThiefState.Idle:
-                        yield return StartCoroutine(IdleState());
-                        break;
-                    case ThiefState.Moving:
-                        yield return StartCoroutine(MovingState());
-                        break;
-                    case ThiefState.Going:
-                        yield return StartCoroutine(GoingState());
-                        break;
-                    case ThiefState.Waiting:
-                        yield return StartCoroutine(WaitingState());
-                        break;
-                    case ThiefState.Stealing:
-                        yield return StartCoroutine(StealingState());
-                        break;
-                    case ThiefState.Paralising:
-                        yield return StartCoroutine(ParalisingState());
-                        break;
-                    case ThiefState.Stealing_after_paralising:
-                        yield return StartCoroutine(Stealing_after_paralising());
-                        break;
-                    case ThiefState.Exiting:
-                        yield return StartCoroutine(ExitState());
-                        break;
-                    case ThiefState.Finale:
-                        yield return StartCoroutine(FinaleState());
-                        break;
-                
+            switch (currentState)
+            {
+                case ThiefState.Idle:
+                    yield return StartCoroutine(IdleState());
+                    break;
+                case ThiefState.Moving:
+                    yield return StartCoroutine(MovingState());
+                    break;
+                case ThiefState.Going:
+                    yield return StartCoroutine(GoingState());
+                    break;
+                case ThiefState.Waiting:
+                    yield return StartCoroutine(WaitingState());
+                    break;
+                case ThiefState.Stealing:
+                    yield return StartCoroutine(StealingState());
+                    break;
+                case ThiefState.Paralising:
+                    yield return StartCoroutine(ParalisingState());
+                    break;
+                case ThiefState.Stealing_after_paralising:
+                    yield return StartCoroutine(Stealing_after_paralising());
+                    break;
+                case ThiefState.Exiting:
+                    yield return StartCoroutine(ExitState());
+                    break;
+                case ThiefState.Finale:
+                    yield return StartCoroutine(FinaleState());
+                    break;
+
             }
             yield return null;
         }
@@ -144,6 +144,10 @@ public class scr_thief_behaviour : MonoBehaviour
     IEnumerator StealingState()
     {
         Debug.Log("Stealing");
+        Collider collider = inventory.GetComponent<Collider>();
+        scr_pickupable remove = inventory.GetComponent<scr_pickupable>();
+        Destroy(collider);
+        Destroy(remove);
         inventory.transform.SetParent(transform); // Attach to the thief
         inventory.transform.localPosition = Vector3.zero; // Position it correctly on the thief
         Rigidbody rb = inventory.GetComponent<Rigidbody>();
@@ -162,6 +166,8 @@ public class scr_thief_behaviour : MonoBehaviour
         Debug.Log("Paralised");
         if (inventory != null)
         {
+            inventory.AddComponent<scr_pickupable>();
+            inventory.AddComponent<BoxCollider>();
             inventory.transform.SetParent(null); // Detach from the thief
             Rigidbody rb = inventory.GetComponent<Rigidbody>();
             if (rb != null)
@@ -194,31 +200,39 @@ public class scr_thief_behaviour : MonoBehaviour
             centerPoint = inventory.transform;
             float distance = Vector3.Distance(transform.position, centerPoint.position);
             Debug.Log("Stealing after paralising");
-            
-                if (distance <= radius)
-                {
-                    inventory.transform.SetParent(transform); // Attach to the thief
-                    inventory.transform.localPosition = Vector3.zero; // Position it correctly on the thief
-                    Rigidbody rb = inventory.GetComponent<Rigidbody>();
-                    is_artefact_stolen = true;
-                    if (rb != null)
-                    {
-                        rb.isKinematic = true; // Make the artifact kinematic to prevent physics issues
-                    }
-                    TransitionToState(ThiefState.Exiting);
-                    yield return null;
-                }
-                else if(distance > radius) 
-                {
-                    inventory = null;
-                    TransitionToState(ThiefState.Exiting);
-                    yield return null;
-                }
-            
-            
+
+            if (distance <= radius)
+            {
+                Collider collider = inventory.GetComponent<Collider>();
+                scr_pickupable remove = inventory.GetComponent<scr_pickupable>();
+                Destroy(collider);
+                Destroy(remove);
+                inventory.transform.SetParent(transform); // Attach to the thief
+                inventory.transform.localPosition = Vector3.zero; // Position it correctly on the thief
+                Rigidbody rb = inventory.GetComponent<Rigidbody>();
+                is_artefact_stolen = true;
+                rb.isKinematic = true; // Make the artifact kinematic to prevent physics issues
+                
+                Debug.Log("Theo");
+                yield return new WaitForSeconds(2f);
+
+            }
+            else if (distance > radius)
+            {
+                inventory = null;
+                yield return new WaitForSeconds(2f);
+
+            }
+            else
+            {
+                yield return null;
+            }
+            TransitionToState(ThiefState.Exiting);
+            yield break;
         }
-        
-        
+
+
+
     }
 
     IEnumerator ExitState()
@@ -246,6 +260,8 @@ public class scr_thief_behaviour : MonoBehaviour
         Debug.Log("Finale");
         if (inventory != null)
         {
+            inventory.AddComponent<scr_pickupable>();
+            inventory.AddComponent<BoxCollider>();
             inventory.transform.SetParent(null); // Detach from the thief
             Rigidbody rb = inventory.GetComponent<Rigidbody>();
             if (rb != null)
@@ -254,6 +270,7 @@ public class scr_thief_behaviour : MonoBehaviour
             }
         }
         navigation.count--;
+        navigation.StartSpawning();
         Destroy(gameObject); // Destroy the thief
         yield return null;
     }
@@ -266,8 +283,8 @@ public class scr_thief_behaviour : MonoBehaviour
 
     void Update()
     {
-        
-        if(hp.hp == 0)
+
+        if (hp.hp == 0)
         {
             active = true;
             Debug.Log("Saki saki fuki fuki");

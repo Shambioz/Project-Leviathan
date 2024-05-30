@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class scr_customers_navigation : MonoBehaviour
 {
@@ -38,12 +39,17 @@ public class scr_customers_navigation : MonoBehaviour
         coordinates[6] = new Vector3(-2.8f, 6.5f, 63.3f);
         coordinates[7] = new Vector3(-27.6f, 6.5f, 60.8f);
         coordinates[8] = new Vector3(-40.6f, 6.5f, 38.3f);
-        if(count < 5)
+
+        StartSpawning();
+        Customers = new GameObject[cust_amount];
+    }
+
+    public void StartSpawning()
+        {
+        if (count < 5)
         {
             StartCoroutine(SpawnCustomersCoroutine());
         }
-        
-        Customers = new GameObject[cust_amount];
     }
 
     // Update is called once per frame
@@ -52,6 +58,7 @@ public class scr_customers_navigation : MonoBehaviour
         while (count < 5)
         {
             Spawning();
+            Debug.Log(count);
             yield return new WaitForSeconds(2f);
         }
         
