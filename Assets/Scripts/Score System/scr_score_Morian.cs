@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class scr_alter_score : MonoBehaviour
+public class scr_score_Morian : MonoBehaviour
 {
-
     public Collider thiefcollider;
     public Collider eventbox;
     public Collider compareEventbox;
@@ -15,38 +13,24 @@ public class scr_alter_score : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        eventbox = gameObject.GetComponent<Collider>();
+
     }
 
-    // Update is called once per frame
-    /*void Update()
-    {
-        if (gameObject.GetComponent<Collider>().bounds.Intersects(thiefcollider.bounds))
-        {
-            scr_score_control.mortar = 500;
-        }
-
-        if (!gameObject.GetComponent<Collider>().bounds.Intersects(thiefcollider.bounds))
-        {
-            scr_score_control.mortar = 0;
-        }
-    }
-    */
     private void OnTriggerStay(Collider other)
     {
         compareEventbox = other.GetComponent<Collider>();
         if (compareEventbox = thiefcollider)
-        { 
-            scr_score_control.mortar = 500;
+        {
+            scr_score_control.Morian = 500;
             buton = true;
         }
-        
+
     }
     private void OnTriggerExit(Collider other)
     {
         if (buton == true)
         {
-            scr_score_control.mortar = 0;
+            scr_score_control.Morian = 0;
             buton = false;
         }
     }
