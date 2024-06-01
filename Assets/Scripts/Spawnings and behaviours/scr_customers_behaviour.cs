@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,6 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class scr_customers_behaviour : MonoBehaviour
 {
@@ -14,6 +16,11 @@ public class scr_customers_behaviour : MonoBehaviour
     private CustomerState currentState;
     private Vector3 exit = new Vector3(8.13f, 9.55f, -11.9f);
     private int count = 0;
+    public scr_thief_hit hp;
+    private bool active = false;
+    private scr_day_cycle Leave;
+    public int cycle;
+    public bool Leave1 = false;
 
     private enum CustomerState
     {
@@ -21,6 +28,7 @@ public class scr_customers_behaviour : MonoBehaviour
         Moving,
         Going,
         Waiting,
+        Paralising,
         Exiting,
         Finale
     }
@@ -28,6 +36,9 @@ public class scr_customers_behaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cycle = UnityEngine.Random.Range(1, 5);
+        hp = this.GetComponent<scr_thief_hit>();
+        Leave = this.GetComponent<scr_day_cycle>();
         agent = GetComponent<NavMeshAgent>();
         if (agent == null)
         {
@@ -59,6 +70,14 @@ public class scr_customers_behaviour : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f); // Smooth rotation
         }
     }
+    public void TriggerExit()
+    {
+        if (currentState != CustomerState.Exiting && currentState != CustomerState.Finale)
+        {
+            StopAllCoroutines(); // Stop current coroutines
+            StartCoroutine(KickingOut());
+        }
+    }
     IEnumerator StateMachine()
     {
         while (true)
@@ -83,6 +102,9 @@ public class scr_customers_behaviour : MonoBehaviour
                 case CustomerState.Finale:
                     yield return StartCoroutine(FinaleState());
                     break;
+                case CustomerState.Paralising:
+                    yield return StartCoroutine(ParalisingState());
+                    break;
             }
             yield return null;
         }
@@ -96,7 +118,7 @@ public class scr_customers_behaviour : MonoBehaviour
 
     IEnumerator MovingState()
     {
-        int randomIndex = Random.Range(0, navigation.TargetPosition.Length);
+        int randomIndex = UnityEngine.Random.Range(0, navigation.TargetPosition.Length);
         Vector3 targetPosition = navigation.TargetPosition[randomIndex].transform.position;
         agent.SetDestination(targetPosition);
         agent.stoppingDistance = 2;
@@ -109,6 +131,18 @@ public class scr_customers_behaviour : MonoBehaviour
         while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
         {
             UpdateRotation();
+            if (Leave.leave == 1)
+            {
+                Debug.Log("Close");
+                TransitionToState(CustomerState.Exiting);
+                yield break;
+            }
+            if (active)
+            {
+                Debug.Log("Ivanus");
+                TransitionToState(CustomerState.Paralising);
+                yield break;
+            }
             yield return null;
         }
         TransitionToState(CustomerState.Waiting);
@@ -118,7 +152,17 @@ public class scr_customers_behaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         count++;
-        if (count > 5)
+        if (Leave.leave == 1)
+        {
+            TransitionToState(CustomerState.Exiting);
+            yield break;
+        }
+        if (active)
+        {
+            TransitionToState(CustomerState.Paralising);
+            yield break;
+        }
+        if (count > cycle)
         {
             TransitionToState(CustomerState.Exiting);
         }
@@ -126,6 +170,21 @@ public class scr_customers_behaviour : MonoBehaviour
         {
             TransitionToState(CustomerState.Moving);
         }
+        
+
+    }
+
+    IEnumerator ParalisingState()
+    {
+        agent.isStopped = true;
+        agent.ResetPath();
+        agent.velocity = Vector3.zero;
+        yield return new WaitForSeconds(3f);
+        hp.hp = 1000;
+        active = false;
+        TransitionToState(CustomerState.Exiting);
+        yield break;
+
     }
 
     IEnumerator ExitState()
@@ -136,14 +195,23 @@ public class scr_customers_behaviour : MonoBehaviour
         while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance || agent.velocity.sqrMagnitude >= 0.1f)
         {
             UpdateRotation();
+            if (active)
+            {
+                TransitionToState(CustomerState.Paralising);
+                yield break;
+            }
             yield return null;
         }
-        if(navigation.count == 5) { navigation.count--; Destroy(gameObject); }
-        
+        TransitionToState(CustomerState.Finale);
+        yield return null;
+
     }
 
     IEnumerator FinaleState()
     {
+        navigation.count--;
+        navigation.StartSpawning();
+        Destroy(gameObject); // Destroy the customer
         yield return null;
     }
 
@@ -151,7 +219,37 @@ public class scr_customers_behaviour : MonoBehaviour
     {
         currentState = newState;
     }
-    
+
+    IEnumerator KickingOut()
+    {
+        agent.SetDestination(navigation.spawn_point);
+        agent.stoppingDistance = 1;
+
+        while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance || agent.velocity.sqrMagnitude >= 0.1f)
+        {
+            UpdateRotation();
+            if (active)
+            {
+                TransitionToState(CustomerState.Paralising);
+                yield break;
+            }
+            yield return null;
+        }
+        navigation.count--;
+        navigation.StartSpawning();
+        Destroy(gameObject); // Destroy the customer
+        yield return null;
+    }
+
+        void Update()
+    {
+        Debug.Log(Leave.timer);
+        if (hp.hp == 0)
+        {
+            active = true;
+            Debug.Log("Saki saki fuki fuki");
+        }
+    }
 }
 
 

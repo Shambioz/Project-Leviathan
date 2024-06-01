@@ -7369,7 +7369,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   mortar: 0
-  scoreTable: {fileID: 0}
+  Soldier: 0
+  Armor: 0
+  SilverCup: 0
+  Morian: 0
+  Archeological: 0
+  BreadCoins: 0
+  Skull: 0
+  Canon: 0
+  scoreTable: {fileID: 2122799325}
 --- !u!1 &687123097
 GameObject:
   m_ObjectHideFlags: 0
@@ -15251,12 +15259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bce75ffdfe9c748b1800cadd3a814f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPoint: {fileID: 424465533}
-  coordinates: []
-  agent1: {fileID: 0}
-  Thief: {fileID: 1203870432145649051, guid: 1844561232a2b0e4283d0feb5d546d52, type: 3}
-  scr_thief_ai: {fileID: 0}
-  target: {fileID: 424465534}
 --- !u!114 &1468131433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15264,7 +15266,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1468131429}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9712365cd6651324ea546d49e4bd3054, type: 3}
   m_Name: 

@@ -11,6 +11,7 @@ public class PlayerBehavior : MonoBehaviour
     public float inputX = 0f;
     public float inputY = 0f;
     public Transform target;
+    public scr_day_cycle scr_day_cycle;
 
     bool lockedCursor = true;
 

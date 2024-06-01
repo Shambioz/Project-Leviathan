@@ -25,6 +25,7 @@ public class scr_customers_navigation : MonoBehaviour
     public int count = 0;
     public float thief_chance = 0.3f;
     public Transform target;
+    public bool CanSpawn = true;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +47,7 @@ public class scr_customers_navigation : MonoBehaviour
 
     public void StartSpawning()
         {
-        if (count < 5)
+        if (count < 5 && CanSpawn)
         {
             StartCoroutine(SpawnCustomersCoroutine());
         }
@@ -57,28 +58,29 @@ public class scr_customers_navigation : MonoBehaviour
     {
         while (count < 5)
         {
+            yield return new WaitForSeconds(2f);
             Spawning();
             Debug.Log(count);
-            yield return new WaitForSeconds(2f);
         }
         
     }
 
     public void Spawning()
     {
-        bool spawnThief = Random.value < thief_chance;
-        Debug.Log(spawnThief);
-        if (spawnThief)
-        {
-            SpawnThief(1);
-            
-        }
-        if (!spawnThief)
-        {
-            SpawnCustomer(1);
-            
-        }
-        count++;
+            Debug.Log(count);
+            bool spawnThief = Random.value < thief_chance;
+            Debug.Log(spawnThief);
+            if (spawnThief)
+            {
+                SpawnThief(1);
+
+            }
+            if (!spawnThief)
+            {
+                SpawnCustomer(1);
+
+            }
+            count++;
     }
 
     public GameObject[] GetTargetPositions()
@@ -97,7 +99,9 @@ public class scr_customers_navigation : MonoBehaviour
             customer.AddComponent<scr_thief_hit>();
             customer.AddComponent<scr_customers_behaviour>();
             customer.AddComponent<Rigidbody>();
-            NavMeshAgent agent = customer.GetComponent<NavMeshAgent>();
+            customer.AddComponent<scr_thief_hit>();
+            customer.AddComponent<scr_pew_pew_pew>();
+            customer.AddComponent<scr_day_cycle>();
             customers.Add(customer);
         }
 
@@ -105,6 +109,7 @@ public class scr_customers_navigation : MonoBehaviour
     }
     GameObject SpawnThief(int amount)
     {
+
             GameObject thief = Instantiate(Thief, spawn_point, Quaternion.identity);
             //thief.AddComponent<Rigidbody>();
             thief.AddComponent<scr_pickupable>();

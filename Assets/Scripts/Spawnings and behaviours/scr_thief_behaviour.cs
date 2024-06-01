@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class scr_thief_behaviour : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class scr_thief_behaviour : MonoBehaviour
     public float radius = 10f;
     private Animator Walking;
     public Transform centerPoint;
+    private scr_day_cycle scr_day_cycle;
 
     private enum ThiefState
     {
@@ -32,6 +34,7 @@ public class scr_thief_behaviour : MonoBehaviour
 
     void Start()
     {
+        scr_day_cycle = FindObjectOfType<scr_day_cycle>();
         hp = this.GetComponent<scr_thief_hit>();
         agent = GetComponent<NavMeshAgent>();
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -41,7 +44,6 @@ public class scr_thief_behaviour : MonoBehaviour
         rb.angularDrag = 10f; // Increase angular drag
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ; // Freeze rotation on X and Z axis
         agent.updateRotation = false;
-        agent.speed = 10f;
         currentState = ThiefState.Idle;
         StartCoroutine(StateMachine());
     }
@@ -56,16 +58,17 @@ public class scr_thief_behaviour : MonoBehaviour
         }
     }
 
+    
     IEnumerator StateMachine()
     {
         while (true)
         {
-            /*if (active)
+            /*
+            if (scr_day_cycle.Leave)
             {
-                yield return StartCoroutine(ParalisingState());
-            }
-            else
-            {*/
+                yield return StartCoroutine(ExitState());
+            }         
+            */
             switch (currentState)
             {
                 case ThiefState.Idle:
@@ -111,6 +114,7 @@ public class scr_thief_behaviour : MonoBehaviour
     IEnumerator MovingState()
     {
         Debug.Log("Identifying the target");
+        Walking.enabled = true;
         int randomIndex = Random.Range(0, navigation.TargetPosition.Length);
         Vector3 targetPosition = navigation.TargetPosition[randomIndex].transform.position;
         inventory = navigation.Artefacts[randomIndex];
@@ -126,6 +130,11 @@ public class scr_thief_behaviour : MonoBehaviour
         while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
         {
             UpdateRotation();
+            if (scr_day_cycle.leave == 1)
+            {
+                TransitionToState(ThiefState.Exiting);
+                yield break;
+            }
             if (active)
             {
                 TransitionToState(ThiefState.Paralising);
@@ -203,7 +212,11 @@ public class scr_thief_behaviour : MonoBehaviour
             centerPoint = inventory.transform;
             float distance = Vector3.Distance(transform.position, centerPoint.position);
             Debug.Log("Stealing after paralising");
-
+            if (scr_day_cycle.leave == 1)
+            {
+                TransitionToState(ThiefState.Exiting);
+                yield break;
+            }
             if (distance <= radius)
             {
                 Collider collider = inventory.GetComponent<Collider>();
@@ -286,9 +299,58 @@ public class scr_thief_behaviour : MonoBehaviour
         currentState = newState;
     }
 
+    public void TriggerExit()
+    {
+        inventory = null;
+        if (currentState != ThiefState.Exiting && currentState != ThiefState.Finale)
+        {
+            Debug.Log("please");
+            StopAllCoroutines(); // Stop current coroutines
+            StartCoroutine(KickingOut());
+        }
+    }
+
+    IEnumerator KickingOut()
+    {
+        Walking.enabled = true;
+        Debug.Log("Leaving");
+        agent.SetDestination(navigation.spawn_point);
+        agent.stoppingDistance = 1;
+
+        while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance || agent.velocity.sqrMagnitude >= 0.1f)
+        {
+            UpdateRotation();
+            if (active)
+            {
+                TransitionToState(ThiefState.Paralising);
+                yield break;
+            }
+            yield return null;
+        }
+        Walking.enabled = false;
+        Debug.Log("Finale");
+        if (inventory != null)
+        {
+            inventory.AddComponent<scr_pickupable>();
+            inventory.AddComponent<BoxCollider>();
+            inventory.transform.SetParent(null); // Detach from the thief
+            Rigidbody rb = inventory.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = false; // Re-enable physics
+            }
+        }
+        navigation.count--;
+        navigation.StartSpawning();
+        Destroy(gameObject); // Destroy the thief
+        yield return null;
+    }
     void Update()
     {
-
+        if(scr_day_cycle.leave == 1)
+        {
+            Debug.Log("yeass");
+        }
         if (hp.hp == 0)
         {
             active = true;
