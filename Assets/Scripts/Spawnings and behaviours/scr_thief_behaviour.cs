@@ -38,10 +38,11 @@ public class scr_thief_behaviour : MonoBehaviour
         scr_day_cycle = FindObjectOfType<scr_day_cycle>();
         hp = this.GetComponent<scr_thief_hit>();
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = 10f;
+        agent.speed = 7f;
         Rigidbody rb = GetComponent<Rigidbody>();
         navigation = FindObjectOfType<scr_customers_navigation>();
         Walking = GetComponent<Animator>();
+        Walking.enabled = false;
         rb.mass = 100f; // Increase mass
         rb.angularDrag = 10f; // Increase angular drag
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ; // Freeze rotation on X and Z axis
@@ -116,7 +117,7 @@ public class scr_thief_behaviour : MonoBehaviour
     IEnumerator MovingState()
     {
         Debug.Log("Identifying the target");
-        Walking.enabled = true;
+        //Walking.enabled = true;
         int randomIndex = Random.Range(0, navigation.TargetPosition.Length);
         Vector3 targetPosition = navigation.TargetPosition[randomIndex].transform.position;
         inventory = navigation.Artefacts[randomIndex];
@@ -150,7 +151,7 @@ public class scr_thief_behaviour : MonoBehaviour
     IEnumerator WaitingState()
     {
         Debug.Log("Waiting");
-        Walking.enabled = false;
+        //Walking.enabled = false;
         yield return new WaitForSeconds(5f);
         TransitionToState(ThiefState.Stealing);
     }
@@ -176,7 +177,7 @@ public class scr_thief_behaviour : MonoBehaviour
 
     IEnumerator ParalisingState()
     {
-        Walking.enabled = false;
+        //Walking.enabled = false;
         Debug.Log("Paralised");
         if (inventory != null)
         {
@@ -255,7 +256,7 @@ public class scr_thief_behaviour : MonoBehaviour
 
     IEnumerator ExitState()
     {
-        Walking.enabled = true;
+        //Walking.enabled = true;
         Debug.Log("Leaving");
         agent.SetDestination(navigation.spawn_point);
         agent.stoppingDistance = 1;
@@ -281,7 +282,7 @@ public class scr_thief_behaviour : MonoBehaviour
 
     IEnumerator FinaleState()
     {
-        Walking.enabled = false;
+        //Walking.enabled = false;
         Debug.Log("Finale");
         if (inventory != null)
         {
@@ -320,7 +321,7 @@ public class scr_thief_behaviour : MonoBehaviour
 
     IEnumerator KickingOut()
     {
-        Walking.enabled = true;
+        //Walking.enabled = true;
         Debug.Log("Leaving");
         agent.SetDestination(navigation.spawn_point);
         agent.stoppingDistance = 1;
@@ -335,7 +336,7 @@ public class scr_thief_behaviour : MonoBehaviour
             }
             yield return null;
         }
-        Walking.enabled = false;
+        //Walking.enabled = false;
         Debug.Log("Finale");
         if (inventory != null)
         {

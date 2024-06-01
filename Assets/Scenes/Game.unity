@@ -11996,8 +11996,11 @@ MonoBehaviour:
   scr_thief_ai: {fileID: 0}
   cust_amount: 5
   Customers: []
-  Customer: {fileID: 2066861530684342756, guid: 7813ee2b06bb2ba4fb385e3e67795227, type: 3}
+  Customer: {fileID: 105066724588189882, guid: dd2bccbf73fe1a54eb89fbfb21492e73, type: 3}
   Thief: {fileID: 105066724588189882, guid: dd2bccbf73fe1a54eb89fbfb21492e73, type: 3}
+  People:
+  - {fileID: 2066861530684342756, guid: 7813ee2b06bb2ba4fb385e3e67795227, type: 3}
+  - {fileID: 105066724588189882, guid: dd2bccbf73fe1a54eb89fbfb21492e73, type: 3}
   spawn_point: {x: -28.75, y: 0.38, z: -8.58}
   TargetPosition:
   - {fileID: 2091246572}
@@ -12380,18 +12383,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1468131435}
         m_TargetAssemblyTypeName: scr_day_cycle, Assembly-CSharp
         m_MethodName: CanSpawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1468131433}
-        m_TargetAssemblyTypeName: scr_customers_navigation, Assembly-CSharp
-        m_MethodName: StartSpawning
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

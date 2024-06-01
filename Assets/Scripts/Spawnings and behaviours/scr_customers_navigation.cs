@@ -19,6 +19,7 @@ public class scr_customers_navigation : MonoBehaviour
     public GameObject[] Customers;
     public GameObject Customer;
     public GameObject Thief;
+    public GameObject[] People;
     public Vector3 spawn_point = new Vector3(-28.75f, 0.38f, -8.58f);
     public GameObject[] TargetPosition;
     public GameObject[] Artefacts;
@@ -95,13 +96,14 @@ public class scr_customers_navigation : MonoBehaviour
         {
             int randomIndex = Random.Range(0, TargetPosition.Length);
             GameObject RandomPoint = TargetPosition[randomIndex];
+            int randomSkin = Random.Range(0, People.Length);
+            GameObject RandomPerson = People[randomSkin];
             GameObject customer = Instantiate(Customer, spawn_point, Quaternion.identity);
             customer.AddComponent<scr_thief_hit>();
             customer.AddComponent<scr_customers_behaviour>();
             customer.AddComponent<Rigidbody>();
             customer.AddComponent<scr_thief_hit>();
             customer.AddComponent<scr_pew_pew_pew>();
-            customer.AddComponent<scr_day_cycle>();
             customers.Add(customer);
         }
 
@@ -109,11 +111,12 @@ public class scr_customers_navigation : MonoBehaviour
     }
     GameObject SpawnThief(int amount)
     {
-
-            GameObject thief = Instantiate(Thief, spawn_point, Quaternion.identity);
+        int randomSkin = Random.Range(0, People.Length);
+        GameObject RandomPerson = People[randomSkin];
+        GameObject thief = Instantiate(Thief, spawn_point, Quaternion.identity);
             //thief.AddComponent<Rigidbody>();
             thief.AddComponent<scr_pickupable>();
-            //thief.AddComponent<NavMeshAgent>();
+            thief.AddComponent<NavMeshAgent>();
             thief.AddComponent<scr_thief_hit>();
             thief.AddComponent<scr_thief_behaviour>();
             thief.AddComponent<scr_pew_pew_pew>();

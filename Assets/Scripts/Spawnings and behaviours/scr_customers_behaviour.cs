@@ -21,6 +21,7 @@ public class scr_customers_behaviour : MonoBehaviour
     private scr_day_cycle Leave;
     public int cycle;
     public bool Leave1 = false;
+    private Animator Walking;
 
     private enum CustomerState
     {
@@ -36,10 +37,13 @@ public class scr_customers_behaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Walking = GetComponent<Animator>();
+        Walking.enabled = false;
         cycle = UnityEngine.Random.Range(1, 5);
         hp = this.GetComponent<scr_thief_hit>();
-        Leave = this.GetComponent<scr_day_cycle>();
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = 7f;
+        Leave = FindObjectOfType<scr_day_cycle>();
         if (agent == null)
         {
             agent = gameObject.AddComponent<NavMeshAgent>();
@@ -150,32 +154,35 @@ public class scr_customers_behaviour : MonoBehaviour
 
     IEnumerator WaitingState()
     {
+        Debug.Log("Waiting");
         yield return new WaitForSeconds(5f);
         count++;
         if (Leave.leave == 1)
         {
+            Debug.Log("1");
             TransitionToState(CustomerState.Exiting);
             yield break;
         }
         if (active)
         {
+            Debug.Log("2");
             TransitionToState(CustomerState.Paralising);
             yield break;
         }
         if (count > cycle)
         {
+            Debug.Log("3");
             TransitionToState(CustomerState.Exiting);
         }
         else
         {
             TransitionToState(CustomerState.Moving);
         }
-        
-
     }
 
     IEnumerator ParalisingState()
     {
+        Debug.Log("Paralised");
         agent.isStopped = true;
         agent.ResetPath();
         agent.velocity = Vector3.zero;
@@ -189,6 +196,7 @@ public class scr_customers_behaviour : MonoBehaviour
 
     IEnumerator ExitState()
     {
+        Debug.Log("Exiting");
         agent.SetDestination(navigation.spawn_point);
         agent.stoppingDistance = 1;
 

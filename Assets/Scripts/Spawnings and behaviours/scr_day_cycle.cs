@@ -38,7 +38,7 @@ public class scr_day_cycle : MonoBehaviour
             timer += Time.deltaTime;
         }
 
-        if (timer > 180)
+        if (timer > 300)
         {
             Debug.Log("wooork");
             EndDay();
@@ -83,16 +83,10 @@ public class scr_day_cycle : MonoBehaviour
         Days.text = "Congratulations! You have completed day: " + DayCount;
     }
 
-    public void CanSpawn()
-    {
-        Debug.Log("CanSpawn");
-        DayCount++;
-        Slider.SetActive(true);
-        navigation.CanSpawn = true;
-    }
-
     public void Restart()
     {
+        navigation = FindObjectOfType<scr_customers_navigation>();
+        navigation.count = 0;
         Debug.Log("Restarting");
         DayCount = 1;
         if (navigation != null)
@@ -101,10 +95,11 @@ public class scr_day_cycle : MonoBehaviour
             navigation.CanSpawn = true;
         }
         Debug.Log(DayCount + "Siri");
+        navigation.CanSpawn = true;
         navigation.StartSpawning();
         LostPanel.SetActive(false);
         Slider.SetActive(true);
-        navigation.CanSpawn = true;
+        
     }
 
     public void Check()
