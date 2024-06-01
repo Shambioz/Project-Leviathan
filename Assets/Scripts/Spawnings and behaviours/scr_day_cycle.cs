@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class scr_day_cycle : MonoBehaviour
 {
@@ -16,11 +17,14 @@ public class scr_day_cycle : MonoBehaviour
     public TextMeshProUGUI Days;
     public GameObject Slider;
     private bool ended = false;
+    public GameObject LostPanel;
+    public TextMeshProUGUI Lost;
     // Start is called before the first frame update
     void Start()
     {
-        navigation = FindObjectOfType<scr_customers_navigation>();
+        scr_thief_behaviour[] thieves = FindObjectsOfType<scr_thief_behaviour>();
         EndUI.SetActive(false);
+        LostPanel.SetActive(false);
         Day = RenderSettings.skybox;
         timer = 0f;
         RenderSettings.skybox = Day;
@@ -29,22 +33,24 @@ public class scr_day_cycle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!EndUI.activeSelf)
+        if (!EndUI.activeSelf || !LostPanel.activeSelf)
         {
             timer += Time.deltaTime;
         }
 
-        if(timer > 15)
+        if (timer > 180)
         {
             Debug.Log("wooork");
             EndDay();
         }
-        
-        if(ended && navigation.count == 0)
+
+        if (ended && navigation.count == 0)
         {
             ShowUI();
             ended = false;
         }
+        
+        CheckThieves();
     }
 
     void EndDay()
@@ -79,7 +85,24 @@ public class scr_day_cycle : MonoBehaviour
 
     public void CanSpawn()
     {
+        Debug.Log("CanSpawn");
         DayCount++;
+        Slider.SetActive(true);
+        navigation.CanSpawn = true;
+    }
+
+    public void Restart()
+    {
+        Debug.Log("Restarting");
+        DayCount = 1;
+        if (navigation != null)
+        {
+            Debug.Log("i'm not a null >:(");
+            navigation.CanSpawn = true;
+        }
+        Debug.Log(DayCount + "Siri");
+        navigation.StartSpawning();
+        LostPanel.SetActive(false);
         Slider.SetActive(true);
         navigation.CanSpawn = true;
     }
@@ -87,5 +110,39 @@ public class scr_day_cycle : MonoBehaviour
     public void Check()
     {
         Debug.Log(navigation.CanSpawn);
+    }
+    void CheckThieves()
+    {
+        scr_thief_behaviour[] thieves = FindObjectsOfType<scr_thief_behaviour>();
+        foreach (scr_thief_behaviour thief in thieves)
+        {
+            if (thief.YouLost)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Slider.SetActive(false);
+                LostPanel.SetActive(true);
+                ended = false;
+                DestroyEveryone();
+                Lost.text = "You lost";
+                break;
+            }
+        }
+    }
+    void DestroyEveryone() 
+    {
+        if (navigation != null)
+        {
+            navigation.CanSpawn = false;
+        }
+        scr_thief_behaviour[] thieves = FindObjectsOfType<scr_thief_behaviour>();
+        foreach (scr_thief_behaviour thief in thieves)
+        {
+            thief.Suicide();
+        }
+        scr_customers_behaviour[] customers = FindObjectsOfType<scr_customers_behaviour>();
+        foreach (scr_customers_behaviour customer in customers)
+        {
+            customer.Suicide();
+        }
     }
 }

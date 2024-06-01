@@ -241,6 +241,10 @@ public class scr_customers_behaviour : MonoBehaviour
         yield return null;
     }
 
+    public void Suicide()
+    {
+        Destroy(gameObject);
+    }
         void Update()
     {
         Debug.Log(Leave.timer);

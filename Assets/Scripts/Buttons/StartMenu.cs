@@ -15,4 +15,19 @@ public class StartMenu : MonoBehaviour
         Application.Quit();
         Debug.Log("Quitting");
     }
+
+    public void EasyMode()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
+    public void NormalMode()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
+    public void HardMode()
+    {
+        SceneManager.LoadScene("Game");
+    }
 }

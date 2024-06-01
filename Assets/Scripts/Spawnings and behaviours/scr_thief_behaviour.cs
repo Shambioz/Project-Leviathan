@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
+using TMPro;
 
 public class scr_thief_behaviour : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class scr_thief_behaviour : MonoBehaviour
     private Animator Walking;
     public Transform centerPoint;
     private scr_day_cycle scr_day_cycle;
-
+    public bool YouLost = false;
     private enum ThiefState
     {
         Idle,
@@ -37,6 +38,7 @@ public class scr_thief_behaviour : MonoBehaviour
         scr_day_cycle = FindObjectOfType<scr_day_cycle>();
         hp = this.GetComponent<scr_thief_hit>();
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = 10f;
         Rigidbody rb = GetComponent<Rigidbody>();
         navigation = FindObjectOfType<scr_customers_navigation>();
         Walking = GetComponent<Animator>();
@@ -268,6 +270,11 @@ public class scr_thief_behaviour : MonoBehaviour
             }
             yield return null;
         }
+        if(inventory != null)
+        {
+            YouLost = true;
+            yield return new WaitForSeconds(2f);
+        }
         TransitionToState(ThiefState.Finale);
         yield return null;
     }
@@ -278,6 +285,7 @@ public class scr_thief_behaviour : MonoBehaviour
         Debug.Log("Finale");
         if (inventory != null)
         {
+            Debug.Log(YouLost + " finally");
             inventory.AddComponent<scr_pickupable>();
             inventory.AddComponent<BoxCollider>();
             inventory.transform.SetParent(null); // Detach from the thief
@@ -344,6 +352,22 @@ public class scr_thief_behaviour : MonoBehaviour
         navigation.StartSpawning();
         Destroy(gameObject); // Destroy the thief
         yield return null;
+    }
+
+    public void Suicide()
+    {
+        if (inventory != null)
+        {
+            inventory.AddComponent<scr_pickupable>();
+            inventory.AddComponent<BoxCollider>();
+            inventory.transform.SetParent(null); // Detach from the thief
+            Rigidbody rb = inventory.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = false; // Re-enable physics
+            }
+        }
+        Destroy(gameObject);
     }
     void Update()
     {
