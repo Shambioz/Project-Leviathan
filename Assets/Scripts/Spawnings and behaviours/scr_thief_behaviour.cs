@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
 using TMPro;
+using Unity.VisualScripting;
 
 public class scr_thief_behaviour : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class scr_thief_behaviour : MonoBehaviour
     public Transform centerPoint;
     private scr_day_cycle scr_day_cycle;
     public bool YouLost = false;
+    public int cycle;
+    public int count = 0;
     private enum ThiefState
     {
         Idle,
@@ -35,6 +38,7 @@ public class scr_thief_behaviour : MonoBehaviour
 
     void Start()
     {
+        cycle = UnityEngine.Random.Range(0, 3);
         scr_day_cycle = FindObjectOfType<scr_day_cycle>();
         hp = this.GetComponent<scr_thief_hit>();
         agent = GetComponent<NavMeshAgent>();
@@ -150,9 +154,15 @@ public class scr_thief_behaviour : MonoBehaviour
 
     IEnumerator WaitingState()
     {
+        count++;
         Debug.Log("Waiting");
         //Walking.enabled = false;
         yield return new WaitForSeconds(5f);
+        if(count <= cycle)
+        {
+            TransitionToState(ThiefState.Moving);
+            yield break;
+        }
         TransitionToState(ThiefState.Stealing);
     }
 
@@ -161,18 +171,23 @@ public class scr_thief_behaviour : MonoBehaviour
         Debug.Log("Stealing");
         Collider collider = inventory.GetComponent<Collider>();
         scr_pickupable remove = inventory.GetComponent<scr_pickupable>();
-        Destroy(collider);
-        Destroy(remove);
-        inventory.transform.SetParent(transform); // Attach to the thief
-        inventory.transform.localPosition = Vector3.zero; // Position it correctly on the thief
-        Rigidbody rb = inventory.GetComponent<Rigidbody>();
-        is_artefact_stolen = true;
-        if (rb != null)
+        if(inventory.GetComponent<scr_pickupable>().picked == false)
         {
-            rb.isKinematic = true; // Make the artifact kinematic to prevent physics issues
+            Destroy(collider);
+            inventory.transform.SetParent(transform); // Attach to the thief
+            inventory.transform.localPosition = Vector3.zero; // Position it correctly on the thief
+            inventory.GetComponent<scr_pickupable>().picked = true;
+            Rigidbody rb = inventory.GetComponent<Rigidbody>();
+            is_artefact_stolen = true;
+            if (rb != null)
+            {
+                rb.isKinematic = true; // Make the artifact kinematic to prevent physics issues
+            }
+            yield return new WaitForSeconds(2f);
+            TransitionToState(ThiefState.Exiting);
+            yield break;
         }
-        yield return new WaitForSeconds(2f);
-        TransitionToState(ThiefState.Exiting);
+        TransitionToState(ThiefState.Moving);
     }
 
     IEnumerator ParalisingState()
@@ -181,8 +196,8 @@ public class scr_thief_behaviour : MonoBehaviour
         Debug.Log("Paralised");
         if (inventory != null)
         {
-            inventory.AddComponent<scr_pickupable>();
             inventory.AddComponent<BoxCollider>();
+            inventory.GetComponent<scr_pickupable>().picked = false;
             inventory.transform.SetParent(null); // Detach from the thief
             Rigidbody rb = inventory.GetComponent<Rigidbody>();
             if (rb != null)
@@ -220,12 +235,12 @@ public class scr_thief_behaviour : MonoBehaviour
                 TransitionToState(ThiefState.Exiting);
                 yield break;
             }
-            if (distance <= radius)
+            if (distance <= radius && inventory.GetComponent<scr_pickupable>().picked == false)
             {
                 Collider collider = inventory.GetComponent<Collider>();
                 scr_pickupable remove = inventory.GetComponent<scr_pickupable>();
+                inventory.GetComponent<scr_pickupable>().picked = true;
                 Destroy(collider);
-                Destroy(remove);
                 inventory.transform.SetParent(transform); // Attach to the thief
                 inventory.transform.localPosition = Vector3.zero; // Position it correctly on the thief
                 Rigidbody rb = inventory.GetComponent<Rigidbody>();
@@ -236,7 +251,7 @@ public class scr_thief_behaviour : MonoBehaviour
                 yield return new WaitForSeconds(2f);
 
             }
-            else if (distance > radius)
+            else if (distance > radius || inventory.GetComponent<scr_pickupable>().picked == true)
             {
                 inventory = null;
                 yield return new WaitForSeconds(2f);
@@ -271,7 +286,7 @@ public class scr_thief_behaviour : MonoBehaviour
             }
             yield return null;
         }
-        if(inventory != null)
+        if(inventory != null && inventory.GetComponent<scr_pickupable>().picked == true)
         {
             YouLost = true;
             yield return new WaitForSeconds(2f);
@@ -287,7 +302,7 @@ public class scr_thief_behaviour : MonoBehaviour
         if (inventory != null)
         {
             Debug.Log(YouLost + " finally");
-            inventory.AddComponent<scr_pickupable>();
+            inventory.GetComponent<scr_pickupable>().picked = false;
             inventory.AddComponent<BoxCollider>();
             inventory.transform.SetParent(null); // Detach from the thief
             Rigidbody rb = inventory.GetComponent<Rigidbody>();
@@ -322,7 +337,7 @@ public class scr_thief_behaviour : MonoBehaviour
     IEnumerator KickingOut()
     {
         //Walking.enabled = true;
-        Debug.Log("Leaving");
+        Debug.Log("Kicking");
         agent.SetDestination(navigation.spawn_point);
         agent.stoppingDistance = 1;
 
@@ -340,8 +355,8 @@ public class scr_thief_behaviour : MonoBehaviour
         Debug.Log("Finale");
         if (inventory != null)
         {
-            inventory.AddComponent<scr_pickupable>();
             inventory.AddComponent<BoxCollider>();
+            inventory.GetComponent<scr_pickupable>().picked = false;
             inventory.transform.SetParent(null); // Detach from the thief
             Rigidbody rb = inventory.GetComponent<Rigidbody>();
             if (rb != null)
@@ -359,8 +374,8 @@ public class scr_thief_behaviour : MonoBehaviour
     {
         if (inventory != null)
         {
-            inventory.AddComponent<scr_pickupable>();
             inventory.AddComponent<BoxCollider>();
+            inventory.GetComponent<scr_pickupable>().picked = true;
             inventory.transform.SetParent(null); // Detach from the thief
             Rigidbody rb = inventory.GetComponent<Rigidbody>();
             if (rb != null)

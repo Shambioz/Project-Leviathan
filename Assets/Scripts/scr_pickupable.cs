@@ -15,6 +15,7 @@ public class scr_pickupable : MonoBehaviour
     public AudioSource audioSourceInt;
     public String audioTranscript;
     public String audioTranscriptInt;
+    public bool picked;
 
     // Array to hold the audio sources
     public AudioSource[] audioSources;

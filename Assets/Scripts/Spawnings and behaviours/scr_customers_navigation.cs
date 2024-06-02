@@ -31,6 +31,7 @@ public class scr_customers_navigation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        count = 0;
         coordinates = new Vector3[9];
         coordinates[0] = new Vector3(-18.38f, 6.5f, 108);
         coordinates[1] = new Vector3(-33.6f, 6.5f, 89.7f);
@@ -101,7 +102,6 @@ public class scr_customers_navigation : MonoBehaviour
             GameObject customer = Instantiate(Customer, spawn_point, Quaternion.identity);
             customer.AddComponent<scr_thief_hit>();
             customer.AddComponent<scr_customers_behaviour>();
-            customer.AddComponent<Rigidbody>();
             customer.AddComponent<scr_thief_hit>();
             customer.AddComponent<scr_pew_pew_pew>();
             customers.Add(customer);
@@ -116,7 +116,6 @@ public class scr_customers_navigation : MonoBehaviour
         GameObject thief = Instantiate(Thief, spawn_point, Quaternion.identity);
             //thief.AddComponent<Rigidbody>();
             thief.AddComponent<scr_pickupable>();
-            thief.AddComponent<NavMeshAgent>();
             thief.AddComponent<scr_thief_hit>();
             thief.AddComponent<scr_thief_behaviour>();
             thief.AddComponent<scr_pew_pew_pew>();

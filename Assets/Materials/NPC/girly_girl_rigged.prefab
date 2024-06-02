@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aae081cc4ada32941a9602ed4fb91ed8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -27.73
+      value: -22.797173
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aae081cc4ada32941a9602ed4fb91ed8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.27999973
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aae081cc4ada32941a9602ed4fb91ed8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -23.33
+      value: -7.9659476
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aae081cc4ada32941a9602ed4fb91ed8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -81,7 +81,7 @@ PrefabInstance:
       addedObject: {fileID: 1015913723139855745}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aae081cc4ada32941a9602ed4fb91ed8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5525618791594907809}
+      addedObject: {fileID: 4453584869971892253}
     - targetCorrespondingSourceObject: {fileID: -740086939225313783, guid: aae081cc4ada32941a9602ed4fb91ed8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5238101773059933412}
@@ -160,7 +160,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.39387068, y: 2.3830855, z: 0.3262164}
   m_Center: {x: -0.0064935684, y: 1.1472245, z: 0.010469427}
---- !u!195 &5525618791594907809
+--- !u!195 &4453584869971892253
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,11 +169,11 @@ NavMeshAgent:
   m_GameObject: {fileID: 105066724588189882}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 60
+  m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1

@@ -22,6 +22,7 @@ public class scr_day_cycle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DayCount = 1;
         scr_thief_behaviour[] thieves = FindObjectsOfType<scr_thief_behaviour>();
         EndUI.SetActive(false);
         LostPanel.SetActive(false);
@@ -36,6 +37,11 @@ public class scr_day_cycle : MonoBehaviour
         if (!EndUI.activeSelf || !LostPanel.activeSelf)
         {
             timer += Time.deltaTime;
+        }
+        
+        if(EndUI.activeSelf)
+        {
+            timer = 0;
         }
 
         if (timer > 300)
@@ -55,45 +61,48 @@ public class scr_day_cycle : MonoBehaviour
 
     void EndDay()
     {
-        if (navigation != null)
-        {
-            navigation.CanSpawn = false;
-        }
+        navigation.CanSpawn = false;
         leave = 1;
         Debug.Log(leave + " hmm");
-        timer = 0f;
         ended = true;
         scr_thief_behaviour[] thieves = FindObjectsOfType<scr_thief_behaviour>();
         foreach (scr_thief_behaviour thief in thieves)
         {
+            Debug.Log("ido");
             thief.TriggerExit();
         }
         scr_customers_behaviour[] customers = FindObjectsOfType<scr_customers_behaviour>();
         foreach (scr_customers_behaviour customer in customers)
         {
+            Debug.Log("ido");
             customer.TriggerExit();
         }
     }
 
     void ShowUI()
     {
+        Debug.Log("showing");
         EndUI.SetActive(true);
         Slider.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Days.text = "Congratulations! You have completed day: " + DayCount;
     }
 
+    public void NextDay()
+    {
+        DayCount++;
+        Slider.SetActive(true);
+        navigation.CanSpawn = true;
+        leave = 0;
+        navigation.StartSpawning();
+        timer = 0f;
+    }
     public void Restart()
     {
         navigation = FindObjectOfType<scr_customers_navigation>();
         navigation.count = 0;
         Debug.Log("Restarting");
         DayCount = 1;
-        if (navigation != null)
-        {
-            Debug.Log("i'm not a null >:(");
-            navigation.CanSpawn = true;
-        }
         Debug.Log(DayCount + "Siri");
         navigation.CanSpawn = true;
         navigation.StartSpawning();

@@ -230,6 +230,7 @@ public class scr_customers_behaviour : MonoBehaviour
 
     IEnumerator KickingOut()
     {
+        Debug.Log("Kicking");
         agent.SetDestination(navigation.spawn_point);
         agent.stoppingDistance = 1;
 
@@ -255,7 +256,7 @@ public class scr_customers_behaviour : MonoBehaviour
     }
         void Update()
     {
-        Debug.Log(Leave.timer);
+
         if (hp.hp == 0)
         {
             active = true;

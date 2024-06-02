@@ -106,7 +106,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 3
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 0.3
     agentHeight: 2
     agentSlope: 4.5
     agentClimb: 0.4
@@ -3294,19 +3294,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1468131435}
         m_TargetAssemblyTypeName: scr_day_cycle, Assembly-CSharp
-        m_MethodName: CanSpawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1468131433}
-        m_TargetAssemblyTypeName: scr_customers_navigation, Assembly-CSharp
-        m_MethodName: StartSpawning
+        m_MethodName: NextDay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4309,6 +4297,7 @@ MonoBehaviour:
   audioSourceInt: {fileID: 0}
   audioTranscript: 
   audioTranscriptInt: 
+  picked: 0
   audioSources: []
   displayTexts: []
   is_in_place: 0
@@ -7799,6 +7788,7 @@ MonoBehaviour:
   audioSourceInt: {fileID: 0}
   audioTranscript: 
   audioTranscriptInt: 
+  picked: 0
   audioSources: []
   displayTexts: []
   is_in_place: 0
@@ -8876,8 +8866,8 @@ Transform:
   m_GameObject: {fileID: 1162384965}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -79.3, y: 36.0271, z: 63.69}
-  m_LocalScale: {x: 3.363686, y: 1, z: 33.31376}
+  m_LocalPosition: {x: -78.8774, y: 36.0271, z: 63.69}
+  m_LocalScale: {x: 4.20898, y: 1, z: 33.31376}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 636693460}
@@ -9689,6 +9679,7 @@ MonoBehaviour:
   audioTranscript: I'm Johnny Skull, have some respect!!
   audioTranscriptInt: I think I am supposed to tell you something interesting about
     what you are looking at.
+  picked: 0
   audioSources: []
   displayTexts: []
   is_in_place: 0
@@ -9833,6 +9824,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228937493}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1239053192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1239053194}
+  - component: {fileID: 1239053193}
+  m_Layer: 0
+  m_Name: SwitchToMainMenu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1239053193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239053192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 563ab91c314b91f48856a72ef3e41a63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1239053194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239053192}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 534.7163, y: 178.96747, z: -180.97925}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1255842439 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9caf8acd14806de47a43b4b603c2756f, type: 3}
@@ -9856,6 +9891,7 @@ MonoBehaviour:
   audioSourceInt: {fileID: 0}
   audioTranscript: 
   audioTranscriptInt: 
+  picked: 0
   audioSources: []
   displayTexts: []
   is_in_place: 0
@@ -10183,6 +10219,7 @@ MonoBehaviour:
   audioTranscript: 
   audioTranscriptInt: I think I am supposed to tell you something interesting about
     what you are looking at.
+  picked: 0
   audioSources: []
   displayTexts: []
   is_in_place: 0
@@ -11322,6 +11359,7 @@ MonoBehaviour:
   audioSourceInt: {fileID: 0}
   audioTranscript: 
   audioTranscriptInt: 
+  picked: 0
   audioSources: []
   displayTexts: []
   is_in_place: 0
@@ -11511,8 +11549,8 @@ Transform:
   m_GameObject: {fileID: 1435916078}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -65.2392, y: 36.027122, z: 51.74}
-  m_LocalScale: {x: 3.8269384, y: 1, z: 28.57169}
+  m_LocalPosition: {x: -65.254, y: 36.0271, z: 51.999}
+  m_LocalScale: {x: 4.345494, y: 1, z: 28.5399}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 636693460}
@@ -12055,13 +12093,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Day: {fileID: 0}
-  Night: {fileID: 2100000, guid: 2d056ac30ecc9e542b26e06133f23602, type: 2}
+  Night: {fileID: 0}
   timer: 0
   DayCount: 0
   DayTime: 5
   EndUI: {fileID: 452749986}
   leave: 0
-  navigation: {fileID: 0}
+  navigation: {fileID: 1468131433}
   Days: {fileID: 1204074077}
   Slider: {fileID: 1621733347}
   LostPanel: {fileID: 1623686944}
@@ -12739,8 +12777,8 @@ Transform:
   m_GameObject: {fileID: 1521503257}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: -88.42276, y: 36.0271, z: 6.2125}
-  m_LocalScale: {x: 17.456448, y: 1, z: 3.1698644}
+  m_LocalPosition: {x: -88.0569, y: 36.0271, z: 6.2125}
+  m_LocalScale: {x: 17.456448, y: 1, z: 3.9016645}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 636693460}
@@ -12991,6 +13029,7 @@ MonoBehaviour:
   audioSourceInt: {fileID: 0}
   audioTranscript: 
   audioTranscriptInt: 
+  picked: 0
   audioSources: []
   displayTexts: []
   is_in_place: 0
@@ -13607,6 +13646,7 @@ MonoBehaviour:
   audioTranscript: 
   audioTranscriptInt: I think I am supposed to tell you something interesting about
     what you are looking at.
+  picked: 0
   audioSources: []
   displayTexts: []
   is_in_place: 0
@@ -13665,6 +13705,7 @@ MonoBehaviour:
   audioSourceInt: {fileID: 0}
   audioTranscript: 
   audioTranscriptInt: 
+  picked: 0
   audioSources: []
   displayTexts: []
   is_in_place: 0
@@ -13731,6 +13772,74 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.7797694, y: 6.3691583, z: 2.7143514}
   m_Center: {x: 0.3898844, y: 3.0563948, z: -0.23717237}
+--- !u!1 &1605340982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1605340985}
+  - component: {fileID: 1605340984}
+  - component: {fileID: 1605340983}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1605340983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605340982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1605340984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605340982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1605340985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605340982}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1615048144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13920,8 +14029,8 @@ Transform:
   m_GameObject: {fileID: 1615391430}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9999949, z: -0, w: -0.0032091995}
-  m_LocalPosition: {x: -77.121956, y: 36.027122, z: 25.038992}
-  m_LocalScale: {x: 4.0637856, y: 1, z: 10.741687}
+  m_LocalPosition: {x: -76.6931, y: 36.027122, z: 25.038992}
+  m_LocalScale: {x: 4.907021, y: 1, z: 10.741687}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 636693460}
@@ -14580,6 +14689,7 @@ MonoBehaviour:
   audioSourceInt: {fileID: 0}
   audioTranscript: 
   audioTranscriptInt: 
+  picked: 0
   audioSources: []
   displayTexts: []
   is_in_place: 0
@@ -14749,8 +14859,8 @@ Transform:
   m_GameObject: {fileID: 1694214174}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -72.4462, y: 36.02, z: 108.4572}
-  m_LocalScale: {x: 3.0844207, y: 1, z: 35.71839}
+  m_LocalPosition: {x: -72.3791, y: 36.02, z: 107.9104}
+  m_LocalScale: {x: 4.178156, y: 1, z: 35.854122}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 636693460}
@@ -14943,9 +15053,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 563ab91c314b91f48856a72ef3e41a63, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
+      - m_Target: {fileID: 1239053193}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15534,8 +15644,8 @@ Transform:
   m_GameObject: {fileID: 1767274106}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -53.701057, y: 36.027122, z: 70.98049}
-  m_LocalScale: {x: 4.298707, y: 1, z: 78.66781}
+  m_LocalPosition: {x: -54.0497, y: 36.027122, z: 70.9359}
+  m_LocalScale: {x: 4.9959574, y: 1, z: 78.75434}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 636693460}
@@ -16147,8 +16257,8 @@ Transform:
   m_GameObject: {fileID: 1887232011}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -65.48566, y: 36.027122, z: 31.538992}
-  m_LocalScale: {x: 4.0637865, y: 1, z: 27.6278}
+  m_LocalPosition: {x: -65.5499, y: 36.0271, z: 30.8753}
+  m_LocalScale: {x: 5.3914537, y: 1, z: 27.754889}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 636693460}
@@ -16739,8 +16849,8 @@ Transform:
   m_GameObject: {fileID: 2023883769}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -62, y: 36.027122, z: 70.98049}
-  m_LocalScale: {x: 4.298707, y: 1, z: 78.66781}
+  m_LocalPosition: {x: -58.1306, y: 36.0271, z: 69.0032}
+  m_LocalScale: {x: 12.037994, y: 1, z: 82.62042}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 636693460}
@@ -17859,6 +17969,7 @@ MonoBehaviour:
   audioSourceInt: {fileID: 0}
   audioTranscript: 
   audioTranscriptInt: 
+  picked: 0
   audioSources: []
   displayTexts: []
   is_in_place: 0
@@ -18152,3 +18263,5 @@ SceneRoots:
   - {fileID: 636693460}
   - {fileID: 830372369}
   - {fileID: 1563778862}
+  - {fileID: 1239053194}
+  - {fileID: 1605340985}

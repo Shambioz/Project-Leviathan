@@ -136,10 +136,11 @@ public class scr_pick_up_object : MonoBehaviour
                     }
                     else
                     {
-                        if (obj_carried != null && obj_carried.GetComponent<scr_pickupable>() != null)
+                        if (obj_carried != null && obj_carried.GetComponent<scr_pickupable>() != null && obj_carried.GetComponent<scr_pickupable>().picked == false)
                         {
                             is_active = true;
                             is_carrying = true;
+                            obj_carried.GetComponent<scr_pickupable>().picked = true;
                             rb = obj_carried.GetComponent<Rigidbody>();
                             if (rb != null)
                             {
@@ -188,6 +189,7 @@ public class scr_pick_up_object : MonoBehaviour
                 Debug.Log("working? state: " + state);
 
                 is_carrying = false;
+                obj_carried.GetComponent<scr_pickupable>().picked = false;
                 rb = obj_carried.GetComponent<Rigidbody>();
                 if (rb != null)
                 {
