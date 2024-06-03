@@ -1645,6 +1645,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762498384}
   m_CullTransparentMesh: 1
+--- !u!1 &1768193053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1768193055}
+  - component: {fileID: 1768193054}
+  m_Layer: 0
+  m_Name: Point Menagement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1768193054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768193053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3e9f05dc5295a4ea056478023382d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txt_artifacts_saved: {fileID: 1455289279}
+  txt_thiefs_paralyzed: {fileID: 1393510813}
+  txt_points_excl: {fileID: 1746416107}
+  txt_points_today: {fileID: 350988963}
+  txt_family_multiplier: {fileID: 1762498386}
+  txt_points_total: {fileID: 392530234}
+  txt_cash_total: {fileID: 813276885}
+--- !u!4 &1768193055
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768193053}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 414.75925, y: 312.9868, z: -49.87448}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1841461902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,3 +1838,4 @@ SceneRoots:
   - {fileID: 314725386}
   - {fileID: 1630210553}
   - {fileID: 1107639987}
+  - {fileID: 1768193055}
