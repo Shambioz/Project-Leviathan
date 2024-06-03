@@ -9,7 +9,7 @@ public class scr_day_cycle : MonoBehaviour
     public Material Day;
     public Material Night;
     public float timer;
-    public int DayCount = 1;
+    public static int DayCount = 1;
     public int DayTime = 180;
     public GameObject EndUI;
     public int leave = 0;

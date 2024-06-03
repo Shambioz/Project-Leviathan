@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 7ede7f1bc81101243b413446dd5caaa8
+  - enabled: 1
+    path: Assets/Scenes/ScoreScreen.unity
+    guid: 45b275329ee4776449abe0260c1d37ff
+  - enabled: 1
+    path: Assets/Scenes/FamilyMenagementScreen.unity
+    guid: 990a536e95c8fb6418182a59512f4650
   m_configObjects: {}

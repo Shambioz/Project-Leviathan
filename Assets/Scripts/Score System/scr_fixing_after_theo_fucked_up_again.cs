@@ -32,7 +32,7 @@ public class scr_fixing_after_theo_fucked_up_again : MonoBehaviour
     {
         if (overrrino == true)
         {
-            SceneManager.LoadScene("ScoreScreen");
+            SceneManager.LoadScene(3);
         }
         else if (artems_points != 0)
         {
