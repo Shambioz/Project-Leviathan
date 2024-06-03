@@ -15,6 +15,6 @@ public class scr_fixing_after_theo_fucked_up_again : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(artems_points + "priv");
+        
     }
 }
