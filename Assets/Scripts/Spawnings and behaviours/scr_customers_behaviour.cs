@@ -22,6 +22,9 @@ public class scr_customers_behaviour : MonoBehaviour
     public int cycle;
     public bool Leave1 = false;
     private Animator Walking;
+    public scr_fixing_after_theo_fucked_up_again points;
+    private bool free_points = true;
+
 
     private enum CustomerState
     {
@@ -37,6 +40,7 @@ public class scr_customers_behaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        points = FindObjectOfType<scr_fixing_after_theo_fucked_up_again>();
         Walking = GetComponent<Animator>();
         Walking.enabled = false;
         cycle = UnityEngine.Random.Range(1, 5);
@@ -183,6 +187,7 @@ public class scr_customers_behaviour : MonoBehaviour
     IEnumerator ParalisingState()
     {
         Debug.Log("Paralised");
+        points.artems_points -= 2;
         agent.isStopped = true;
         agent.ResetPath();
         agent.velocity = Vector3.zero;

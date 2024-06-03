@@ -194,6 +194,7 @@ public class scr_pick_up_object : MonoBehaviour
                 if (rb != null)
                 {
                     rb.useGravity = true;
+                    rb.isKinematic = false;
                 }
                 colliders = obj_carried.GetComponentsInChildren<Collider>();
                 foreach (Collider collider in colliders)

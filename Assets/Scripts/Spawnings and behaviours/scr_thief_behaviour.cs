@@ -23,6 +23,10 @@ public class scr_thief_behaviour : MonoBehaviour
     public bool YouLost = false;
     public int cycle;
     public int count = 0;
+    public bool check1 = false;
+    public bool check2 = true;
+    public scr_fixing_after_theo_fucked_up_again points;
+    private bool free_points = true;
     private enum ThiefState
     {
         Idle,
@@ -38,6 +42,7 @@ public class scr_thief_behaviour : MonoBehaviour
 
     void Start()
     {
+        points = FindObjectOfType<scr_fixing_after_theo_fucked_up_again>();
         cycle = UnityEngine.Random.Range(0, 3);
         scr_day_cycle = FindObjectOfType<scr_day_cycle>();
         hp = this.GetComponent<scr_thief_hit>();
@@ -144,7 +149,12 @@ public class scr_thief_behaviour : MonoBehaviour
             }
             if (active)
             {
-                TransitionToState(ThiefState.Paralising);
+                if (inventory.GetComponent<scr_pickupable>().picked == false && free_points)
+                {
+                    points.artems_points++;
+                    free_points = false;
+                }
+                    TransitionToState(ThiefState.Paralising);
                 yield break;
             }
             yield return null;
@@ -175,7 +185,7 @@ public class scr_thief_behaviour : MonoBehaviour
         {
             Destroy(collider);
             inventory.transform.SetParent(transform); // Attach to the thief
-            inventory.transform.localPosition = Vector3.zero; // Position it correctly on the thief
+            inventory.transform.localPosition = new Vector3(-0.058f, 1.38f, 0.506f); // Position it correctly on the thief
             inventory.GetComponent<scr_pickupable>().picked = true;
             Rigidbody rb = inventory.GetComponent<Rigidbody>();
             is_artefact_stolen = true;
@@ -193,15 +203,18 @@ public class scr_thief_behaviour : MonoBehaviour
     IEnumerator ParalisingState()
     {
         //Walking.enabled = false;
+
         Debug.Log("Paralised");
         if (inventory != null)
         {
             inventory.AddComponent<BoxCollider>();
             inventory.GetComponent<scr_pickupable>().picked = false;
+            inventory.GetComponent<scr_pickupable>().isFromThief = true;
             inventory.transform.SetParent(null); // Detach from the thief
             Rigidbody rb = inventory.GetComponent<Rigidbody>();
             if (rb != null)
             {
+                rb.useGravity = true;
                 rb.isKinematic = false;
             }
         }
