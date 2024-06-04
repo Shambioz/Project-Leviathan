@@ -18,17 +18,19 @@ public class StartMenu : MonoBehaviour
 
     public void EasyMode()
     {
-        SceneManager.LoadScene("Game");
+        scr_customers_navigation.thief_chance = 0.3f;
+
     }
 
     public void NormalMode()
     {
-        SceneManager.LoadScene("Game");
+        scr_customers_navigation.thief_chance = 0.4f;
+
     }
 
     public void HardMode()
     {
-        SceneManager.LoadScene("Game");
+        scr_customers_navigation.thief_chance = 0.5f;
     }
 
     public void MainMenu()
