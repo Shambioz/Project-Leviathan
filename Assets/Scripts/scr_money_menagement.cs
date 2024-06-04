@@ -213,7 +213,7 @@ public class scr_money_menagement : MonoBehaviour
             }
             if (healthy == true)
             {
-                stringen[i] = "Happy";
+                stringen[i] = " . . \n|__|";
             }
             scr_score_shower.family_modifier += family_modifier;
         }
