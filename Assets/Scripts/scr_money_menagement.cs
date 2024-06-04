@@ -54,7 +54,7 @@ public class scr_money_menagement : MonoBehaviour
     private bool[] selected = new bool[9];
     //private int[] costs = new int[9];
     private int total_cost = 0;
-    private static int family_members_alive = 0;
+    public static int family_members_alive = 0;
     private int family_members_sick = 1;
     private static bool first_execusion = false;
     private bool last_execusion = false;

@@ -11,4 +11,16 @@ public class scr_scene_loader : MonoBehaviour
     {
         SceneManager.LoadScene(sceneIndex);
     }
+
+    public void LoadGameScene()
+    {
+        if (scr_newspaper_menager.game_lost == true)
+        {
+            SceneManager.LoadScene(6);
+        }
+        else
+        {
+            SceneManager.LoadScene(2);
+        }
+    }
 }

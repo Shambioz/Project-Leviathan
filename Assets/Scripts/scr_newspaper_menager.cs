@@ -4,11 +4,13 @@ using System.Diagnostics;
 using System.Linq.Expressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class scr_newspaper_menager : MonoBehaviour
 {
     public TMP_Text date;
+    public TMP_Text button_text;
 
     private List<int> list = new List<int> {1, 2, 3, 4, 5};
     private List<int> list_backup = new List<int> {1, 2, 3, 4, 5};
@@ -115,6 +117,16 @@ public class scr_newspaper_menager : MonoBehaviour
         string datum = datumday + datummonth + "2025";
 
         date.text = datum;
+        if (game_lost == true)
+        {
+            button_text.text = "Continue";
+        }
+        else
+        {
+            button_text.text = "Go to work";
+        }
+
+
     }
 
     void Update()
