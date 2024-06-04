@@ -20,9 +20,11 @@ public class scr_day_cycle : MonoBehaviour
     private bool ended = false;
     public GameObject LostPanel;
     public TextMeshProUGUI Lost;
+    public scr_fixing_after_theo_fucked_up_again points;
     // Start is called before the first frame update
     void Start()
     {
+        points = FindObjectOfType<scr_fixing_after_theo_fucked_up_again>();
         DayCount = 1;
         scr_thief_behaviour[] thieves = FindObjectsOfType<scr_thief_behaviour>();
         EndUI.SetActive(false);
@@ -62,6 +64,7 @@ public class scr_day_cycle : MonoBehaviour
 
     void EndDay()
     {
+
         navigation.CanSpawn = false;
         leave = 1;
         Debug.Log(leave + " hmm");
@@ -83,6 +86,7 @@ public class scr_day_cycle : MonoBehaviour
     void ShowUI()
     {
         Debug.Log("showing");
+        points.artems_points = -30;
         EndUI.SetActive(true);
         Slider.SetActive(false);
         Cursor.lockState = CursorLockMode.None;

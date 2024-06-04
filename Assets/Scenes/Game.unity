@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 26616575}
   - component: {fileID: 26616574}
   - component: {fileID: 26616573}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BritishSoldierCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2755,7 +2755,7 @@ GameObject:
   - component: {fileID: 323289517}
   - component: {fileID: 323289516}
   - component: {fileID: 323289515}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ArmorCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11263,7 +11263,7 @@ GameObject:
   - component: {fileID: 1078170761}
   - component: {fileID: 1078170760}
   - component: {fileID: 1078170759}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CoinsCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11368,7 +11368,7 @@ GameObject:
   - component: {fileID: 1080626628}
   - component: {fileID: 1080626627}
   - component: {fileID: 1080626626}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CanonCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11849,7 +11849,7 @@ GameObject:
   - component: {fileID: 1160710687}
   - component: {fileID: 1160710686}
   - component: {fileID: 1160710685}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Artefact4Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15774,7 +15774,6 @@ MonoBehaviour:
   - {fileID: 992738890}
   - {fileID: 618323361}
   count: 0
-  thief_chance: 0.2
   target: {fileID: 0}
   CanSpawn: 1
 --- !u!114 &1468131434
@@ -15814,6 +15813,7 @@ MonoBehaviour:
   Slider: {fileID: 1621733347}
   LostPanel: {fileID: 1623686944}
   Lost: {fileID: 1121132618}
+  points: {fileID: 0}
 --- !u!114 &1468131436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17389,7 +17389,7 @@ GameObject:
   - component: {fileID: 1575761775}
   - component: {fileID: 1575761774}
   - component: {fileID: 1575761773}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: JohnnySkullCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18734,7 +18734,7 @@ GameObject:
   - component: {fileID: 1686589826}
   - component: {fileID: 1686589825}
   - component: {fileID: 1686589824}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Artifact2Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20083,7 +20083,7 @@ GameObject:
   - component: {fileID: 1860111667}
   - component: {fileID: 1860111666}
   - component: {fileID: 1860111665}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Artefact1Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21712,7 +21712,7 @@ GameObject:
   - component: {fileID: 2073695063}
   - component: {fileID: 2073695062}
   - component: {fileID: 2073695061}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CoolRockCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21817,7 +21817,7 @@ GameObject:
   - component: {fileID: 2078248278}
   - component: {fileID: 2078248277}
   - component: {fileID: 2078248276}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SwordCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22408,7 +22408,7 @@ GameObject:
   - component: {fileID: 2091431053}
   - component: {fileID: 2091431052}
   - component: {fileID: 2091431051}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FirstCitizenCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
