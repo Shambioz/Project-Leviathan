@@ -20,6 +20,7 @@ public class scr_score_shower : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        Cursor.lockState = CursorLockMode.None;
         //total_cash = 100000;
 
         txt_artifacts_saved.text = scr_fixing_after_theo_fucked_up_again.artifacts_saved.ToString();

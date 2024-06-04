@@ -9,6 +9,10 @@ public class scr_scene_loader : MonoBehaviour
 
     public void LoadScene(int sceneIndex)
     {
+        if (sceneIndex == 2)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
         SceneManager.LoadScene(sceneIndex);
     }
 
@@ -20,6 +24,7 @@ public class scr_scene_loader : MonoBehaviour
         }
         else
         {
+            Cursor.lockState = CursorLockMode.Locked;
             SceneManager.LoadScene(2);
         }
     }

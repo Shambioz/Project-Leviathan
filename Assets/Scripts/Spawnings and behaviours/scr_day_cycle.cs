@@ -129,6 +129,7 @@ public class scr_day_cycle : MonoBehaviour
                 ended = false;
                 DestroyEveryone();
                 Lost.text = "You lost";*/
+                Cursor.lockState = CursorLockMode.None;
                 scr_newspaper_menager.game_lost = true;
                 SceneManager.LoadScene(5);
                 break;
