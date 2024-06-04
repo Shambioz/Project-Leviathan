@@ -41,7 +41,7 @@ public class scr_place_correctly : MonoBehaviour
                     rb.isKinematic = true;
                     Artifacts[i].transform.position = PointsToPlace[i];
                 }
-                else if(Artifacts[i].GetComponent<scr_pickupable>().isFromThief == false)
+                else
                 {
                     rb.useGravity = false;
                     rb.isKinematic = true;

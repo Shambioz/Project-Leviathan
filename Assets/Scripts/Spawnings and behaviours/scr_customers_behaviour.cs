@@ -187,7 +187,7 @@ public class scr_customers_behaviour : MonoBehaviour
     IEnumerator ParalisingState()
     {
         Debug.Log("Paralised");
-        points.artems_points = points.artems_points - 2;
+        points.artems_points -= 2;
         agent.isStopped = true;
         agent.ResetPath();
         agent.velocity = Vector3.zero;
