@@ -2197,6 +2197,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ebb360706281ca043bf372a5d3f16099, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5357294444870861083, guid: ebb360706281ca043bf372a5d3f16099, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -4251,7 +4255,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 442182841}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 773e8f75d49cf8143b4adba1a38de844, type: 3}
   m_Name: 
@@ -5561,7 +5565,7 @@ MonoBehaviour:
   scr_pickupable: {fileID: 0}
   Subtitle: {fileID: 1616457107}
   the_one_you_picked_up: {fileID: 0}
-  scr_audio_manager: {fileID: 0}
+  scr_audio_manager: {fileID: 1354800182}
 --- !u!114 &611600900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13360,6 +13364,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7f04a08ba3d9fb949aef20c19a9049a2, type: 3}
   m_PrefabInstance: {fileID: 858712285}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1271415947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1271415948}
+  - component: {fileID: 1271415949}
+  m_Layer: 0
+  m_Name: BGMSwitcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1271415948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271415947}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.0617447, y: -2.0820327, z: 4.1088657}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1338468719}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1271415949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271415947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 230aff7b607593e41a84a978297b9675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultBGM: {fileID: 1235423113}
+  combatBGM: {fileID: 632184602}
+  objectTagToCheck: Thief
 --- !u!1 &1281508284
 GameObject:
   m_ObjectHideFlags: 0
@@ -14210,6 +14261,7 @@ Transform:
   m_Children:
   - {fileID: 1235423112}
   - {fileID: 632184601}
+  - {fileID: 1271415948}
   m_Father: {fileID: 1362253460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1342525626
@@ -14361,7 +14413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSources: []
   displayTexts: []
-  tmpText: {fileID: 2122799325}
+  tmpText: {fileID: 1616457107}
 --- !u!1 &1362253459
 GameObject:
   m_ObjectHideFlags: 0
