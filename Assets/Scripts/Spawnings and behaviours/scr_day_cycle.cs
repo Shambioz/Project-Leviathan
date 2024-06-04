@@ -45,7 +45,7 @@ public class scr_day_cycle : MonoBehaviour
             timer = 0;
         }
 
-        if (timer > 300)
+        if (timer > 180)
         {
             Debug.Log("wooork");
             EndDay();
