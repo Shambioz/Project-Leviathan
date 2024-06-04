@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.Rendering.DebugUI;
 
 public class scr_day_cycle : MonoBehaviour
@@ -122,12 +123,14 @@ public class scr_day_cycle : MonoBehaviour
         {
             if (thief.YouLost)
             {
-                Cursor.lockState = CursorLockMode.None;
+                /*Cursor.lockState = CursorLockMode.None;
                 Slider.SetActive(false);
                 LostPanel.SetActive(true);
                 ended = false;
                 DestroyEveryone();
-                Lost.text = "You lost";
+                Lost.text = "You lost";*/
+                scr_newspaper_menager.game_lost = true;
+                SceneManager.LoadScene(5);
                 break;
             }
         }
