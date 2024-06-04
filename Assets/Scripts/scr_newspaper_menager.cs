@@ -33,7 +33,6 @@ public class scr_newspaper_menager : MonoBehaviour
         //scr_day_cycle.DayCount = 2;
         //scr_day_cycle.DayCount = 78;
 
-        Cursor.lockState = CursorLockMode.None;
         if (scr_day_cycle.DayCount == 2 && game_lost != true)
         {
             newspaper.sprite = day2;

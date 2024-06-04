@@ -58,7 +58,7 @@ public class scr_money_menagement : MonoBehaviour
     private int family_members_sick = 1;
     private static bool first_execusion = false;
     private bool last_execusion = false;
-    public static int curr_cash = 0;
+    private int curr_cash = 0;
     private bool healthy = true;
     private int family_modifier = 3;
     private bool help = false;
@@ -73,7 +73,6 @@ public class scr_money_menagement : MonoBehaviour
 
     void Awake()
     {
-        Cursor.lockState = CursorLockMode.None;
         if (first_execusion == false)
         {
             first_execusion = true;
@@ -89,7 +88,7 @@ public class scr_money_menagement : MonoBehaviour
             }
             family_members_alive = 5;
         }
-        curr_cash += scr_score_shower.total_cash;
+        curr_cash = scr_score_shower.total_cash;
         family_members_sick = 1;
         selected[0] = true;
         for (int i = 1; i < 9; i++)
