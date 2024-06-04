@@ -36,6 +36,7 @@ public class scr_place_correctly : MonoBehaviour
                 if(Artifacts[i].GetComponent<scr_pickupable>().isFromThief == true)
                 {
                     points.artems_points += 5;
+                    Artifacts[i].GetComponent<scr_pickupable>().is_in_place = true;
                     Artifacts[i].GetComponent<scr_pickupable>().isFromThief = false;
                     rb.useGravity = false;
                     rb.isKinematic = true;
@@ -43,6 +44,7 @@ public class scr_place_correctly : MonoBehaviour
                 }
                 else if(Artifacts[i].GetComponent<scr_pickupable>().isFromThief == false)
                 {
+                    Artifacts[i].GetComponent<scr_pickupable>().is_in_place = true;
                     rb.useGravity = false;
                     rb.isKinematic = true;
                     Artifacts[i].transform.position = PointsToPlace[i];
