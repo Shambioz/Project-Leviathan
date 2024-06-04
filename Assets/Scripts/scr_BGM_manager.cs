@@ -4,7 +4,7 @@ public class AudioSwitcher : MonoBehaviour
 {
     public AudioSource defaultBGM; // The audio source that plays initially
     public AudioSource combatBGM; // The audio source to play when the object exists
-    public string objectTagToCheck = ""; // The name of the object to check for
+    public string objectTagToCheck = "Thief"; // The name of the object to check for
 
     void Update()
     {

@@ -21,16 +21,16 @@ public class scr_score_soldier : MonoBehaviour
         compareEventbox = other.GetComponent<Collider>();
         if (compareEventbox = thiefcollider)
         {
-            scr_score_control.Soldier = 500;
+            scr_score_control.Soldier = 0;
             buton = true;
         }
-
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (buton == true)
         {
-            scr_score_control.Soldier = 0;
+            scr_score_control.Soldier = 1;
             buton = false;
         }
     }

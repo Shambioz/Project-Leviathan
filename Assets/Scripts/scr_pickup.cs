@@ -13,7 +13,7 @@ public class scr_pick_up_object : MonoBehaviour
     public Transform player; // Reference to the player's transform
     public bool is_active = false;
     private int state = 1;
-    private GameObject obj_carried;
+    public GameObject obj_carried;
     private GameObject obj_interacting;
     private Vector3 playerPosition;
     private Vector3 screenPosition;
