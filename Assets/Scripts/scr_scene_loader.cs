@@ -13,6 +13,10 @@ public class scr_scene_loader : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
         SceneManager.LoadScene(sceneIndex);
     }
 
@@ -21,6 +25,7 @@ public class scr_scene_loader : MonoBehaviour
         if (scr_newspaper_menager.game_lost == true)
         {
             SceneManager.LoadScene(6);
+            Cursor.lockState = CursorLockMode.None;
         }
         else
         {
