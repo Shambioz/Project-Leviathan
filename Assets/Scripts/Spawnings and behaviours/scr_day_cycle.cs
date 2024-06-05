@@ -133,6 +133,11 @@ public class scr_day_cycle : MonoBehaviour
             }
         }
     }
+
+    void ResetScore()
+    {
+        points.artems_points = 0;
+    }
     void DestroyEveryone() 
     {
         if (navigation != null)
