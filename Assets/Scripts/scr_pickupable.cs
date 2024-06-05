@@ -5,8 +5,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
-using static Unity.VisualScripting.Metadata;
-using static UnityEditor.Experimental.GraphView.GraphView;
 public class scr_pickupable : MonoBehaviour
 {
     public TextMeshProUGUI UItext;
