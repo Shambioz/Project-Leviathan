@@ -132,6 +132,6 @@ public class scr_newspaper_menager : MonoBehaviour
 
     void Update()
     {
-        
+        Cursor.lockState = CursorLockMode.None;
     }
 }
