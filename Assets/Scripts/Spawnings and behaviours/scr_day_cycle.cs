@@ -12,7 +12,6 @@ public class scr_day_cycle : MonoBehaviour
     public float timer;
     public static int DayCount = 1;
     public int DayTime = 180;
-    public GameObject EndUI;
     public int leave = 0;
     public scr_customers_navigation navigation;
     public TextMeshProUGUI Days;
@@ -27,7 +26,6 @@ public class scr_day_cycle : MonoBehaviour
         points = FindObjectOfType<scr_fixing_after_theo_fucked_up_again>();
         DayCount = 1;
         scr_thief_behaviour[] thieves = FindObjectsOfType<scr_thief_behaviour>();
-        EndUI.SetActive(false);
         LostPanel.SetActive(false);
         Day = RenderSettings.skybox;
         timer = 0f;
@@ -37,15 +35,11 @@ public class scr_day_cycle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!EndUI.activeSelf || !LostPanel.activeSelf)
+        if (!LostPanel.activeSelf)
         {
             timer += Time.deltaTime;
         }
         
-        if(EndUI.activeSelf)
-        {
-            timer = 0;
-        }
 
         if (timer > 180)
         {
@@ -87,7 +81,6 @@ public class scr_day_cycle : MonoBehaviour
     {
         Debug.Log("showing");
         points.artems_points = -30;
-        EndUI.SetActive(true);
         Slider.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Days.text = "Congratulations! You have completed day: " + DayCount;
