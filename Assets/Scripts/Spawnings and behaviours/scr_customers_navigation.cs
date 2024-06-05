@@ -115,7 +115,6 @@ public class scr_customers_navigation : MonoBehaviour
         GameObject RandomPerson = People[randomSkin];
         GameObject thief = Instantiate(Thief, spawn_point, Quaternion.identity);
             //thief.AddComponent<Rigidbody>();
-            thief.AddComponent<scr_pickupable>();
             thief.AddComponent<scr_thief_hit>();
             thief.AddComponent<scr_thief_behaviour>();
             thief.AddComponent<scr_pew_pew_pew>();

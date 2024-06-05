@@ -21,7 +21,7 @@ public class scr_customers_behaviour : MonoBehaviour
     private scr_day_cycle Leave;
     public int cycle;
     public bool Leave1 = false;
-    private Animator Walking;
+    //private Animator Walking;
     public scr_fixing_after_theo_fucked_up_again points;
     private bool free_points = true;
 
@@ -40,9 +40,10 @@ public class scr_customers_behaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Start");
         points = FindObjectOfType<scr_fixing_after_theo_fucked_up_again>();
-        Walking = GetComponent<Animator>();
-        Walking.enabled = false;
+        //Walking = GetComponent<Animator>();
+        //Walking.enabled = false;
         cycle = UnityEngine.Random.Range(1, 5);
         hp = this.GetComponent<scr_thief_hit>();
         agent = GetComponent<NavMeshAgent>();
@@ -120,6 +121,7 @@ public class scr_customers_behaviour : MonoBehaviour
 
     IEnumerator IdleState()
     {
+        Debug.Log("Idle");
         TransitionToState(CustomerState.Moving);
         yield break;
     }

@@ -17,7 +17,7 @@ public class scr_thief_behaviour : MonoBehaviour
     public bool is_artefact_stolen = false;
     public bool active = false;
     public float radius = 10f;
-    private Animator Walking;
+    //private Animator Walking;
     public Transform centerPoint;
     private scr_day_cycle scr_day_cycle;
     public bool YouLost = false;
@@ -45,13 +45,13 @@ public class scr_thief_behaviour : MonoBehaviour
         points = FindObjectOfType<scr_fixing_after_theo_fucked_up_again>();
         cycle = UnityEngine.Random.Range(0, 3);
         scr_day_cycle = FindObjectOfType<scr_day_cycle>();
-        hp = this.GetComponent<scr_thief_hit>();
+        hp = GetComponent<scr_thief_hit>();
         agent = GetComponent<NavMeshAgent>();
         agent.speed = 7f;
         Rigidbody rb = GetComponent<Rigidbody>();
         navigation = FindObjectOfType<scr_customers_navigation>();
-        Walking = GetComponent<Animator>();
-        Walking.enabled = false;
+        //Walking = GetComponent<Animator>();
+        //Walking.enabled = false;
         rb.mass = 100f; // Increase mass
         rb.angularDrag = 10f; // Increase angular drag
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ; // Freeze rotation on X and Z axis
@@ -187,6 +187,8 @@ public class scr_thief_behaviour : MonoBehaviour
             inventory.transform.SetParent(transform); // Attach to the thief
             inventory.transform.localPosition = new Vector3(-0.058f, 1.38f, 0.506f); // Position it correctly on the thief
             inventory.GetComponent<scr_pickupable>().picked = true;
+            inventory.GetComponent<scr_pickupable>().is_in_place = false;
+            inventory.layer = LayerMask.NameToLayer("Default");
             Rigidbody rb = inventory.GetComponent<Rigidbody>();
             is_artefact_stolen = true;
             if (rb != null)
@@ -253,6 +255,8 @@ public class scr_thief_behaviour : MonoBehaviour
                 Collider collider = inventory.GetComponent<Collider>();
                 scr_pickupable remove = inventory.GetComponent<scr_pickupable>();
                 inventory.GetComponent<scr_pickupable>().picked = true;
+                inventory.GetComponent<scr_pickupable>().is_in_place = false;
+                inventory.layer = LayerMask.NameToLayer("Default");
                 Destroy(collider);
                 inventory.transform.SetParent(transform); // Attach to the thief
                 inventory.transform.localPosition = Vector3.zero; // Position it correctly on the thief

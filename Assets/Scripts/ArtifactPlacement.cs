@@ -7,6 +7,7 @@ public class ArtifactPlacement : MonoBehaviour
     [SerializeField] Collider ArtifactCollider;
     [SerializeField] scr_fixing_after_theo_fucked_up_again points;
     [SerializeField] Vector3 targetRotation;
+    [SerializeField] scr_pickupable scr_Pickupable;
 
     private Rigidbody rb;
 
@@ -20,6 +21,7 @@ public class ArtifactPlacement : MonoBehaviour
     {
         if (other == ArtifactCollider)
         {
+            scr_Pickupable.is_in_place = true;
             SetPlacement();
         }
     }
@@ -39,6 +41,13 @@ public class ArtifactPlacement : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if(other == ArtifactCollider)
+        {
+            scr_Pickupable.is_in_place = false;
+        }
+    }
     void PlaceArtifact()
     {
         rb.useGravity = false;
