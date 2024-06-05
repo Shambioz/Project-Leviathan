@@ -4741,7 +4741,7 @@ GameObject:
   - component: {fileID: 442182842}
   - component: {fileID: 442182843}
   m_Layer: 0
-  m_Name: Score Manager
+  m_Name: Light Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4787,15 +4787,15 @@ MonoBehaviour:
   Canon: 0
   Sword: 0
   lightmortor: {fileID: 1261435714}
-  lightsoldier: {fileID: 0}
+  lightsoldier: {fileID: 452964723}
   lightarmor: {fileID: 1203278509}
   lightsilvercup: {fileID: 0}
-  lightmorian: {fileID: 0}
+  lightmorian: {fileID: 240904700}
   lightarcheological: {fileID: 0}
-  lightbreadcoin: {fileID: 0}
+  lightbreadcoin: {fileID: 362029617}
   lightskull: {fileID: 385724296}
   lightcanon: {fileID: 0}
-  lightSword: {fileID: 0}
+  lightSword: {fileID: 539739121}
   targetObjectName: 
   LightStrength: 750
   scoreTable: {fileID: 2122799325}
@@ -12052,7 +12052,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 1081222719}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 0}
-  UniqueIdentifier: 
+  UniqueIdentifier: brit
   picked: 0
   isFromThief: 0
   audioSources:
@@ -13429,7 +13429,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 1211206466}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 0}
-  UniqueIdentifier: 
+  UniqueIdentifier: Johnny Skull
   picked: 0
   isFromThief: 0
   audioSources: []
@@ -14365,7 +14365,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 1305172828}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 0}
-  UniqueIdentifier: 
+  UniqueIdentifier: mortor
   picked: 0
   isFromThief: 0
   audioSources: []
@@ -17681,7 +17681,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: c85558706bbb5d246915e0ff56205241, type: 2}
     - target: {fileID: 919132149155446097, guid: 6eaafd1eb57b10347a37174ab62378af, type: 3}
       propertyPath: m_Name
-      value: coins_for_bread_right_one_version_2
+      value: Bread tokens from the Ritske Boelema Hospice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17729,7 +17729,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 1556009906}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 0}
-  UniqueIdentifier: 
+  UniqueIdentifier: Bread tokens from the Ritske Boelema Hospice
   picked: 0
   isFromThief: 0
   audioSources: []
@@ -18481,7 +18481,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 881808491}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 0}
-  UniqueIdentifier: 
+  UniqueIdentifier: Morian
   picked: 0
   isFromThief: 0
   audioSources: []
@@ -18568,7 +18568,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 346988520}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 0}
-  UniqueIdentifier: 
+  UniqueIdentifier: armor
   picked: 0
   isFromThief: 0
   audioSources: []
@@ -24435,7 +24435,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 2135723373}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 0}
-  UniqueIdentifier: 
+  UniqueIdentifier: Sword of the past
   picked: 0
   isFromThief: 0
   audioSources: []

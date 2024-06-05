@@ -71,46 +71,53 @@ public class scr_score_control : MonoBehaviour
                 break;
 
             case "mortor":
-                if (scr_pickupable.is_in_place == false && scr_pickupable.picked == true && Pmortor == true)
+                if (scr_pickupable.is_in_place == false && scr_pickupable.picked == true)
                 {
                     lightmortor.intensity = LightStrength;
                 }
                 else { lightmortor.intensity = 0;}
                 break;
             case "armor":
-                if (scr_pickupable.is_in_place == false && scr_pickupable.picked == true && Parmor == true)
+                if (scr_pickupable.is_in_place == false && scr_pickupable.picked == true)
                 {
                     lightarmor.intensity = LightStrength;
                 }
                 else { lightarmor.intensity = 0;}
                 break;
             case "brit":
-                if (scr_pickupable.is_in_place == false && scr_pickupable.picked == true && Parmor == true)
+                if (scr_pickupable.is_in_place == false && scr_pickupable.picked == true)
                 {
                     lightsoldier.intensity = LightStrength;
                 }
                 else { lightsoldier.intensity = 0; }
                 break;
             case "Morian":
-                if (scr_pickupable.is_in_place == false && scr_pickupable.picked == true && Parmor == true)
+                if (scr_pickupable.is_in_place == false && scr_pickupable.picked == true)
                 {
                     lightmorian.intensity = LightStrength;
                 }
                 else { lightmorian.intensity = 0; }
                 break;
             case "Bread tokens from the Ritske Boelema Hospice":
-                if (scr_pickupable.is_in_place == false && scr_pickupable.picked == true && Parmor == true)
+                if (scr_pickupable.is_in_place == false && scr_pickupable.picked == true)
                 {
                     lightbreadcoin.intensity = LightStrength;
                 }
                 else { lightbreadcoin.intensity = 0; }
                 break;
             case "Sword of the past":
-                if (scr_pickupable.is_in_place == false && scr_pickupable.picked == true && Parmor == true)
+                if (scr_pickupable.is_in_place == false && scr_pickupable.picked == true)
                 {
                     lightSword.intensity = LightStrength;
                 }
                 else { lightSword.intensity = 0; }
+                break;
+            case "Johnny Skull":
+                if (scr_pickupable.is_in_place == false && scr_pickupable.picked == true)
+                {
+                    lightskull.intensity = LightStrength;
+                }
+                else { lightskull.intensity = 0; }
                 break;
 
         }
