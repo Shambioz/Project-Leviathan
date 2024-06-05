@@ -75,6 +75,7 @@ public class scr_pick_up_object : MonoBehaviour
                 }
                 //Refer to picked up obj's scr_pickupable
                 scr_pickupable = obj_carried.GetComponent<scr_pickupable>();
+                /*Depricated
                 if (scr_pickupable != null)
                 {
                     if (scr_pickupable.audioSource != null)
@@ -83,7 +84,7 @@ public class scr_pick_up_object : MonoBehaviour
                         scr_pickupable.audioSource.Play();
                         if (scr_pickupable.audioSource.isPlaying) { Subtitle.text = scr_pickupable.audioTranscript; }
                     }
-                }
+                }*/
                 rb.useGravity = false;
             }
             colliders = obj_carried.GetComponentsInChildren<Collider>();
@@ -160,6 +161,7 @@ public class scr_pick_up_object : MonoBehaviour
                                 }
                                 //Refer to picked up obj's scr_pickupable
                                 scr_pickupable = obj_carried.GetComponent<scr_pickupable>();
+                                /*Depricated
                                 if (scr_pickupable != null)
                                 {
                                     if (scr_pickupable.audioSource != null)
@@ -169,6 +171,7 @@ public class scr_pick_up_object : MonoBehaviour
                                         if (scr_pickupable.audioSource.isPlaying) { Subtitle.text = scr_pickupable.audioTranscript; }
                                     }
                                 }
+                                */
                                 rb.useGravity = false;
                             }
                             colliders = obj_carried.GetComponentsInChildren<Collider>();

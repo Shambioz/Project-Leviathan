@@ -13,8 +13,7 @@ public class scr_pickupable : MonoBehaviour
     public GameObject ChildLayer;
     public AudioSource audioSource;
     public AudioSource audioSourceInt;
-    public String audioTranscript;
-    public String audioTranscriptInt;
+    public string UniqueIdentifier;
     public bool picked;
     public bool isFromThief = false;
 
