@@ -37,9 +37,19 @@ public class scr_pickupable : MonoBehaviour
     //highlight Objects when mouse hovers over obj
     void OnMouseEnter()
     {
-        gameObject.layer = 3;
+        if (is_in_place == true)
+        {
+            gameObject.layer = 4;
+            ChildLayer.layer = 4;
+        }
+        else 
+        { 
+            gameObject.layer = 3;
+            ChildLayer.layer = 3;
+        }
+        
         UItext.text = "" + gameObject.name;
-        ChildLayer.layer = 3;
+        
         //Mat = ChildMesh.materials[0];
         //MeshRenderer renderer = ChildMesh.GetComponent<MeshRenderer>();
         //Material originalMat = renderer.sharedMaterial;

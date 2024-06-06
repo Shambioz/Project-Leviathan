@@ -49,14 +49,14 @@ public class scr_interact_object : MonoBehaviour
 
     void Interact()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             Debug.Log("Left-Click");
             int x = Screen.width / 2;
             int y = Screen.height / 2;
             Ray ray = Camera.main.ScreenPointToRay(new Vector3(x, y));
             RaycastHit hit;
-            layerMask = ~LayerMask.GetMask("Ignore Raycast");
+            layerMask = ~LayerMask.GetMask("Water");
             if (Physics.Raycast(ray, out hit, 10, layerMask))
             {
                 obj_interacting = hit.collider.GameObject();
