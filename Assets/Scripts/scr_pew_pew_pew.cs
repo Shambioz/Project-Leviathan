@@ -51,7 +51,7 @@ public class scr_pew_pew_pew : MonoBehaviour
 
                 Ray ray = Camera.main.ScreenPointToRay(new Vector3(x, y));
                 RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, 10))
+                if (Physics.Raycast(ray, out hit, 15))
                 {
                     hitted = hit.collider.GameObject();
                     thief_hit = hitted.GetComponent<scr_thief_hit>();

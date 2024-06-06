@@ -12,10 +12,12 @@ public class scr_scene_loader : MonoBehaviour
         if (sceneIndex == 2)
         {
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
         else
         {
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         SceneManager.LoadScene(sceneIndex);
     }
@@ -26,10 +28,12 @@ public class scr_scene_loader : MonoBehaviour
         {
             SceneManager.LoadScene(6);
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         else
         {
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             SceneManager.LoadScene(2);
         }
     }

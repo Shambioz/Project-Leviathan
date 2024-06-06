@@ -132,9 +132,4 @@ public class scr_newspaper_menager : MonoBehaviour
         //scr_score_shower.total_points = 0;
         scr_fixing_after_theo_fucked_up_again.points_day = 0;
     }
-
-    void Update()
-    {
-        Cursor.lockState = CursorLockMode.None;
-    }
 }
