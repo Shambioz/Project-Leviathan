@@ -29,6 +29,7 @@ public class scr_scene_loader : MonoBehaviour
             SceneManager.LoadScene(6);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            scr_newspaper_menager.game_lost = false;
         }
         else
         {
