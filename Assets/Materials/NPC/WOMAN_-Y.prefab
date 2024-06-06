@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 81ec248d16ed14045a1c835978fcaf2c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.26793
+      value: -51.017807
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 81ec248d16ed14045a1c835978fcaf2c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 81ec248d16ed14045a1c835978fcaf2c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.827852
+      value: -6.3446913
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 81ec248d16ed14045a1c835978fcaf2c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -147,7 +147,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498225392773717954}
   m_Enabled: 1
-  m_AgentTypeID: -334000983
+  m_AgentTypeID: 0
   m_Radius: 0.003
   m_Speed: 3.5
   m_Acceleration: 8

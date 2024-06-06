@@ -816,12 +816,12 @@ MonoBehaviour:
       - m_Target: {fileID: 920467692}
         m_TargetAssemblyTypeName: scr_change_dif_by_button, Assembly-CSharp
         m_MethodName: ChangeByButton
-        m_Mode: 3
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 0.3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2

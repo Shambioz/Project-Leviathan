@@ -99,7 +99,7 @@ public class scr_customers_navigation : MonoBehaviour
             GameObject RandomPoint = TargetPosition[randomIndex];
             int randomSkin = Random.Range(0, People.Length);
             GameObject RandomPerson = People[randomSkin];
-            GameObject customer = Instantiate(Customer, spawn_point, Quaternion.identity);
+            GameObject customer = Instantiate(People[randomSkin], spawn_point, Quaternion.identity);
             customer.AddComponent<scr_thief_hit>();
             customer.AddComponent<scr_customers_behaviour>();
             customer.AddComponent<scr_thief_hit>();
@@ -113,7 +113,7 @@ public class scr_customers_navigation : MonoBehaviour
     {
         int randomSkin = Random.Range(0, People.Length);
         GameObject RandomPerson = People[randomSkin];
-        GameObject thief = Instantiate(Thief, spawn_point, Quaternion.identity);
+        GameObject thief = Instantiate(People[randomSkin], spawn_point, Quaternion.identity);
             //thief.AddComponent<Rigidbody>();
             thief.AddComponent<scr_thief_hit>();
             thief.AddComponent<scr_thief_behaviour>();
