@@ -1000,8 +1000,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 76593091}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 0}
-  audioTranscript: 
-  audioTranscriptInt: 
+  UniqueIdentifier: 
   picked: 0
   isFromThief: 0
   audioSources: []
@@ -1089,7 +1088,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 20.7684, y: -33.0826, z: -0.21}
-  m_LocalScale: {x: 23.037786, y: 17.98551, z: 1}
+  m_LocalScale: {x: 24.604355, y: 17.98551, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 101355450}
@@ -1583,8 +1582,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 105048557}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 0}
-  audioTranscript: 
-  audioTranscriptInt: 
+  UniqueIdentifier: 
   picked: 0
   isFromThief: 0
   audioSources: []
@@ -2712,8 +2710,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 0}
-  audioTranscript: 
-  audioTranscriptInt: 
+  UniqueIdentifier: 
   picked: 0
   isFromThief: 0
   audioSources: []
@@ -4340,7 +4337,7 @@ Transform:
   m_GameObject: {fileID: 356704779}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.54, y: -56.79999, z: -0.20999908}
+  m_LocalPosition: {x: -10.1, y: -56.79999, z: -0.20999908}
   m_LocalScale: {x: 38.12603, y: 33.639595, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5874,8 +5871,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 0}
-  audioTranscript: 
-  audioTranscriptInt: 
+  UniqueIdentifier: 
   picked: 0
   isFromThief: 0
   audioSources: []
@@ -6276,6 +6272,7 @@ MonoBehaviour:
   inventory: {fileID: 699433245}
   player: {fileID: 963194228}
   is_active: 0
+  obj_carried: {fileID: 0}
   colliders: []
   rb: {fileID: 611600894}
   layerMask: 0
@@ -6835,8 +6832,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 0}
-  audioTranscript: 
-  audioTranscriptInt: 
+  UniqueIdentifier: 
   picked: 0
   isFromThief: 0
   audioSources: []
@@ -7506,6 +7502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 773e8f75d49cf8143b4adba1a38de844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scr_pick_up_object: {fileID: 0}
   score: 0
   mortar: 0
   Soldier: 0
@@ -7516,6 +7513,19 @@ MonoBehaviour:
   BreadCoins: 0
   Skull: 0
   Canon: 0
+  Sword: 0
+  lightmortor: {fileID: 0}
+  lightsoldier: {fileID: 0}
+  lightarmor: {fileID: 0}
+  lightsilvercup: {fileID: 0}
+  lightmorian: {fileID: 0}
+  lightarcheological: {fileID: 0}
+  lightbreadcoin: {fileID: 0}
+  lightskull: {fileID: 0}
+  lightcanon: {fileID: 0}
+  lightSword: {fileID: 0}
+  targetObjectName: 
+  LightStrength: 750
   scoreTable: {fileID: 2122799325}
 --- !u!1 &687123097
 GameObject:
@@ -10371,8 +10381,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 981631243}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 0}
-  audioTranscript: 
-  audioTranscriptInt: 
+  UniqueIdentifier: 
   picked: 0
   isFromThief: 0
   audioSources: []
@@ -12528,9 +12537,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 1211206466}
   audioSource: {fileID: 1783349445}
   audioSourceInt: {fileID: 2113657435}
-  audioTranscript: I'm Johnny Skull, have some respect!!
-  audioTranscriptInt: I think I am supposed to tell you something interesting about
-    what you are looking at.
+  UniqueIdentifier: 
   picked: 0
   isFromThief: 0
   audioSources: []
@@ -13221,9 +13228,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 1305172828}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 2113657435}
-  audioTranscript: 
-  audioTranscriptInt: I think I am supposed to tell you something interesting about
-    what you are looking at.
+  UniqueIdentifier: 
   picked: 0
   isFromThief: 0
   audioSources: []
@@ -13636,7 +13641,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -14088,8 +14093,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 1355816929}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 0}
-  audioTranscript: 
-  audioTranscriptInt: 
+  UniqueIdentifier: 
   picked: 0
   isFromThief: 0
   audioSources: []
@@ -14752,8 +14756,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 1409615752}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 0}
-  audioTranscript: 
-  audioTranscriptInt: 
+  UniqueIdentifier: 
   picked: 0
   isFromThief: 0
   audioSources: []
@@ -15445,7 +15448,6 @@ MonoBehaviour:
   - {fileID: 738812964}
   Artefacts: []
   count: 0
-  thief_chance: 0.9
   target: {fileID: 0}
   CanSpawn: 1
 --- !u!1 &1494130025
@@ -16636,9 +16638,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 881808491}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 2113657435}
-  audioTranscript: 
-  audioTranscriptInt: I think I am supposed to tell you something interesting about
-    what you are looking at.
+  UniqueIdentifier: 
   picked: 0
   isFromThief: 0
   audioSources: []
@@ -17198,8 +17198,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 0}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 0}
-  audioTranscript: 
-  audioTranscriptInt: 
+  UniqueIdentifier: 
   picked: 0
   isFromThief: 0
   audioSources: []
@@ -18089,8 +18088,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 1671698828}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 0}
-  audioTranscript: 
-  audioTranscriptInt: 
+  UniqueIdentifier: 
   picked: 0
   isFromThief: 0
   audioSources: []
@@ -18206,8 +18204,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 1682324892}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 0}
-  audioTranscript: 
-  audioTranscriptInt: 
+  UniqueIdentifier: 
   picked: 0
   isFromThief: 0
   audioSources: []
@@ -21425,8 +21422,7 @@ MonoBehaviour:
   ChildLayer: {fileID: 2038480724}
   audioSource: {fileID: 0}
   audioSourceInt: {fileID: 0}
-  audioTranscript: 
-  audioTranscriptInt: 
+  UniqueIdentifier: 
   picked: 0
   isFromThief: 0
   audioSources:
