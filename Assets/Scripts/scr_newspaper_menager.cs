@@ -78,6 +78,7 @@ public class scr_newspaper_menager : MonoBehaviour
             {
                 newspaper.sprite = end_victoria;
             }
+            game_lost = false;
         }
 
         int day = 7;
