@@ -38,6 +38,7 @@ public class scr_pick_up_object : MonoBehaviour
     public scr_thief_hit thief_hit;
     private bool funagain = false;
     public bool hilfe1 = false;
+    public string waterLayerName = "Water";
     void Update()
     {
 
@@ -127,62 +128,66 @@ public class scr_pick_up_object : MonoBehaviour
                 layerMask = ~LayerMask.GetMask("Ignore Raycast");
                 if (Physics.Raycast(ray, out hit, 10, layerMask))
                 {
-                    obj_carried = hit.collider.GameObject();
-                    the_one_you_picked_up = hit.collider.GameObject();
-                    thief_hit = hit.collider.GameObject().GetComponent<scr_thief_hit>();
-                    if (thief_hit != null)
+                    if (!IsWater(hit.collider.gameObject))
                     {
-                        thief_hit.help1 = true;
-                        funagain = true;
-                    }
-                    else
-                    {
-                        if (obj_carried != null && obj_carried.GetComponent<scr_pickupable>() != null && obj_carried.GetComponent<scr_pickupable>().picked == false)
-                        {
-                            is_active = true;
-                            is_carrying = true;
-                            obj_carried.GetComponent<scr_pickupable>().picked = true;
-                            rb = obj_carried.GetComponent<Rigidbody>();
-                            if (rb != null)
-                            {
-                                //store original matterial in Mat change material to transparent
-                                ParentMesh = obj_carried.GetComponent<MeshRenderer>();
-                                if (ParentMesh != null)
-                                {
-                                    ParentMat = ParentMesh.materials[0];
-                                    ParentMesh.material = transparentMaterial;
-                                }
-                                else
-                                {
-                                    Child = obj_carried.transform.GetChild(0);
-                                    ChildMesh = Child.GetComponent<MeshRenderer>();
-                                    Mat = ChildMesh.materials[0];
-                                    ChildMesh.material = transparentMaterial;
-                                }
-                                //Refer to picked up obj's scr_pickupable
-                                scr_pickupable = obj_carried.GetComponent<scr_pickupable>();
-                                /*Depricated
-                                if (scr_pickupable != null)
-                                {
-                                    if (scr_pickupable.audioSource != null)
-                                    {
-                                        //play audio from scr_pickupable
-                                        scr_pickupable.audioSource.Play();
-                                        if (scr_pickupable.audioSource.isPlaying) { Subtitle.text = scr_pickupable.audioTranscript; }
-                                    }
-                                }
-                                */
-                                rb.useGravity = false;
-                            }
-                            colliders = obj_carried.GetComponentsInChildren<Collider>();
-                            foreach (Collider collider in colliders)
-                            {
-                                collider.enabled = false;
-                            }
-                            state = 2;
-                            Debug.Log("new State: " + state);
 
-                            DisableNextFrame(obj_carried);
+                        obj_carried = hit.collider.GameObject();
+                        the_one_you_picked_up = hit.collider.GameObject();
+                        thief_hit = hit.collider.GameObject().GetComponent<scr_thief_hit>();
+                        if (thief_hit != null)
+                        {
+                            thief_hit.help1 = true;
+                            funagain = true;
+                        }
+                        else
+                        {
+                            if (obj_carried != null && obj_carried.GetComponent<scr_pickupable>() != null && obj_carried.GetComponent<scr_pickupable>().picked == false)
+                            {
+                                is_active = true;
+                                is_carrying = true;
+                                obj_carried.GetComponent<scr_pickupable>().picked = true;
+                                rb = obj_carried.GetComponent<Rigidbody>();
+                                if (rb != null)
+                                {
+                                    //store original matterial in Mat change material to transparent
+                                    ParentMesh = obj_carried.GetComponent<MeshRenderer>();
+                                    if (ParentMesh != null)
+                                    {
+                                        ParentMat = ParentMesh.materials[0];
+                                        ParentMesh.material = transparentMaterial;
+                                    }
+                                    else
+                                    {
+                                        Child = obj_carried.transform.GetChild(0);
+                                        ChildMesh = Child.GetComponent<MeshRenderer>();
+                                        Mat = ChildMesh.materials[0];
+                                        ChildMesh.material = transparentMaterial;
+                                    }
+                                    //Refer to picked up obj's scr_pickupable
+                                    scr_pickupable = obj_carried.GetComponent<scr_pickupable>();
+                                    /*Depricated
+                                    if (scr_pickupable != null)
+                                    {
+                                        if (scr_pickupable.audioSource != null)
+                                        {
+                                            //play audio from scr_pickupable
+                                            scr_pickupable.audioSource.Play();
+                                            if (scr_pickupable.audioSource.isPlaying) { Subtitle.text = scr_pickupable.audioTranscript; }
+                                        }
+                                    }
+                                    */
+                                    rb.useGravity = false;
+                                }
+                                colliders = obj_carried.GetComponentsInChildren<Collider>();
+                                foreach (Collider collider in colliders)
+                                {
+                                    collider.enabled = false;
+                                }
+                                state = 2;
+                                Debug.Log("new State: " + state);
+
+                                DisableNextFrame(obj_carried);
+                            }
                         }
                     }
                 }
@@ -215,6 +220,14 @@ public class scr_pick_up_object : MonoBehaviour
         }
     }
 
+    private bool IsWater(GameObject obj)
+    {
+        if (obj.layer == LayerMask.NameToLayer(waterLayerName) || obj.layer == LayerMask.NameToLayer("Ignore Raycast"))
+        {
+            return true;
+        }
+        return false;
+    }
     IEnumerator DisableNextFrame(GameObject obj)
     {
         yield return new WaitForEndOfFrame();

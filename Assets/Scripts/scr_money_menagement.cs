@@ -63,7 +63,7 @@ public class scr_money_menagement : MonoBehaviour
     private int family_modifier = 3;
     private bool help = false;
 
-
+    public static bool theos_variable = false;
 
     // Start is called before the first frame update
     void Start()

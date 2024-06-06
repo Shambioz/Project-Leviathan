@@ -37,25 +37,25 @@ public class scr_pickupable : MonoBehaviour
     //highlight Objects when mouse hovers over obj
     void OnMouseEnter()
     {
-        if (is_in_place == true)
+
+        if (gameObject.layer == 0)
+        {
+            gameObject.layer = 3;
+            UItext.text = "" + gameObject.name;
+            ChildLayer.layer = 3;
+        }
+        else if (is_in_place)
         {
             gameObject.layer = 4;
             ChildLayer.layer = 4;
         }
-        else 
-        { 
-            gameObject.layer = 3;
-            ChildLayer.layer = 3;
-        }
-        
         UItext.text = "" + gameObject.name;
-        
         //Mat = ChildMesh.materials[0];
         //MeshRenderer renderer = ChildMesh.GetComponent<MeshRenderer>();
         //Material originalMat = renderer.sharedMaterial;
         //Material materialTrans = new Material(transparentMaterial);
         //materialTrans.CopyPropertiesFromMaterial(originalMat);
-       // renderer.sharedMaterial = materialTrans;
+        // renderer.sharedMaterial = materialTrans;
         //ChildMesh.material = transparentMaterial;
         //audioSource.Play();
     }
@@ -63,9 +63,12 @@ public class scr_pickupable : MonoBehaviour
     //unhighlight Objects when mouse hovers over obj
     void OnMouseExit()
     {
-        gameObject.layer = 0;
-        UItext.text = "";
-        ChildLayer.layer = 0;
+        if (gameObject.layer != 4)
+        {
+            gameObject.layer = 0;
+            UItext.text = "";
+            ChildLayer.layer = 0;
+        }
         //ChildMesh.material = Mat;
     }
 
@@ -93,7 +96,9 @@ public class scr_pickupable : MonoBehaviour
     {
         if (is_in_place == true)
         {
-            this.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+            gameObject.layer = 4;
+            ChildLayer.layer = 4;
+            this.gameObject.layer = LayerMask.NameToLayer("Water");
         }
     }
 
