@@ -56,7 +56,7 @@ public class scr_interact_object : MonoBehaviour
             int y = Screen.height / 2;
             Ray ray = Camera.main.ScreenPointToRay(new Vector3(x, y));
             RaycastHit hit;
-            layerMask = ~LayerMask.GetMask("Water");
+            layerMask = LayerMask.GetMask("Water");
             if (Physics.Raycast(ray, out hit, 10, layerMask))
             {
                 obj_interacting = hit.collider.GameObject();

@@ -38,7 +38,7 @@ public class scr_pickupable : MonoBehaviour
     void OnMouseEnter()
     {
 
-        if (gameObject.layer == 0)
+        if (!is_in_place)
         {
             gameObject.layer = 3;
             UItext.text = "" + gameObject.name;
@@ -63,12 +63,11 @@ public class scr_pickupable : MonoBehaviour
     //unhighlight Objects when mouse hovers over obj
     void OnMouseExit()
     {
-        if (gameObject.layer != 4)
-        {
+        
             gameObject.layer = 0;
             UItext.text = "";
             ChildLayer.layer = 0;
-        }
+        
         //ChildMesh.material = Mat;
     }
 
@@ -96,9 +95,8 @@ public class scr_pickupable : MonoBehaviour
     {
         if (is_in_place == true)
         {
-            gameObject.layer = 4;
-            ChildLayer.layer = 4;
-            this.gameObject.layer = LayerMask.NameToLayer("Water");
+            
+
         }
     }
 

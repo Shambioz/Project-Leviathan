@@ -13,7 +13,7 @@ public class scr_player_movement : MonoBehaviour
     public TextMeshProUGUI Subtitle;
     public AudioSource Audio;
     public GameObject Player;
-    private float movespd = 7.5f;
+    private float movespd = 10f;
     private float flyspd = 5f;
     private float rotspeed = 200f;
     public float CanMove = 1;
