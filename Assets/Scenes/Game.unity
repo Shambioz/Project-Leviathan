@@ -4403,6 +4403,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 23e23fc1352f8c746b6f45875711b32b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 362997642}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 23e23fc1352f8c746b6f45875711b32b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 362997648}
   m_SourcePrefab: {fileID: 100100000, guid: 23e23fc1352f8c746b6f45875711b32b, type: 3}
 --- !u!1 &362997641 stripped
 GameObject:
@@ -4511,6 +4514,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 23e23fc1352f8c746b6f45875711b32b, type: 3}
   m_PrefabInstance: {fileID: 362997640}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &362997648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362997641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecd9a826407f5f478fe550638aa4e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ArtifactCollider: {fileID: 1160710685}
+  points: {fileID: 1468131437}
+  targetRotation: {x: 0, y: 0, z: 0}
+  scr_Pickupable: {fileID: 362997644}
 --- !u!1 &367604248
 GameObject:
   m_ObjectHideFlags: 0
@@ -8858,7 +8877,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 873, y: 452}
+  m_AnchoredPosition: {x: 669, y: 315}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &659342818
@@ -11538,16 +11557,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 827094839}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8177083, y: 0.8177083, z: 0.8177083}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2082301236}
+  m_Father: {fileID: 1342525630}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -828, y: 382.6}
+  m_AnchoredPosition: {x: -677.0625, y: 261}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &827094841
@@ -18926,6 +18945,7 @@ RectTransform:
   m_Children:
   - {fileID: 1621733348}
   - {fileID: 658736213}
+  - {fileID: 827094840}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -24621,7 +24641,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 892, y: 411}
+  m_AnchoredPosition: {x: 688, y: 274}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1621733349
@@ -26740,7 +26760,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e0520c53953d5844c94774d24504c03a, type: 2}
     - target: {fileID: 919132149155446097, guid: 67e2bcdf7b3aba54d85764e1f6beb49d, type: 3}
       propertyPath: m_Name
-      value: Mortar of pharmacist Ellerus de Witt
+      value: 'Mortar of pharmacist '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29544,7 +29564,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2122799324}
-  - {fileID: 827094840}
   - {fileID: 1616457106}
   - {fileID: 1753648583}
   - {fileID: 1868740508}

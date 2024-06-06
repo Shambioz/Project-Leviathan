@@ -259,7 +259,7 @@ public class scr_thief_behaviour : MonoBehaviour
                 inventory.layer = LayerMask.NameToLayer("Default");
                 Destroy(collider);
                 inventory.transform.SetParent(transform); // Attach to the thief
-                inventory.transform.localPosition = Vector3.zero; // Position it correctly on the thief
+                inventory.transform.localPosition = new Vector3(-0.058f, 1.38f, 0.506f);
                 Rigidbody rb = inventory.GetComponent<Rigidbody>();
                 is_artefact_stolen = true;
                 rb.isKinematic = true; // Make the artifact kinematic to prevent physics issues

@@ -24,7 +24,7 @@ public class scr_customers_navigation : MonoBehaviour
     public GameObject[] TargetPosition;
     public GameObject[] Artefacts;
     public int count = 0;
-    public static float thief_chance = 0.3f;
+    public static float thief_chance;
     public Transform target;
     public bool CanSpawn = true;
 
