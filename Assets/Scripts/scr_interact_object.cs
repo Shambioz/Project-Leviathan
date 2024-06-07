@@ -29,6 +29,7 @@ public class scr_interact_object : MonoBehaviour
     public scr_audio_manager scr_audio_manager;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,10 +65,24 @@ public class scr_interact_object : MonoBehaviour
                 scr_pickupableInt = obj_interacting.GetComponent<scr_pickupable>();
                 if (scr_pickupableInt != null)
                 {
-                    //get array for both audio and text from obj
-                    scr_audio_manager.audioSources = scr_pickupableInt.audioSources;
-                    scr_audio_manager.displayTexts = scr_pickupableInt.displayTexts;
-                    scr_audio_manager.PlayAudioAndDisplayText();
+
+                    //stop all audio source in previous array if any
+                    
+                    if (scr_audio_manager.audioSources != null)
+                    {
+                         foreach (var AudioSource in scr_audio_manager.audioSources)
+                        {
+                            if (AudioSource != null)
+                            {
+                                AudioSource.Stop();
+                            }
+                        }
+
+                        if (scr_audio_manager.playAudioAndDisplayTextCoroutine != null) { scr_audio_manager.StopPlayAudioAndDisplayTextCoroutine(); }
+                        scr_audio_manager.audioSources = scr_pickupableInt.audioSources;
+                        scr_audio_manager.displayTexts = scr_pickupableInt.displayTexts;
+                        scr_audio_manager.PlayAudioAndDisplayText();
+                    }
                 }
                 
             }

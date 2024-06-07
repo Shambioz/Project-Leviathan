@@ -14,6 +14,15 @@ public class scr_audio_manager : MonoBehaviour
     // Reference to the TMP text component on the canvas
     public TMP_Text tmpText;
 
+    public Coroutine playAudioAndDisplayTextCoroutine;
+
+    public bool on = false;
+    public bool activated = false;
+
+    void Start()
+    {
+    }
+
     // Function to play all audio sources and update the text
     public void PlayAudioAndDisplayText()
     {
@@ -25,12 +34,18 @@ public class scr_audio_manager : MonoBehaviour
         }
 
         // Start the coroutine to play audio sources and display texts
-        StartCoroutine(PlayAudioAndDisplayTextCoroutine());
+        if (audioSources != null)
+        {
+            playAudioAndDisplayTextCoroutine = StartCoroutine(PlayAudioAndDisplayTextCoroutine());
+            on = true;
+        }
     }
 
     // Coroutine to play audio sources and update the text with a delay
     private IEnumerator PlayAudioAndDisplayTextCoroutine()
     {
+        tmpText.text = "";
+
         for (int i = 0; i < audioSources.Length; i++)
         {
             if (audioSources[i] != null && tmpText != null)
@@ -44,7 +59,20 @@ public class scr_audio_manager : MonoBehaviour
                 // Wait for the duration of the audio clip
                 yield return new WaitForSeconds(audioSources[i].clip.length);
             }
+
         }
         tmpText.text = null;
+    }
+
+    public void StopPlayAudioAndDisplayTextCoroutine()
+    {
+        activated = true;
+        if (on == true)
+        {
+            StopCoroutine(playAudioAndDisplayTextCoroutine);
+            on = false;
+            
+            Debug.Log("Coroutine stopped.");
+        }
     }
 }
