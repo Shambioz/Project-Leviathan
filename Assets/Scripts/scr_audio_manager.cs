@@ -75,4 +75,21 @@ public class scr_audio_manager : MonoBehaviour
             Debug.Log("Coroutine stopped.");
         }
     }
+
+    public void PauseAllAudio()
+    {
+        AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
+        foreach (AudioSource audioSource in audioSources)
+        {
+            audioSource.Pause();
+        }
+    }
+    public void ResumeAllAudio()
+    {
+        AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
+        foreach (AudioSource audioSource in audioSources)
+        {
+            audioSource.UnPause();
+        }
+    }
 }

@@ -261,7 +261,7 @@ public class scr_customers_behaviour : MonoBehaviour
     {
         Destroy(gameObject);
     }
-        void Update()
+    void Update()
     {
 
         if (hp.hp == 0)

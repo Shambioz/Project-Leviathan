@@ -14,12 +14,14 @@ public class scr_pew_pew_pew : MonoBehaviour
     public GameObject hitted;
     public scr_pew_pew_pew_2 pew_pew_pew_2;
     public float battery = 1f;
+    private scr_pause_menu pause;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        pause = FindObjectOfType<scr_pause_menu>();
     }
 
     void Awake()
@@ -35,7 +37,7 @@ public class scr_pew_pew_pew : MonoBehaviour
     void Update()
     {
         Debug.Log("Tell me the truth: " + battery);
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !pause.GamePaused)
         {
             Debug.Log("Tell me the truth2: " + battery);
             if (battery > 0f)
