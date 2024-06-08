@@ -38,4 +38,9 @@ public class scr_scene_loader : MonoBehaviour
             SceneManager.LoadScene(2);
         }
     }
+
+    public void TheosFunnyVariable(bool variable)
+    {
+        scr_money_menagement.theos_variable = variable;
+    }
 }
