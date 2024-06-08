@@ -59,7 +59,10 @@ public class scr_on_collision_event : MonoBehaviour
             //Calculate time for audio clip will be done
                 PredictedEndTime = Time.time + AudioClipLength;
             //define Transform target in scr_camera movement
-            PlayerBehavior.target = LookAt.GetComponent<Transform>();
+            if (LookAt != null)
+            {
+                PlayerBehavior.target = LookAt.GetComponent<Transform>();
+            }
             //if (AudioSource.isPlaying){ Subtitle.text = "" + Text;}
             scr_audio_manager.audioSources = Audio;
                 scr_audio_manager.displayTexts = Text;
