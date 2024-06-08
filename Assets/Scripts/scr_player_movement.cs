@@ -11,7 +11,6 @@ public class scr_player_movement : MonoBehaviour
 
     public scr_pick_up_object scr_pick_up_object;
     public TextMeshProUGUI Subtitle;
-    public AudioSource Audio;
     public GameObject Player;
     private float movespd = 10f;
     private float flyspd = 5f;

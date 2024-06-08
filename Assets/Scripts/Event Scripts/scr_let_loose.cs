@@ -49,8 +49,6 @@ public class scr_let_loose : MonoBehaviour
             Debug.Log("Entered");
             //play specified Audio
             AudioSource.Play();
-            //tell audio
-            scr_player_movement.Audio = AudioSource;
             //define Transform target in scr_camera movement
             PlayerBehavior.target = LookAt.GetComponent<Transform>();
             //Toggle player ability to move off

@@ -82,6 +82,7 @@ public class scr_interact_object : MonoBehaviour
                         scr_audio_manager.audioSources = scr_pickupableInt.audioSources;
                         scr_audio_manager.displayTexts = scr_pickupableInt.displayTexts;
                         scr_audio_manager.PlayAudioAndDisplayText();
+
                     }
                 }
                 

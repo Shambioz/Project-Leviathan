@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using TMPro;
 using UnityEngine;
 
@@ -12,25 +13,30 @@ public class scr_on_collision_event : MonoBehaviour
     private AudioSource AudioSource;
     private float AudioClipLength;
     public float PredictedEndTime = 0;
-    public AudioSource Audio1;
-    public string Text;
+    public string[] Text;
     public PlayerBehavior PlayerBehavior;
     public scr_player_movement scr_player_movement;
-    public AudioSource Audio;
-
+    public AudioSource[] Audio;
+    public scr_audio_manager scr_audio_manager;
+    public float currenttime = 0;
     // Start is called before the first frame update
     void Start()
     {
-        AudioSource = Audio1;
-        AudioClipLength = AudioSource.clip.length;
+        for (int i = 0; i < Audio.Length; i++)
+        {
+            if (Audio[i] != null)
+            {
+                AudioClipLength = AudioClipLength + Audio[i].clip.length;
+            }
+
+        }
     }
 
     void Update()
     {
+        currenttime = Time.time;
         if (PredictedEndTime != 0 && Time.time >= PredictedEndTime) 
         {
-            //Erase subtitle
-            Subtitle.text = "";
             //Toffle player movement back on
             scr_player_movement.CanMove = 1;
             //empty camera target to resume normal functionality
@@ -47,22 +53,37 @@ public class scr_on_collision_event : MonoBehaviour
             if (other.gameObject.name == EffectedObject.name)
             {
                 Debug.Log("Entered");
-            //play specified Audio
-                AudioSource.Play();
-            //tell audio
-            scr_player_movement.Audio = AudioSource;
-            //define Transform target in scr_camera movement
-                PlayerBehavior.target = LookAt.GetComponent<Transform>();
+            
             //Toggle player ability to move off
                 scr_player_movement.CanMove = 0;
             //Calculate time for audio clip will be done
                 PredictedEndTime = Time.time + AudioClipLength;
-            //if audio is playing change text in TextMeshProUGUI for subtitle & trigger destruction
-            if (AudioSource.isPlaying){ Subtitle.text = "" + Text;}
-            //destroy thief
+            //define Transform target in scr_camera movement
+            PlayerBehavior.target = LookAt.GetComponent<Transform>();
+            //if (AudioSource.isPlaying){ Subtitle.text = "" + Text;}
+            scr_audio_manager.audioSources = Audio;
+                scr_audio_manager.displayTexts = Text;
+                scr_audio_manager.PlayAudioAndDisplayText();
             }
     }
 
+
+   /* private IEnumerator WaitForSpeech()
+    {
+
+        for (int i = 0; i < Audio.Length; i++)
+        {
+            if (Audio[i] != null)
+            {
+                //define Transform target in scr_camera movement
+                PlayerBehavior.target = LookAt.GetComponent<Transform>();
+                // Wait for the duration of the audio clip
+                yield return new WaitForSeconds(audioSources[i].clip.length);
+            }
+
+        }
+        tmpText.text = null;
+    }*/
     void OnTriggerExit(Collider other)
     {
         //if player is no longer inside collider stop audio & text
