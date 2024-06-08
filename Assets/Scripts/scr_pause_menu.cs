@@ -33,7 +33,7 @@ public class scr_pause_menu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !PauseMenu.activeSelf && !SettingsMenu.activeSelf)
         {
-            Audio.PauseAllAudio();
+            //Audio.PauseAllAudio();
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             UI.SetActive(false);
@@ -42,7 +42,7 @@ public class scr_pause_menu : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && PauseMenu.activeSelf)
         {
-            Audio.ResumeAllAudio();
+            //Audio.ResumeAllAudio();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             UI.SetActive(true);
