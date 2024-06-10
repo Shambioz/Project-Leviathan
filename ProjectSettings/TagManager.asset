@@ -10,6 +10,7 @@ TagManager:
   - Box3
   - Button
   - Thief
+  - Artifact
   layers:
   - Default
   - TransparentFX

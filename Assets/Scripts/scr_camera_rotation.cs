@@ -12,7 +12,7 @@ public class PlayerBehavior : MonoBehaviour
     public float inputY = 0f;
     public Transform target;
     public scr_day_cycle scr_day_cycle;
-    private scr_pause_menu pause;
+    public scr_pause_menu pause;
 
     bool lockedCursor = true;
 

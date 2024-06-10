@@ -8,7 +8,7 @@ public class scr_thief_hit : MonoBehaviour
     private bool knocked_out = false;
     public scr_thief_ai thief_ai;
     public bool is_hit = false;
-    private int maxhp = 1000;
+    private int maxhp = 500;
     public NavMeshAgent agent;
     public int hp = 0;
     public bool help1 = false;

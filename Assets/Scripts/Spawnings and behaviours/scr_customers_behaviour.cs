@@ -24,7 +24,8 @@ public class scr_customers_behaviour : MonoBehaviour
     //private Animator Walking;
     public scr_fixing_after_theo_fucked_up_again points;
     private bool free_points = true;
-
+    private Animator walkingAnimator;  // Animator on the parent object
+    private Animator stealingAnimator; // Animator on the child object
 
     private enum CustomerState
     {
@@ -40,6 +41,12 @@ public class scr_customers_behaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Vector3 newScale = transform.localScale * 2.3f;
+        transform.localScale = newScale;
+        walkingAnimator = GetComponentInParent<Animator>();
+        stealingAnimator = GetComponentsInChildren<Animator>()[1];
+        walkingAnimator.enabled = false;
+        stealingAnimator.enabled = false;
         Debug.Log("Start");
         points = FindObjectOfType<scr_fixing_after_theo_fucked_up_again>();
         //Walking = GetComponent<Animator>();
@@ -138,6 +145,7 @@ public class scr_customers_behaviour : MonoBehaviour
 
     IEnumerator GoingState()
     {
+        walkingAnimator.enabled = true;
         while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
         {
             UpdateRotation();
@@ -160,6 +168,7 @@ public class scr_customers_behaviour : MonoBehaviour
 
     IEnumerator WaitingState()
     {
+        walkingAnimator.enabled = false;
         Debug.Log("Waiting");
         yield return new WaitForSeconds(5f);
         count++;
@@ -188,6 +197,7 @@ public class scr_customers_behaviour : MonoBehaviour
 
     IEnumerator ParalisingState()
     {
+        walkingAnimator.enabled = false;
         Debug.Log("Paralised");
         points.artems_points = points.artems_points - 2;
         agent.isStopped = true;
@@ -203,6 +213,7 @@ public class scr_customers_behaviour : MonoBehaviour
 
     IEnumerator ExitState()
     {
+        walkingAnimator.enabled = true;
         Debug.Log("Exiting");
         agent.SetDestination(navigation.spawn_point);
         agent.stoppingDistance = 1;
@@ -238,6 +249,7 @@ public class scr_customers_behaviour : MonoBehaviour
     IEnumerator KickingOut()
     {
         Debug.Log("Kicking");
+        walkingAnimator.enabled = true;
         agent.SetDestination(navigation.spawn_point);
         agent.stoppingDistance = 1;
 

@@ -27,6 +27,9 @@ public class scr_thief_behaviour : MonoBehaviour
     public bool check2 = true;
     public scr_fixing_after_theo_fucked_up_again points;
     private bool free_points = true;
+    private Animator walkingAnimator;  // Animator on the parent object
+    private Animator stealingAnimator; // Animator on the child object
+
     private enum ThiefState
     {
         Idle,
@@ -42,6 +45,12 @@ public class scr_thief_behaviour : MonoBehaviour
 
     void Start()
     {
+        Vector3 newScale = transform.localScale * 2.3f;
+        transform.localScale = newScale;
+        walkingAnimator = GetComponentInParent<Animator>();
+        stealingAnimator = GetComponentsInChildren<Animator>()[1];
+        walkingAnimator.enabled = false;
+        stealingAnimator.enabled = false;
         points = FindObjectOfType<scr_fixing_after_theo_fucked_up_again>();
         cycle = UnityEngine.Random.Range(0, 3);
         scr_day_cycle = FindObjectOfType<scr_day_cycle>();
@@ -60,6 +69,17 @@ public class scr_thief_behaviour : MonoBehaviour
         StartCoroutine(StateMachine());
     }
 
+    GameObject FindChildByTag(string tag)
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.tag == tag)
+            {
+                return child.gameObject;
+            }
+        }
+        return null;
+    }
     private void UpdateRotation()
     {
         if (agent.velocity.sqrMagnitude > 0.1f) // If the agent is moving
@@ -138,6 +158,7 @@ public class scr_thief_behaviour : MonoBehaviour
 
     IEnumerator GoingState()
     {
+        walkingAnimator.enabled = true;
         Debug.Log("Going to the target");
         while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
         {
@@ -164,6 +185,7 @@ public class scr_thief_behaviour : MonoBehaviour
 
     IEnumerator WaitingState()
     {
+        walkingAnimator.enabled = false;
         count++;
         Debug.Log("Waiting");
         //Walking.enabled = false;
@@ -183,9 +205,12 @@ public class scr_thief_behaviour : MonoBehaviour
         scr_pickupable remove = inventory.GetComponent<scr_pickupable>();
         if(inventory.GetComponent<scr_pickupable>().picked == false)
         {
+            stealingAnimator.enabled = true;
             Destroy(collider);
+            GameObject artifact = FindChildByTag("Artifact");
             inventory.transform.SetParent(transform); // Attach to the thief
-            inventory.transform.localPosition = new Vector3(-0.058f, 1.38f, 0.506f); // Position it correctly on the thief
+            inventory.transform.position = artifact.transform.position;
+            inventory.transform.rotation = artifact.transform.rotation;
             inventory.GetComponent<scr_pickupable>().picked = true;
             inventory.GetComponent<scr_pickupable>().is_in_place = false;
             inventory.layer = LayerMask.NameToLayer("Default");
@@ -195,7 +220,9 @@ public class scr_thief_behaviour : MonoBehaviour
             {
                 rb.isKinematic = true; // Make the artifact kinematic to prevent physics issues
             }
+            stealingAnimator.enabled = false;
             yield return new WaitForSeconds(2f);
+            gameObject.tag = "Thief";
             TransitionToState(ThiefState.Exiting);
             yield break;
         }
@@ -205,10 +232,11 @@ public class scr_thief_behaviour : MonoBehaviour
     IEnumerator ParalisingState()
     {
         //Walking.enabled = false;
-
+        walkingAnimator.enabled = false;
         Debug.Log("Paralised");
         if (inventory != null)
         {
+            gameObject.tag = "Untagged";
             inventory.AddComponent<BoxCollider>();
             inventory.GetComponent<scr_pickupable>().picked = false;
             inventory.GetComponent<scr_pickupable>().isFromThief = true;
@@ -252,20 +280,25 @@ public class scr_thief_behaviour : MonoBehaviour
             }
             if (distance <= radius && inventory.GetComponent<scr_pickupable>().picked == false)
             {
+                stealingAnimator.enabled = false;
                 Collider collider = inventory.GetComponent<Collider>();
                 scr_pickupable remove = inventory.GetComponent<scr_pickupable>();
                 inventory.GetComponent<scr_pickupable>().picked = true;
                 inventory.GetComponent<scr_pickupable>().is_in_place = false;
                 inventory.layer = LayerMask.NameToLayer("Default");
                 Destroy(collider);
+                gameObject.tag = "Thief";
+                GameObject artifact = FindChildByTag("Artifact");
                 inventory.transform.SetParent(transform); // Attach to the thief
-                inventory.transform.localPosition = new Vector3(-0.058f, 1.38f, 0.506f);
+                inventory.transform.position = artifact.transform.position;
+                inventory.transform.rotation = artifact.transform.rotation;
                 Rigidbody rb = inventory.GetComponent<Rigidbody>();
                 is_artefact_stolen = true;
                 rb.isKinematic = true; // Make the artifact kinematic to prevent physics issues
-                
                 Debug.Log("Theo");
                 yield return new WaitForSeconds(2f);
+                stealingAnimator.enabled = false;
+
 
             }
             else if (distance > radius || inventory.GetComponent<scr_pickupable>().picked == true)
@@ -289,6 +322,7 @@ public class scr_thief_behaviour : MonoBehaviour
     IEnumerator ExitState()
     {
         //Walking.enabled = true;
+        walkingAnimator.enabled = true;
         Debug.Log("Leaving");
         agent.SetDestination(navigation.spawn_point);
         agent.stoppingDistance = 1;
@@ -354,6 +388,7 @@ public class scr_thief_behaviour : MonoBehaviour
     IEnumerator KickingOut()
     {
         //Walking.enabled = true;
+        walkingAnimator.enabled = true;
         Debug.Log("Kicking");
         agent.SetDestination(navigation.spawn_point);
         agent.stoppingDistance = 1;

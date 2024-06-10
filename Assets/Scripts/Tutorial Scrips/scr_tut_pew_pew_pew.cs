@@ -14,6 +14,7 @@ public class scr_tut_pew_pew_pew : MonoBehaviour
     public scr_tut_customer customer;
     public GameObject hitted;
     public scr_pew_pew_pew_2 pew_pew_pew_2;
+    public scr_pause_menu pause;
     //public float battery = 1f;
     //private scr_pause_menu pause;
 
@@ -22,7 +23,7 @@ public class scr_tut_pew_pew_pew : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //pause = FindObjectOfType<scr_pause_menu>();
+        pause = FindObjectOfType<scr_pause_menu>();
     }
 
     void Awake()
@@ -38,11 +39,13 @@ public class scr_tut_pew_pew_pew : MonoBehaviour
     void Update()
     {
         //Debug.Log("Tell me the truth: " + battery);
-        if (Input.GetMouseButton(0))
+        if (!pause.GamePaused)
         {
-            //Debug.Log("Tell me the truth2: " + battery);
-            //if (battery > 0f)
-            //{
+            if (Input.GetMouseButton(0))
+            {
+                //Debug.Log("Tell me the truth2: " + battery);
+                //if (battery > 0f)
+                //{
                 //battery -= 0.001f;
                 lr.enabled = true;
                 drone_position = drone.transform.position;
@@ -70,16 +73,18 @@ public class scr_tut_pew_pew_pew : MonoBehaviour
                         customer.shot = true;
                     }
                 }
-            //}
-            //if (battery <= 0f)
-            //{
-               // battery = 0f;
+                //}
+                //if (battery <= 0f)
+                //{
+                // battery = 0f;
                 //lr.enabled = false;
-            //}
+                //}
+            }
+            else
+            {
+                lr.enabled = false;
+            }
         }
-        else
-        {
-            lr.enabled = false;
-        }
+        
     }
 }

@@ -102,7 +102,6 @@ public class scr_customers_navigation : MonoBehaviour
             GameObject customer = Instantiate(People[randomSkin], spawn_point, Quaternion.identity);
             customer.AddComponent<scr_thief_hit>();
             customer.AddComponent<scr_customers_behaviour>();
-            customer.AddComponent<scr_thief_hit>();
             customer.AddComponent<scr_pew_pew_pew>();
             customers.Add(customer);
         }
