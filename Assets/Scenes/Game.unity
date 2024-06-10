@@ -2581,32 +2581,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165548445}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &166027476 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4e8c108bc989df44e9163fa9219ad6ae, type: 3}
-  m_PrefabInstance: {fileID: 1187859755}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &166027477
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166027476}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b57a8547a641fce43a9fc87a4271f514, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &178217594 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8416272007918961125, guid: 42dc7d343f6f74a4fb4797c70fa73572, type: 3}
@@ -5780,6 +5754,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ecd9a826407f5f478fe550638aa4e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArtifactCollider: {fileID: 1160710685}
+  points: {fileID: 1468131437}
+  targetRotation: {x: 0, y: 0, z: 0}
+  scr_Pickupable: {fileID: 362997644}
 --- !u!1 &367604248
 GameObject:
   m_ObjectHideFlags: 0
@@ -12464,6 +12442,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ecd9a826407f5f478fe550638aa4e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArtifactCollider: {fileID: 1860111665}
+  points: {fileID: 1468131437}
+  targetRotation: {x: 0, y: 0, z: 0}
+  scr_Pickupable: {fileID: 758830871}
 --- !u!114 &758830871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17498,6 +17480,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ecd9a826407f5f478fe550638aa4e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArtifactCollider: {fileID: 26616573}
+  points: {fileID: 1468131437}
+  targetRotation: {x: 0, y: 0, z: 0}
+  scr_Pickupable: {fileID: 1081222722}
 --- !u!1 &1085728456
 GameObject:
   m_ObjectHideFlags: 0
@@ -19641,66 +19627,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1001 &1187859755
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 4e8c108bc989df44e9163fa9219ad6ae, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -27.10506
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4e8c108bc989df44e9163fa9219ad6ae, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.27999926
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4e8c108bc989df44e9163fa9219ad6ae, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -22.282215
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4e8c108bc989df44e9163fa9219ad6ae, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4e8c108bc989df44e9163fa9219ad6ae, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4e8c108bc989df44e9163fa9219ad6ae, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4e8c108bc989df44e9163fa9219ad6ae, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4e8c108bc989df44e9163fa9219ad6ae, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4e8c108bc989df44e9163fa9219ad6ae, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4e8c108bc989df44e9163fa9219ad6ae, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 4e8c108bc989df44e9163fa9219ad6ae, type: 3}
-      propertyPath: m_Name
-      value: 'hitler changed '
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4e8c108bc989df44e9163fa9219ad6ae, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 166027477}
-  m_SourcePrefab: {fileID: 100100000, guid: 4e8c108bc989df44e9163fa9219ad6ae, type: 3}
 --- !u!1 &1188859383
 GameObject:
   m_ObjectHideFlags: 0
@@ -20242,6 +20168,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ecd9a826407f5f478fe550638aa4e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArtifactCollider: {fileID: 1575761773}
+  points: {fileID: 1468131437}
+  targetRotation: {x: 0, y: 0, z: 0}
+  scr_Pickupable: {fileID: 1211206470}
 --- !u!1 &1215527731
 GameObject:
   m_ObjectHideFlags: 0
@@ -21847,6 +21777,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ecd9a826407f5f478fe550638aa4e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArtifactCollider: {fileID: 1686589824}
+  points: {fileID: 1468131437}
+  targetRotation: {x: 0, y: 0, z: 0}
+  scr_Pickupable: {fileID: 1305172829}
 --- !u!1001 &1305434289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23757,6 +23691,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ecd9a826407f5f478fe550638aa4e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArtifactCollider: {fileID: 2073695061}
+  points: {fileID: 1468131437}
+  targetRotation: {x: 0, y: 0, z: 0}
+  scr_Pickupable: {fileID: 1409615756}
 --- !u!1 &1412021318
 GameObject:
   m_ObjectHideFlags: 0
@@ -24491,6 +24429,8 @@ MonoBehaviour:
   - {fileID: 6700941717111002267, guid: 82bf375c708a43c469bcc0c8a36e894f, type: 3}
   - {fileID: 1946070816355332348, guid: 148e956fa76d91c478c1ab83e1f1e99d, type: 3}
   - {fileID: 3224477536156371984, guid: 00204326ecd457f46b62a8cc122170d1, type: 3}
+  - {fileID: 6552314544600743895, guid: 21d32e0e4b4ed8647afd2ebc21470d3e, type: 3}
+  - {fileID: 267479772777741334, guid: 96d0144f74d5a11478074491b7dce281, type: 3}
   spawn_point: {x: -28.75, y: 0.38, z: -8.58}
   TargetPosition:
   - {fileID: 2091246572}
@@ -26722,6 +26662,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ecd9a826407f5f478fe550638aa4e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArtifactCollider: {fileID: 1078170759}
+  points: {fileID: 1468131437}
+  targetRotation: {x: 0, y: 0, z: 0}
+  scr_Pickupable: {fileID: 1556009907}
 --- !u!1001 &1559484194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27690,6 +27634,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ecd9a826407f5f478fe550638aa4e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArtifactCollider: {fileID: 2091431051}
+  points: {fileID: 1468131437}
+  targetRotation: {x: 0, y: 0, z: 0}
+  scr_Pickupable: {fileID: 1584371493}
 --- !u!4 &1593303519 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c6d30b0f3d48a4b4d81d402d8da2ac0b, type: 3}
@@ -27833,6 +27781,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ecd9a826407f5f478fe550638aa4e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArtifactCollider: {fileID: 323289515}
+  points: {fileID: 1468131437}
+  targetRotation: {x: 0, y: 0, z: 0}
+  scr_Pickupable: {fileID: 1593303521}
 --- !u!1 &1605340982
 GameObject:
   m_ObjectHideFlags: 0
@@ -29391,6 +29343,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ecd9a826407f5f478fe550638aa4e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArtifactCollider: {fileID: 1080626626}
+  points: {fileID: 1468131437}
+  targetRotation: {x: 0, y: 0, z: 0}
+  scr_Pickupable: {fileID: 1671698829}
 --- !u!1 &1686589822
 GameObject:
   m_ObjectHideFlags: 0
@@ -36090,6 +36046,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ecd9a826407f5f478fe550638aa4e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArtifactCollider: {fileID: 2078248276}
+  points: {fileID: 1468131437}
+  targetRotation: {x: 0, y: 0, z: 0}
+  scr_Pickupable: {fileID: 2135723374}
 --- !u!1 &2137420583
 GameObject:
   m_ObjectHideFlags: 0
@@ -36411,7 +36371,6 @@ SceneRoots:
   - {fileID: 424951367}
   - {fileID: 94378363}
   - {fileID: 880902914}
-  - {fileID: 1187859755}
   - {fileID: 1145047995}
   - {fileID: 1305434289}
   - {fileID: 315211731}
