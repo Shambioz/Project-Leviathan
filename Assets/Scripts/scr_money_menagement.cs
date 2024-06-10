@@ -37,6 +37,19 @@ public class scr_money_menagement : MonoBehaviour
     public Toggle tog7;
     public Toggle tog8;
 
+    public Image arrow1;
+    public Image arrow2;
+    public Image arrow3;
+    public Image arrow4;
+    public Image arrow5;
+    public Image arrow6;
+
+    public Color color;
+
+    public AudioClip[] clips = new AudioClip[15];
+    public AudioSource[] sources = new AudioSource[15];
+    private bool[] played = new bool[15];
+
 
     private string[] stringen = new string[5];
     //private int[] dying = new int[5];
@@ -66,6 +79,14 @@ public class scr_money_menagement : MonoBehaviour
 
     public static bool theos_variable = false;
 
+    public bool tutorial_start = false;
+    public bool tutorial_ongoing = false;
+    public int tutorial_level = 0;
+
+    private bool initialize = false;
+
+
+
     public int tutorial_cash = 300;
     public int tutorial_rem_cash = 0;
 
@@ -79,6 +100,26 @@ public class scr_money_menagement : MonoBehaviour
 
     void Awake()
     {
+        color = arrow1.color;
+        color.a = 0f;
+        arrow1.color = color;
+        color = arrow2.color;
+        color.a = 0f;
+        arrow2.color = color;
+        color = arrow3.color;
+        color.a = 0f;
+        arrow3.color = color;
+        color = arrow4.color;
+        color.a = 0f;
+        arrow4.color = color;
+        color = arrow5.color;
+        color.a = 0f;
+        arrow5.color = color;
+        color = arrow6.color;
+        color.a = 0f;
+        arrow6.color = color;
+        Debug.Log("£A£A£A£A awake2" + tutorial_rem_cash);
+        //theos_variable = true;
         if (theos_variable == false)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -259,13 +300,25 @@ public class scr_money_menagement : MonoBehaviour
             fancy_entertaintment_cost = 400;
             heating_cost = 100;
             medications_cost = 100;
-        }
+            if (initialize == false)
+            {
+                tutorial_rem_cash = 300;
+                initialize = true;
+            }
+            tutorial_start = true;
 
+            for (int i = 0; i < 15;  i++)
+            {
+                played[i] = false;
+            }
+        }
+        Debug.Log("£A£A£A£A awake2" + tutorial_rem_cash);
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("£A£A£A£A NUHDANHUSDH" + tutorial_rem_cash);
         if (theos_variable == false)
         {
             total_cash.text = (scr_score_shower.total_cash - total_cost).ToString();
@@ -433,9 +486,106 @@ public class scr_money_menagement : MonoBehaviour
         }
         else
         {
+            Debug.Log("£A£A£A TUT CASH 2: " + tutorial_rem_cash);
             total_cash.text = tutorial_rem_cash.ToString();
+            StartinTutorial(tutorial_level);
+            if (Input.anyKeyDown && tutorial_ongoing == false && tutorial_start == true)
+            {
+                tutorial_level++;
+            }
         }    
         
+    }
+
+    public void StartinTutorial(int numberro)
+    {
+        if (tutorial_start == true)
+        {
+            if (played[numberro] == false)
+            {
+                sources[numberro].PlayOneShot(clips[numberro]);
+                played[numberro] = true;
+                tutorial_ongoing = true;
+                switch (numberro)
+                {
+                    default:
+                        break;
+                    case 0:
+                        //Debug.Log("I GO HERE" + arrow.transform.position);
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        //Debug.Log("I GO HERE HAHAHA" + arrow.transform.position);
+                        color = arrow1.color;
+                        color.a = 1f;
+                        arrow1.color = color;
+                        break;
+                    case 4:
+                        //Debug.Log("I GO HERE HAHAHA" + arrow.transform.position);
+                        color = arrow1.color;
+                        color.a = 0f;
+                        arrow1.color = color;
+                        color = arrow2.color;
+                        color.a = 1f;
+                        arrow2.color = color;
+                        break;
+                    case 5:
+                        break;
+                    case 6:
+                        color = arrow2.color;
+                        color.a = 0f;
+                        arrow2.color = color;
+                        color = arrow3.color;
+                        color.a = 1f;
+                        arrow3.color = color;
+                        break;
+                    case 7:
+                        color = arrow3.color;
+                        color.a = 0f;
+                        arrow3.color = color;
+                        break;
+                    case 8:
+                        color = arrow4.color;
+                        color.a = 1f;
+                        arrow4.color = color;
+                        break;
+                    case 9:
+                        color = arrow4.color;
+                        color.a = 0f;
+                        arrow4.color = color;
+                        break;
+                    case 10:
+                        color = arrow5.color;
+                        color.a = 1f;
+                        arrow5.color = color;
+                        break;
+                    case 11:
+                        color = arrow5.color;
+                        color.a = 0f;
+                        arrow5.color = color;
+                        color = arrow6.color;
+                        color.a = 1f;
+                        arrow6.color = color;
+                        break;
+                    case 12:
+                        color = arrow6.color;
+                        color.a = 0f;
+                        arrow6.color = color;
+                        break;
+                }
+            }
+            else if (played[numberro] == true && sources[numberro].isPlaying == false)
+            {
+                tutorial_ongoing = false;
+                if (numberro == 14)
+                {
+                    tutorial_start = false;
+                }
+            }
+        }
     }
 
     public void Selected(int selindex)
@@ -593,19 +743,25 @@ public class scr_money_menagement : MonoBehaviour
                 }
             }
         }
-        else
+        else if (theos_variable == true)
         {
+            Debug.Log("£A£A£A 0");
             if (selected[selindex] == false)
             {
+                Debug.Log("£A£A£A 1");
                 if (selindex == 1)
                 {
+                    Debug.Log("£A£A£A 2");
                     if (tutorial_rem_cash - 30 >= 0)
                     {
-                        tog1.isOn = true;
+                        Debug.Log("£A£A£A 3");
                         tutorial_rem_cash -= 30;
+                        selected[selindex] = true;
+                        Debug.Log("£A£A£A EXTRA:" + tutorial_rem_cash);
                     }
                     else
-                    { 
+                    {
+                        Debug.Log("£A£A£A 4");
                         tog1.isOn = false;
                     }
                 }
@@ -613,8 +769,8 @@ public class scr_money_menagement : MonoBehaviour
                 {
                     if (tutorial_rem_cash - 50 >= 0)
                     {
-                        tog2.isOn = true;
-                        tutorial_rem_cash -= 30;
+                        tutorial_rem_cash -= 50;
+                        selected[selindex] = true;
                     }
                     else
                     {
@@ -625,8 +781,8 @@ public class scr_money_menagement : MonoBehaviour
                 {
                     if (tutorial_rem_cash - 30 >= 0)
                     {
-                        tog3.isOn = true;
                         tutorial_rem_cash -= 30;
+                        selected[selindex] = true;
                     }
                     else
                     {
@@ -637,8 +793,8 @@ public class scr_money_menagement : MonoBehaviour
                 {
                     if (tutorial_rem_cash - 50 >= 0)
                     {
-                        tog4.isOn = true;
-                        tutorial_rem_cash -= 30;
+                        tutorial_rem_cash -= 50;
+                        selected[selindex] = true;
                     }
                     else
                     {
@@ -649,8 +805,8 @@ public class scr_money_menagement : MonoBehaviour
                 {
                     if (tutorial_rem_cash - 40 >= 0)
                     {
-                        tog6.isOn = true;
                         tutorial_rem_cash -= 40;
+                        selected[selindex] = true;
                     }
                     else
                     {
@@ -661,8 +817,8 @@ public class scr_money_menagement : MonoBehaviour
                 {
                     if (tutorial_rem_cash - 400 >= 0)
                     {
-                        tog7.isOn = true;
                         tutorial_rem_cash -= 400;
+                        selected[selindex] = true;
                     }
                     else
                     {
@@ -673,27 +829,72 @@ public class scr_money_menagement : MonoBehaviour
                 {
                     if (tutorial_rem_cash - 100 >= 0)
                     {
-                        tog1.isOn = true;
                         tutorial_rem_cash -= 100;
+                        selected[selindex] = true;
                     }
                     else
                     {
-                        tog1.isOn = false;
+                        tog5.isOn = false;
                     }
                 }
                 else if (selindex == 8)
                 {
                     if (tutorial_rem_cash - 100 >= 0)
                     {
-                        tog1.isOn = true;
                         tutorial_rem_cash -= 100;
+                        selected[selindex] = true;
                     }
                     else
                     {
-                        tog1.isOn = false;
+                        tog8.isOn = false;
                     }
                 }
             }
-        }    
+            else if (selected[selindex] == true)
+            {
+                //Debug.Log("£A£A£A 1");
+                if (selindex == 1)
+                {
+                        //Debug.Log("£A£A£A 3");
+                    tutorial_rem_cash += 30;
+                    selected[selindex] = false;
+                }
+                else if (selindex == 2)
+                {
+                    tutorial_rem_cash += 50;
+                    selected[selindex] = false;
+                }
+                else if (selindex == 3)
+                {
+                    tutorial_rem_cash += 30;
+                    selected[selindex] = false;
+                }
+                else if (selindex == 4)
+                {
+                    tutorial_rem_cash += 50;
+                    selected[selindex] = false;
+                }
+                else if (selindex == 6)
+                {
+                    tutorial_rem_cash += 40;
+                    selected[selindex] = false;
+                }
+                else if (selindex == 7)
+                {
+                    tutorial_rem_cash += 400;
+                    selected[selindex] = false;
+                }
+                else if (selindex == 5)
+                {
+                    tutorial_rem_cash += 100;
+                    selected[selindex] = false;
+                }
+                else if (selindex == 8)
+                {
+                    tutorial_rem_cash += 100;
+                    selected[selindex] = false;
+                }
+            }
+        }
     }
 }
