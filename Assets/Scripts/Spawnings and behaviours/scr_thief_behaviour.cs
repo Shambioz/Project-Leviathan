@@ -206,7 +206,7 @@ public class scr_thief_behaviour : MonoBehaviour
         if(inventory.GetComponent<scr_pickupable>().picked == false)
         {
             stealingAnimator.enabled = true;
-            Destroy(collider);
+            collider.enabled = false;
             GameObject artifact = FindChildByTag("Artifact");
             inventory.transform.SetParent(transform); // Attach to the thief
             inventory.transform.position = artifact.transform.position;
@@ -237,7 +237,7 @@ public class scr_thief_behaviour : MonoBehaviour
         if (inventory != null)
         {
             gameObject.tag = "Untagged";
-            inventory.AddComponent<BoxCollider>();
+            inventory.GetComponent<BoxCollider>().enabled = true;
             inventory.GetComponent<scr_pickupable>().picked = false;
             inventory.GetComponent<scr_pickupable>().isFromThief = true;
             inventory.transform.SetParent(null); // Detach from the thief
@@ -286,7 +286,7 @@ public class scr_thief_behaviour : MonoBehaviour
                 inventory.GetComponent<scr_pickupable>().picked = true;
                 inventory.GetComponent<scr_pickupable>().is_in_place = false;
                 inventory.layer = LayerMask.NameToLayer("Default");
-                Destroy(collider);
+                collider.enabled = false;
                 gameObject.tag = "Thief";
                 GameObject artifact = FindChildByTag("Artifact");
                 inventory.transform.SetParent(transform); // Attach to the thief
