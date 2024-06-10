@@ -1551,12 +1551,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1371082169}
         m_TargetAssemblyTypeName: scr_scene_loader, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 3
+        m_MethodName: Tutorialornot
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5299,6 +5299,7 @@ MonoBehaviour:
   tutorial_start: 0
   tutorial_ongoing: 0
   tutorial_level: 0
+  button: {fileID: 1367508078}
   tutorial_cash: 300
   tutorial_rem_cash: 0
 --- !u!4 &1371082168
