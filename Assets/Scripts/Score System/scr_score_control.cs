@@ -21,6 +21,7 @@ public class scr_score_control : MonoBehaviour
     public int Skull = 0;
     public int Canon = 0;
     public int Sword = 0;
+    public int RoundRock = 0;
 
     private bool Pmortor = false;
     private bool Psoldier = false;
@@ -44,6 +45,7 @@ public class scr_score_control : MonoBehaviour
     public Light lightskull;
     public Light lightcanon;
     public Light lightSword;
+    public Light lightRoundRock;
 
     public string targetObjectName;
 
@@ -119,6 +121,27 @@ public class scr_score_control : MonoBehaviour
                 }
                 else { lightskull.intensity = 0; }
                 break;
+            case "Silver Cup":
+                if (scr_pickupable.is_in_place == false && scr_pickupable.picked == true)
+                {
+                    lightsilvercup.intensity = LightStrength;
+                }
+                else { lightsilvercup.intensity = 0; }
+                break;
+            case "Round Rock":
+                if (scr_pickupable.is_in_place == false && scr_pickupable.picked == true)
+                {
+                    lightRoundRock.intensity = LightStrength;
+                }
+                else { lightRoundRock.intensity = 0; }
+                break;
+            case "Canon":
+                if (scr_pickupable.is_in_place == false && scr_pickupable.picked == true)
+                {
+                    lightcanon.intensity = LightStrength;
+                }
+                else { lightcanon.intensity = 0; }
+                break;
 
         }
         /*
@@ -183,6 +206,12 @@ public class scr_score_control : MonoBehaviour
                         PBreadcoins = true;
                         break;
                     case "Sword of the past":
+                        PSword = true;
+                        break;
+                    case "Artefact4":
+                        PSword = true;
+                        break;
+                    case "Stone":
                         PSword = true;
                         break;
                 // Add more cases as needed Bread tokens from the Ritske Boelema Hospice
