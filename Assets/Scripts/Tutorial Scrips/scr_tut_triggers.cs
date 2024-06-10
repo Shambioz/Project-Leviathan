@@ -73,6 +73,7 @@ public class scr_tut_triggers : MonoBehaviour
                 charge.enabled = true;
                 Picked.enabled = true;
                 works2 = false;
+                scr_tut_charge_14.enin_the_thief = true;
             }
         }
         currenttime = Time.time;

@@ -24523,7 +24523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c88e77c47184e0445bbb5a30e8bf24ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magic: 0
+  magic: 4
   EffectedObject: {fileID: 1409615752}
   LookAt: {fileID: 304974157}
   Subtitle: {fileID: 1334685458}

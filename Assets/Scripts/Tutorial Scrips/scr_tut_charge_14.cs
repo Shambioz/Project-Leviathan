@@ -9,6 +9,9 @@ public class scr_tut_charge_14 : MonoBehaviour
     public Collider charge_14_collider;
     public Collider player_collider;
     public scr_pew_pew_pew_2 pew_pew_pew_2;
+
+    public static bool enin_the_thief = false;
+
     //public scr_pew_pew_pew pew_pew_pew;
 
 
@@ -27,6 +30,11 @@ public class scr_tut_charge_14 : MonoBehaviour
         }
     }
 
+    void Awake()
+    {
+        enin_the_thief = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -43,6 +51,11 @@ public class scr_tut_charge_14 : MonoBehaviour
             //{
               //  pew_pew_pew.battery = 1;
             //}
+            if (enin_the_thief == true && pew_pew_pew_2.battery == pew_pew_pew_2.maxbattery)
+            {
+                scr_scene_loader.LoadScene(4);
+            }
+
         }
     }
 }

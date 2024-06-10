@@ -7,7 +7,7 @@ public class scr_scene_loader : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public void LoadScene(int sceneIndex)
+    public static void LoadScene(int sceneIndex)
     {
         if (sceneIndex == 2)
         {
