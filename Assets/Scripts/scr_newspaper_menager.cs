@@ -25,6 +25,9 @@ public class scr_newspaper_menager : MonoBehaviour
     public Sprite news4;
     public Sprite news5;
 
+    public AudioClip[] clippen = new AudioClip[5];
+    public AudioSource[] surcen = new AudioSource[5];
+
     public static bool game_lost = false;
 
     // Start is called before the first frame update
@@ -32,6 +35,9 @@ public class scr_newspaper_menager : MonoBehaviour
     {
         //scr_day_cycle.DayCount = 2;
         //scr_day_cycle.DayCount = 78;
+
+        //ExecuteTheMusic();
+
 
         Cursor.lockState = CursorLockMode.None;
         if (scr_day_cycle.DayCount == 2 && game_lost != true)
@@ -73,10 +79,12 @@ public class scr_newspaper_menager : MonoBehaviour
             if (scr_day_cycle.DayCount < 4)
             {
                 newspaper.sprite = end_fail;
+                ExecuteTheMusic();
             }
             else
             {
                 newspaper.sprite = end_victoria;
+                ExecuteTheMusic();
             }
         }
 
@@ -131,5 +139,36 @@ public class scr_newspaper_menager : MonoBehaviour
         scr_fixing_after_theo_fucked_up_again.thiefs_paralyzed = 0;
         //scr_score_shower.total_points = 0;
         scr_fixing_after_theo_fucked_up_again.points_day = 0;
+    }
+
+    public void ExecuteTheMusic()
+    {
+        int rannumber = Random.Range(0, 101);
+        //rannumber = 74;
+        if (rannumber == 74)
+        {
+            surcen[2].loop = true;
+            surcen[2].Play();
+        }
+        else if (rannumber == 31)
+        {
+            surcen[3].loop = true;
+            surcen[3].Play();
+        }
+        else if (rannumber == 69)
+        {
+            surcen[4].loop = true;
+            surcen[4].Play();
+        }
+        else if (scr_day_cycle.DayCount < 4)
+        {
+            surcen[1].loop = true;
+            surcen[1].Play();
+        }
+        else
+        {
+            surcen[0].loop = true;
+            surcen[0].Play();
+        }
     }
 }
