@@ -253,7 +253,7 @@ public class scr_thief_behaviour : MonoBehaviour
         agent.ResetPath();
         agent.velocity = Vector3.zero;
         yield return new WaitForSeconds(3f);
-        hp.hp = 1000;
+        hp.hp = 500;
         active = false;
         if (is_artefact_stolen)
         {

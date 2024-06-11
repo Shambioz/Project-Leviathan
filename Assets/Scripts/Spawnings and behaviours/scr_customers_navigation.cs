@@ -20,7 +20,8 @@ public class scr_customers_navigation : MonoBehaviour
     public GameObject Customer;
     public GameObject Thief;
     public GameObject[] People;
-    public Vector3 spawn_point = new Vector3(-28.75f, 0.38f, -8.58f);
+    public GameObject pos;
+    public Vector3 spawn_point;
     public GameObject[] TargetPosition;
     public GameObject[] Artefacts;
     public int count = 0;
@@ -31,6 +32,7 @@ public class scr_customers_navigation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spawn_point = pos.transform.position;
         count = 0;
         coordinates = new Vector3[9];
         coordinates[0] = new Vector3(-18.38f, 6.5f, 108);
