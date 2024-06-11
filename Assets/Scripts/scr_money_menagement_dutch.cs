@@ -560,9 +560,6 @@ public class scr_money_menagement1 : MonoBehaviour
                         arrow4.color = color;
                         break;
                     case 5:
-                        color = arrow4.color;
-                        color.a = 0f;
-                        arrow4.color = color;
                         color = arrow5.color;
                         color.a = 1f;
                         arrow5.color = color;
@@ -576,7 +573,7 @@ public class scr_money_menagement1 : MonoBehaviour
                 {
                     tutorial_start = false;
                     color = arrow5.color;
-                    color.a = 0f;
+                    color.a = 1f;
                     arrow5.color = color;
                 }
             }

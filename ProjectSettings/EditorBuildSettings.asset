@@ -35,13 +35,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ScoreScreenDutch.unity
     guid: 875f26a1642630b49a82e9693166edf5
-  - enabled: 1
-    path: Assets/Scenes/FamilyMenagementScreenDutch.unity
-    guid: fed64c822e14f96438df44093d1bcfe4
-  - enabled: 1
-    path: Assets/Scenes/NewspaperSceneDutch.unity
-    guid: 25689dc05df56514497a964470ae0856
-  - enabled: 1
-    path: Assets/Scenes/GameOverSceneDutch.unity
-    guid: 94c0ef6c122d8a54f8d45879043e973b
   m_configObjects: {}

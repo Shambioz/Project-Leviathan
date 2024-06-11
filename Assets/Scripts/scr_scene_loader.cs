@@ -9,11 +9,7 @@ public class scr_scene_loader : MonoBehaviour
 
     public static void LoadScene(int sceneIndex)
     {
-        if (scr_language.english == false)
-        {
-            sceneIndex += 6;
-        }
-        if (sceneIndex == 2 || sceneIndex == 8)
+        if (sceneIndex == 2)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -28,37 +24,18 @@ public class scr_scene_loader : MonoBehaviour
 
     public void LoadGameScene()
     {
-        if (scr_language.english == true)
+        if (scr_newspaper_menager.game_lost == true)
         {
-            if (scr_newspaper_menager.game_lost == true)
-            {
-                SceneManager.LoadScene(6);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                scr_newspaper_menager.game_lost = false;
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                SceneManager.LoadScene(2);
-            }
+            SceneManager.LoadScene(6);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            scr_newspaper_menager.game_lost = false;
         }
         else
         {
-            if (scr_newspaper_menager.game_lost == true)
-            {
-                SceneManager.LoadScene(12);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                scr_newspaper_menager.game_lost = false;
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                SceneManager.LoadScene(8);
-            }
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            SceneManager.LoadScene(2);
         }
     }
 
@@ -69,35 +46,17 @@ public class scr_scene_loader : MonoBehaviour
 
     public void Tutorialornot()
     {
-        if (scr_language.english == true)
+        if (scr_money_menagement.theos_variable == true)
         {
-            if (scr_money_menagement.theos_variable == true)
-            {
-                SceneManager.LoadScene(0);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
-            else
-            {
-                SceneManager.LoadScene(2);
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
+            SceneManager.LoadScene(0);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         else
         {
-            if (scr_money_menagement.theos_variable == true)
-            {
-                SceneManager.LoadScene(0);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
-            else
-            {
-                SceneManager.LoadScene(8);
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
+            SceneManager.LoadScene(2);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 
