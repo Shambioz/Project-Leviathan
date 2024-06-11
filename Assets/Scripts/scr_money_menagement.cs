@@ -85,9 +85,7 @@ public class scr_money_menagement : MonoBehaviour
 
     private bool initialize = false;
 
-    public Button button;
-    public Sprite cont;
-    public Sprite tutfin;
+    public TMP_Text button;
 
 
 
@@ -126,7 +124,7 @@ public class scr_money_menagement : MonoBehaviour
         //theos_variable = true;
         if (theos_variable == false)
         {
-            button.image.sprite = cont;
+            button.text = "CONTINUE";
             Cursor.lockState = CursorLockMode.None;
             if (first_execusion == false)
             {
@@ -280,7 +278,7 @@ public class scr_money_menagement : MonoBehaviour
         }
         else
         {
-            button.image.sprite = tutfin;
+            button.text = "Finish Tutorial";
 
             tutorial_cash = 330;
             savings.text = "330";
