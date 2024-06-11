@@ -10,12 +10,7 @@ using UnityEngine.UI;
 public class scr_newspaper_menager : MonoBehaviour
 {
     public TMP_Text date;
-    //public TMP_Text button_text;
-
-    public Sprite go_to_work;
-    public Sprite cont;
-
-    public Button button;
+    public TMP_Text button_text;
 
     private List<int> list = new List<int> {1, 2, 3, 4, 5};
     private List<int> list_backup = new List<int> {1, 2, 3, 4, 5};
@@ -43,7 +38,6 @@ public class scr_newspaper_menager : MonoBehaviour
 
         //ExecuteTheMusic();
 
-        //game_lost = true;
 
         Cursor.lockState = CursorLockMode.None;
         if (scr_day_cycle.DayCount == 2 && game_lost != true)
@@ -134,11 +128,11 @@ public class scr_newspaper_menager : MonoBehaviour
         date.text = datum;
         if (game_lost == true)
         {
-            button.image.sprite = cont;
+            button_text.text = "Continue";
         }
         else
         {
-            button.image.sprite = go_to_work;
+            button_text.text = "Go to work";
         }
 
         scr_fixing_after_theo_fucked_up_again.artifacts_saved = 0;
