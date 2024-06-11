@@ -26,4 +26,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOverScene.unity
     guid: ac278385b9304ad47aa1abd2f6a98041
+  - enabled: 1
+    path: Assets/Scenes/Tutorial Dutch.unity
+    guid: f1c5972c5ea12af4c87ff724ef7cf6ca
+  - enabled: 1
+    path: Assets/Scenes/Game Dutch.unity
+    guid: 8ffadc7da9c70fa46b3dfc6daebe9e42
+  - enabled: 1
+    path: Assets/Scenes/ScoreScreenDutch.unity
+    guid: 875f26a1642630b49a82e9693166edf5
   m_configObjects: {}

@@ -478,18 +478,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   date: {fileID: 1773347291}
-  go_to_work: {fileID: 21300000, guid: 849cb958a3b4e384ba282a323247d1b6, type: 3}
-  cont: {fileID: 21300000, guid: 0f35761fe233eda49aa8a5bddf21a7ae, type: 3}
+  go_to_work: {fileID: 21300000, guid: 22a13ee58c4d0e046aa1df5005620b89, type: 3}
+  cont: {fileID: 21300000, guid: 1fc89e4b5912da942b432127659ac0c1, type: 3}
   button: {fileID: 1296234767}
   newspaper: {fileID: 1803750533}
-  day2: {fileID: 21300000, guid: f6c690906fad0d94b8875ea37566f092, type: 3}
-  end_victoria: {fileID: 21300000, guid: c6a5ad1618780574380bd2cac7a0d3d8, type: 3}
-  end_fail: {fileID: 21300000, guid: 76529448390176e4db09bacdfbdb29c0, type: 3}
-  news1: {fileID: 21300000, guid: d61c7a4af0767d0498597a16e170b0da, type: 3}
-  news2: {fileID: 21300000, guid: c1322dd6b361f6245bbd53a3d63da3f6, type: 3}
-  news3: {fileID: 21300000, guid: b522f75b67bf0dd40b69020e0c19fff3, type: 3}
-  news4: {fileID: 21300000, guid: e090a83e75a5a6643bc932dbcf394188, type: 3}
-  news5: {fileID: 21300000, guid: a46e1f54744dc024a889a02b3f32a2c0, type: 3}
+  day2: {fileID: 21300000, guid: 55ddfa824249f17439a3dba47a7fb176, type: 3}
+  end_victoria: {fileID: 21300000, guid: acfdd79943b196444b524e3cb1db6b59, type: 3}
+  end_fail: {fileID: 21300000, guid: b69b92e2c86293340ba99c203851d028, type: 3}
+  news1: {fileID: 21300000, guid: 9cbb0e8806882d34caf691b1c6a78c97, type: 3}
+  news2: {fileID: 21300000, guid: 249671b4e6cfade45b62bd6eec0e7936, type: 3}
+  news3: {fileID: 21300000, guid: fe0a63e7f0a0b3a4cbf24ec886b314ef, type: 3}
+  news4: {fileID: 21300000, guid: c6673dc9c07ab6b44ba5893b68db1351, type: 3}
+  news5: {fileID: 21300000, guid: c72f51c34739b5e48a3ab250f6fc5a52, type: 3}
   clippen:
   - {fileID: 8300000, guid: ee7953d61215c914cbf618b931db902b, type: 3}
   - {fileID: 8300000, guid: 60a1d876bf234344cae07b468bc4b3be, type: 3}
@@ -771,7 +771,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 849cb958a3b4e384ba282a323247d1b6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 22a13ee58c4d0e046aa1df5005620b89, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1233,7 +1233,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -564, y: 1}
+  m_AnchoredPosition: {x: -564, y: 3}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1773347290
@@ -1371,7 +1371,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 20a07762584cd1541a87c41c608ef868, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 73c340ec7241f33439a943368ed0f0dd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
