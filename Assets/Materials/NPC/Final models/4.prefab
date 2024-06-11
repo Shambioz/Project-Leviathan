@@ -41,15 +41,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 41cbeab533f418a4cba0bcd0fc89f566, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.363699
+      value: -38.51552
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41cbeab533f418a4cba0bcd0fc89f566, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.2800007
+      value: 0.2799995
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41cbeab533f418a4cba0bcd0fc89f566, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -66.90207
+      value: -15.704077
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41cbeab533f418a4cba0bcd0fc89f566, type: 3}
       propertyPath: m_LocalRotation.w
@@ -204,8 +204,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.717968, y: 2.8968413, z: 0.8359375}
-  m_Center: {x: 0.0016841888, y: 1.3918546, z: 0.08203125}
+  m_Size: {x: 0.617424, y: 2.8968413, z: 0.37281704}
+  m_Center: {x: -0.009395599, y: 1.3918546, z: 0.06165552}
 --- !u!195 &7317962049942668361
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -215,7 +215,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3224477536156371984}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50

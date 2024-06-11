@@ -23595,7 +23595,7 @@ MonoBehaviour:
   - {fileID: 3224477536156371984, guid: 00204326ecd457f46b62a8cc122170d1, type: 3}
   - {fileID: 6552314544600743895, guid: 21d32e0e4b4ed8647afd2ebc21470d3e, type: 3}
   - {fileID: 267479772777741334, guid: 96d0144f74d5a11478074491b7dce281, type: 3}
-  pos: {fileID: 0}
+  pos: {fileID: 424465533}
   spawn_point: {x: -28.75, y: 0.38, z: -8.58}
   TargetPosition:
   - {fileID: 2091246572}
